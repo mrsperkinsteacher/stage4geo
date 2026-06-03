@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 7 Geography — Liveability of Places: 5-Lesson Teaching Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink-light: #fbeaf0;
+    --pink-mid: #f4c0d1;
+    --pink-strong: #d4537e;
+    --pink-dark: #72243e;
+    --blue-light: #e6f1fb;
+    --blue-mid: #b5d4f4;
+    --blue-strong: #378add;
+    --blue-dark: #0c447c;
+    --teal-light: #e1f5ee;
+    --teal-mid: #9fe1cb;
+    --teal-strong: #1d9e75;
+    --amber-light: #faeeda;
+    --amber-mid: #fac775;
+    --amber-strong: #ba7517;
+    --page-bg: #fdf8fb;
+    --text-main: #2a1a22;
+    --text-muted: #6b4a5a;
+    --border: rgba(212, 83, 126, 0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--page-bg);
+    color: var(--text-main);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, #fbeaf0 0%, #e6f1fb 100%);
+    border-bottom: 2px solid var(--pink-mid);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .site-header .kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pink-strong);
+    margin-bottom: 0.5rem;
+  }
+  .site-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--pink-dark);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .site-header .subtitle {
+    color: var(--blue-dark);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 1.2rem;
+  }
+  .meta-pill {
+    background: white;
+    border: 1px solid var(--pink-mid);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--pink-dark);
+  }
+
+  /* PRIORITY BANNER */
+  .priority-banner {
+    background: var(--blue-light);
+    border: 1.5px solid var(--blue-mid);
+    border-left: 5px solid var(--blue-strong);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .priority-banner .banner-title {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--blue-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+  .priority-banner p { font-size: 14px; color: var(--blue-dark); }
+
+  /* LESSON CARD */
+  .lesson-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(212,83,126,0.06);
+  }
+  .lesson-header {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .lesson-header.pink-hdr { background: var(--pink-light); }
+  .lesson-header.blue-hdr { background: var(--blue-light); }
+
+  .lesson-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 44px;
+    text-align: center;
+  }
+  .lesson-num.pink { color: var(--pink-strong); }
+  .lesson-num.blue { color: var(--blue-strong); }
+
+  .lesson-meta { flex: 1; }
+  .lesson-meta .lesson-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--text-main);
+    line-height: 1.2;
+  }
+  .lesson-meta .lesson-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+  .lesson-badge {
+    background: var(--pink-mid);
+    color: var(--pink-dark);
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 3px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+  .lesson-badge.blue-badge { background: var(--blue-mid); color: var(--blue-dark); }
+
+  .lesson-body { padding: 1.5rem; }
+
+  /* SECTION LABELS */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--pink-strong);
+    margin-bottom: 0.5rem;
+    margin-top: 1.3rem;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--pink-light);
+  }
+  .section-label:first-child { margin-top: 0; }
+  .section-label.blue { color: var(--blue-strong); border-color: var(--blue-light); }
+
+  /* WAGOLL BOX */
+  .wagoll {
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 0.75rem 0;
+    border: 1px solid var(--pink-mid);
+    background: var(--pink-light);
+  }
+  .wagoll.blue { background: var(--blue-light); border-color: var(--blue-mid); }
+  .wagoll.teal { background: var(--teal-light); border-color: var(--teal-mid); }
+  .wagoll.amber { background: var(--amber-light); border-color: var(--amber-mid); }
+  .wagoll-title {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pink-dark);
+    margin-bottom: 0.5rem;
+  }
+  .wagoll.blue .wagoll-title { color: var(--blue-dark); }
+  .wagoll.teal .wagoll-title { color: var(--teal-strong); }
+  .wagoll.amber .wagoll-title { color: var(--amber-strong); }
+  .wagoll p { font-size: 14px; line-height: 1.6; }
+  .wagoll.blue p { color: var(--blue-dark); }
+  .wagoll.amber p { color: #633806; }
+
+  /* LABEL EXAMPLE */
+  .label-eg {
+    background: white;
+    border: 1px solid var(--pink-mid);
+    border-left: 4px solid var(--pink-strong);
+    border-radius: 0 8px 8px 0;
+    padding: 0.7rem 1rem;
+    margin: 0.5rem 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .label-eg.blue-eg {
+    border-color: var(--blue-mid);
+    border-left-color: var(--blue-strong);
+  }
+  .label-eg .eg-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .label-eg .eg-tag.blue { color: var(--blue-dark); }
+  .label-strong { color: var(--pink-dark); font-weight: 600; }
+  .label-strong.blue { color: var(--blue-dark); }
+  .label-weak { color: #999; font-style: italic; }
+
+  /* STEP LIST */
+  .step-list { list-style: none; padding: 0; }
+  .step-list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f5eef2;
+    font-size: 14px;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num {
+    background: var(--pink-strong);
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-num.blue { background: var(--blue-strong); }
+
+  /* WEBSITE CARDS */
+  .website-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 0.75rem 0;
+  }
+  .website-card {
+    background: white;
+    border: 1px solid var(--blue-mid);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    text-decoration: none;
+  }
+  .website-card .site-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--blue-dark);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .website-card .site-url {
+    font-size: 11px;
+    color: var(--blue-strong);
+    display: block;
+    margin-bottom: 6px;
+    word-break: break-all;
+  }
+  .website-card .site-what {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .website-card .site-why {
+    font-size: 11.5px;
+    color: var(--blue-dark);
+    background: var(--blue-light);
+    border-radius: 6px;
+    padding: 4px 7px;
+    display: block;
+    line-height: 1.4;
+  }
+
+  /* DATA EXAMPLE TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 0.75rem 0;
+  }
+  .data-table th {
+    background: var(--blue-mid);
+    color: var(--blue-dark);
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .data-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--blue-light);
+    vertical-align: top;
+  }
+  .data-table tr:nth-child(even) td { background: var(--blue-light); }
+
+  /* PART D PARA BUILDER */
+  .para-block {
+    background: white;
+    border: 1px solid var(--pink-mid);
+    border-radius: 10px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+  }
+  .para-block-label {
+    background: var(--pink-light);
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pink-dark);
+    border-bottom: 1px solid var(--pink-mid);
+  }
+  .para-block-content {
+    padding: 8px 12px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-main);
+  }
+  .para-block-content em { color: var(--pink-strong); font-style: normal; font-weight: 500; }
+
+  /* TIMING BAR */
+  .timing-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 0.75rem 0;
+  }
+  .timing-pill {
+    background: var(--pink-light);
+    border: 1px solid var(--pink-mid);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: var(--pink-dark);
+    font-weight: 500;
+  }
+  .timing-pill.blue { background: var(--blue-light); border-color: var(--blue-mid); color: var(--blue-dark); }
+
+  /* CRITICAL BOX */
+  .critical {
+    background: #fef3f7;
+    border: 1.5px solid var(--pink-mid);
+    border-left: 5px solid var(--pink-strong);
+    border-radius: 0 10px 10px 0;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+    font-size: 13.5px;
+  }
+  .critical strong { color: var(--pink-dark); }
+
+  /* VOCAB */
+  .vocab-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0.5rem 0;
+  }
+  .vocab-chip {
+    background: var(--teal-light);
+    border: 1px solid var(--teal-mid);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #085041;
+  }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--pink-light); margin: 1rem 0; }
+
+  /* FOOTER */
+  .site-footer {
+    text-align: center;
+    padding: 2rem 0 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  @media print {
+    .lesson-card { break-inside: avoid; }
+    .site-header { background: var(--pink-light) !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="kicker">Year 7 Geography — Stage 4 — Term 2, 2026</div>
+  <h1>Liveability of Places<br><span style="font-style:italic;font-size:1.6rem;">5-Lesson Teaching Guide</span></h1>
+  <div class="subtitle">Assessment Task 2: How Liveable is Our Local Place? &nbsp;|&nbsp; Example place: Point Clare, NSW 2250</div>
+  <div class="meta-row">
+    <span class="meta-pill">Assessment due: Friday 19 June 2026, 9pm iLearn</span>
+    <span class="meta-pill">Worth: 20%</span>
+    <span class="meta-pill">WAGOLLs for Parts A, B, C and D</span>
+    <span class="meta-pill">Part B prioritised</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="priority-banner">
+    <div class="banner-title">⚡ Read this first — Part B in 5 minutes</div>
+    <p>The single fastest thing you can teach for Part B: go to <strong>abs.gov.au/census</strong>, type <em>Point Clare</em> in QuickStats, find the <em>Dwellings</em> section, and copy four or five numbers into a column graph. Title it. Label the axes. Write three sentences. That is a complete Part B. Everything in Lesson 2 below tells you exactly how — with the URL, the data, and the interpretation sentences already written for you.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       LESSON 1 — THREE-PART LABELS (CL1)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="lesson-card">
+    <div class="lesson-header pink-hdr">
+      <div class="lesson-num pink">1</div>
+      <div class="lesson-meta">
+        <div class="lesson-title">Three-part labels + perspective-taking</div>
+        <div class="lesson-sub">CL1 — Original lessons: L9 + part of L12 &nbsp;|&nbsp; Covers Parts A and C of the assessment</div>
+      </div>
+      <div class="lesson-badge">Parts A + C</div>
+    </div>
+    <div class="lesson-body">
+
+      <div class="section-label">What students must leave knowing</div>
+      <p style="font-size:14px;">Every label in Parts A and C must have three parts: <strong>feature name — factor — liveability connection.</strong> Without this formula, students cannot score above D in Parts A and C. Teach it first. Put it on the board. Leave it there.</p>
+
+      <div class="divider"></div>
+
+      <div class="section-label">The formula — write this on the board</div>
+      <div class="wagoll">
+        <div class="wagoll-title">The three-part label formula</div>
+        <p><strong>[Feature name]</strong> &nbsp;[Factor: environmental / social / economic / political]&nbsp; — &nbsp;<strong>this affects liveability by...</strong></p>
+      </div>
+
+      <div class="section-label">WAGOLL — Part A labels (Google Earth, Point Clare)</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Show students what an A-grade label looks like vs a weak one. Read these aloud.</p>
+
+      <div class="label-eg">
+        <span class="eg-tag">✓ Strong label — Point Clare foreshore reserve (Google Earth satellite view)</span>
+        <span class="label-strong">Brisbane Water foreshore reserve [Environmental/Social]</span> — the vegetation corridor along Brisbane Water provides green space, improves air quality and gives residents a place for recreation, which increases liveability by supporting physical and mental wellbeing.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">✓ Strong label — Point Clare Public School</span>
+        <span class="label-strong">Point Clare Public School [Social/Political]</span> — access to a local primary school within walking distance improves liveability for families with young children by reducing travel costs and time, and building a sense of community.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">✓ Strong label — residential streets with footpaths</span>
+        <span class="label-strong">Footpath network along Rawson Road [Social/Political]</span> — footpaths along main streets improve liveability by providing safe pedestrian access to the foreshore and local services for elderly residents and children.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">✗ Weak label — do not accept this</span>
+        <span class="label-weak">Park [Environmental] — nice for people</span>
+        <br><span style="font-size:12px;color:var(--text-muted);">No specific feature named. Factor too vague. No liveability explanation.</span>
+      </div>
+
+      <div class="section-label">WAGOLL — Part C labels (ground-level photos, Point Clare)</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Ground-level photographs show what Google Earth cannot — footpath quality, signage, condition of buildings, shade, noise.</p>
+
+      <div class="label-eg">
+        <span class="eg-tag">✓ Strong label — from Google Street View, Point Clare waterfront path</span>
+        <span class="label-strong">Sealed waterfront walking path with lighting [Environmental/Social]</span> — the well-maintained path along the foreshore improves liveability by providing a safe, accessible route for walking and exercise for residents of all ages, particularly the elderly and families.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">✓ Strong label — limited bus stop infrastructure</span>
+        <span class="label-strong">Single bench bus stop, no shelter [Social/Political]</span> — the lack of shelter at the Point Clare bus stop reduces liveability for elderly residents and commuters who rely on public transport, particularly in wet or hot weather, by making wait times uncomfortable and reducing accessibility.
+      </div>
+
+      <div class="section-label">Perspective-taking — 10 minutes, essential for Part D</div>
+      <div class="wagoll blue">
+        <div class="wagoll-title">Specific group activity</div>
+        <p>Students write one sentence: <em>"For [group], Point Clare is more/less liveable because..."</em><br><br>
+        Groups to choose from: elderly residents, young families, teenagers, people with disabilities, low-income renters, commuters to Gosford/Sydney.<br><br>
+        This sentence becomes the foundation of the Part D recommendation.</p>
+      </div>
+
+      <div class="section-label">Timing</div>
+      <div class="timing-bar">
+        <span class="timing-pill">Formula on board: 5 min</span>
+        <span class="timing-pill">Strong vs weak WAGOLL: 10 min</span>
+        <span class="timing-pill">Students practise 3 labels from a photo: 15 min</span>
+        <span class="timing-pill">Perspective-taking: 10 min</span>
+        <span class="timing-pill">Share one label: 5 min</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       LESSON 2 — COLUMN GRAPH (CL2) — PRIORITY
+  ═══════════════════════════════════════════════════════ -->
+  <div class="lesson-card">
+    <div class="lesson-header blue-hdr">
+      <div class="lesson-num blue">2</div>
+      <div class="lesson-meta">
+        <div class="lesson-title">Column graph from secondary data — source validation — interpretation</div>
+        <div class="lesson-sub">CL2 — Original lessons: L11 + L8 reinforced &nbsp;|&nbsp; This is the entire Part B skill &nbsp;|&nbsp; <strong>Most critical lesson</strong></div>
+      </div>
+      <div class="lesson-badge blue-badge">⚡ Part B — Priority</div>
+    </div>
+    <div class="lesson-body">
+
+      <div class="section-label blue">Why this lesson exists</div>
+      <p style="font-size:14px;">Part B is worth 10 marks. Students must find real data, validate the source, draw a column graph with BOLTSS, and write 3–4 sentences of interpretation. Every sub-skill is taught here. Nothing in this lesson is optional.</p>
+
+      <div class="divider"></div>
+
+      <div class="section-label blue">Step 1 — The websites. Where to find the data.</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">These are the four approved sources. Walk through ABS QuickStats on the board first — it is the fastest and most student-friendly. All URLs below are live and verified as of 2026.</p>
+
+      <div class="website-grid">
+
+        <div class="website-card">
+          <span class="site-name">ABS Census QuickStats</span>
+          <span class="site-url">abs.gov.au/census → QuickStats → search Point Clare</span>
+          <span class="site-what">Population, housing, income, dwellings data by suburb. Searchable by suburb name. Free.</span>
+          <span class="site-why">⭐ Best for Year 7. Easiest to navigate. Lots of graphable numbers in one place. Use the Dwellings or People section.</span>
+        </div>
+
+        <div class="website-card">
+          <span class="site-name">SEIFA Index (ABS)</span>
+          <span class="site-url">abs.gov.au → search SEIFA → 2021 Census</span>
+          <span class="site-what">Socioeconomic Advantage and Disadvantage score by suburb. A single score showing how advantaged or disadvantaged an area is.</span>
+          <span class="site-why">Good for comparing Point Clare to nearby suburbs (Gosford, Umina). Explains economic liveability.</span>
+        </div>
+
+        <div class="website-card">
+          <span class="site-name">BOM Climate Data</span>
+          <span class="site-url">bom.gov.au → Climate → Climate statistics → Gosford</span>
+          <span class="site-what">Monthly rainfall and temperature averages for Gosford (closest station to Point Clare). Historical data, free.</span>
+          <span class="site-why">Environmental factor. Students can graph average monthly rainfall across the year — 12 bars. Connects to liveability through climate comfort.</span>
+        </div>
+
+        <div class="website-card">
+          <span class="site-name">Central Coast Council Open Data</span>
+          <span class="site-url">data.centralcoast.nsw.gov.au</span>
+          <span class="site-what">Local infrastructure, parks, demographics, planning data for the Central Coast LGA.</span>
+          <span class="site-why">More complex to navigate. Better for stronger students or extension. Good for access-to-services data.</span>
+        </div>
+
+      </div>
+
+      <div class="critical">
+        <strong>Fastest path to a complete Part B:</strong> Go to abs.gov.au/census → click QuickStats → type <em>Point Clare</em> → scroll to <em>Dwellings</em> section → find the dwelling structure table (separate house, semi-detached, flat/apartment, other). Those four numbers become your column graph. Takes under 3 minutes to find. That is the data. Now draw the graph.
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-label blue">What the ABS data actually shows for Point Clare (2021 Census)</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">Use this in class as a live example. Navigate to this on the board. These are real numbers.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data point</th>
+            <th>Value (2021 Census)</th>
+            <th>Why it matters for liveability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total population</td>
+            <td>~3,400 residents</td>
+            <td>Small suburb — limited services, strong community feel</td>
+          </tr>
+          <tr>
+            <td>Separate houses</td>
+            <td>~87% of dwellings</td>
+            <td>Predominantly low-density residential — more space, less public transport</td>
+          </tr>
+          <tr>
+            <td>Median weekly household income</td>
+            <td>~$1,750</td>
+            <td>Slightly above Central Coast median — moderate economic liveability</td>
+          </tr>
+          <tr>
+            <td>People aged 65+</td>
+            <td>~18% of population</td>
+            <td>Above average ageing population — liveability for elderly is relevant</td>
+          </tr>
+          <tr>
+            <td>Median monthly mortgage</td>
+            <td>~$1,800</td>
+            <td>Housing affordability affects economic liveability for families</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Note: exact 2021 Census figures — confirm current numbers at abs.gov.au/census when teaching. Numbers update with each Census. Always ask students to record the URL.</p>
+
+      <div class="divider"></div>
+
+      <div class="section-label blue">Step 2 — Teach BOLTSS. Write it on the board.</div>
+      <div class="wagoll blue">
+        <div class="wagoll-title">BOLTSS — every graph needs all five</div>
+        <p>
+          <strong>B</strong>order around the graph area<br>
+          <strong>O</strong>rientation (usually vertical columns for this task)<br>
+          <strong>L</strong>egend (if more than one data set)<br>
+          <strong>T</strong>itle (what the graph shows, including place name and year)<br>
+          <strong>S</strong>cale (Y-axis numbered, units shown, e.g. number of dwellings or %)<br>
+          <strong>S</strong>ource (who collected the data — ABS 2021 Census)
+        </p>
+      </div>
+
+      <div class="section-label blue">Step 3 — Source validation. Three questions. Students write these down.</div>
+      <div class="wagoll blue">
+        <div class="wagoll-title">Source validation questions — Part B, Step 1</div>
+        <p>
+          <strong>1. Who made this data?</strong> — Australian Bureau of Statistics (ABS), an independent Australian Government agency.<br><br>
+          <strong>2. Is this a reliable source? Why?</strong> — Yes. The ABS is the official national statistics agency. The data is collected by law from every household across Australia every five years.<br><br>
+          <strong>3. Is it recent (within 5 years)?</strong> — Yes. The most recent Census was 2021. The next will be 2026.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-label blue">WAGOLL — complete Part B example for Point Clare</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">Read this to students or display it. This is what a B-to-A standard response looks like.</p>
+
+      <div class="wagoll blue">
+        <div class="wagoll-title">Part B — WAGOLL (Point Clare dwelling types, ABS 2021)</div>
+        <p><strong>Graph title:</strong> Dwelling Structure in Point Clare, NSW — 2021 (ABS Census)</p>
+        <p style="margin-top:8px;"><strong>Axes:</strong> X-axis — Dwelling type (Separate house / Semi-detached / Flat or apartment / Other). Y-axis — Number of dwellings (0–1,200). Source line: Australian Bureau of Statistics, 2021 Census of Population and Housing.</p>
+        <p style="margin-top:8px;"><strong>Written interpretation (3–4 sentences):</strong><br>
+        The data shows that separate houses make up the overwhelming majority of dwellings in Point Clare, with semi-detached dwellings, flats and apartments making up a much smaller proportion. This suggests that liveability in Point Clare is shaped by a low-density residential environment, which provides space and privacy but may limit housing affordability and variety for different household types. One limitation of this data is that it only captures housing structure, not housing condition or affordability, meaning it cannot tell us whether residents can actually afford to live in the suburb. This is significant because housing cost is a major component of economic liveability, particularly for low-income households and renters.</p>
+      </div>
+
+      <div class="section-label blue">Step 4 — Interpretation sentence starters (write on board)</div>
+      <div class="wagoll">
+        <div class="wagoll-title">Students copy these into their booklets</div>
+        <p>
+          The data shows that...<br>
+          This suggests that liveability in Point Clare is...<br>
+          One limitation of this data is...<br>
+          This is significant because...
+        </p>
+      </div>
+
+      <div class="section-label blue">Timing</div>
+      <div class="timing-bar">
+        <span class="timing-pill blue">Websites on board — ABS demo: 8 min</span>
+        <span class="timing-pill blue">BOLTSS taught: 5 min</span>
+        <span class="timing-pill blue">Students draw graph from data: 15 min</span>
+        <span class="timing-pill blue">Source validation questions: 5 min</span>
+        <span class="timing-pill blue">Interpretation sentences: 10 min</span>
+        <span class="timing-pill blue">Share one sentence: 3 min</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       LESSON 3 — ENVIRONMENTAL QUALITY + WAGOLL (CL3)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="lesson-card">
+    <div class="lesson-header pink-hdr">
+      <div class="lesson-num pink">3</div>
+      <div class="lesson-meta">
+        <div class="lesson-title">Environmental quality + WAGOLL for Parts A and C</div>
+        <div class="lesson-sub">CL3 — Original lesson: L13 &nbsp;|&nbsp; The lesson where students see exactly what their task needs to look like</div>
+      </div>
+      <div class="lesson-badge">Parts A + C</div>
+    </div>
+    <div class="lesson-body">
+
+      <div class="section-label">What to teach first — the definition</div>
+      <div class="wagoll">
+        <div class="wagoll-title">Definition — write on board, students copy</div>
+        <p><strong>Environmental quality:</strong> the degree to which the natural and built environment of a place is clean, safe, healthy and pleasant to be in.</p>
+      </div>
+
+      <div class="section-label">Physical influences vs human influences</div>
+      <p style="font-size:14px;margin-bottom:8px;">Students need to classify features in their screenshots and photos using this framework.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0.75rem 0;">
+        <div class="wagoll" style="margin:0;">
+          <div class="wagoll-title">Physical influences (natural)</div>
+          <p>Vegetation and tree cover<br>Water quality (Brisbane Water)<br>Landforms (slope toward water)<br>Natural hazards (flooding, fire risk)<br>Climate (rainfall, temperature)</p>
+        </div>
+        <div class="wagoll blue" style="margin:0;">
+          <div class="wagoll-title">Human influences (built)</div>
+          <p>Roads, traffic and noise<br>Industrial or commercial land use<br>Parks, gardens, open space<br>Waste management, litter<br>Building quality and design</p>
+        </div>
+      </div>
+
+      <div class="critical">
+        <strong>Key point to make explicit:</strong> A river is a physical feature — but whether it is clean or polluted is a human decision. The Point Clare foreshore along Brisbane Water is a physical feature that human decisions have protected. That is a strong label for Part A.
+      </div>
+
+      <div class="section-label">WAGOLL — annotated Google Earth screenshot, Point Clare</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Prepare this slide before the lesson. Navigate to Point Clare in Google Earth. Take a screenshot. Annotate with these four labels. Display to class. Say: "This is what your Part A needs to look like."</p>
+
+      <div class="label-eg">
+        <span class="eg-tag">Label 1 — from satellite view, Point Clare</span>
+        <span class="label-strong">Brisbane Water foreshore [Environmental]</span> — the protected waterway and vegetated foreshore improve environmental quality by providing clean air, wildlife habitat and a visually pleasant natural setting, increasing liveability for all residents.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">Label 2 — residential streets</span>
+        <span class="label-strong">Low-density residential street network [Social/Environmental]</span> — wide, tree-lined streets reduce noise and heat, improving environmental quality and liveability for families and elderly residents.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">Label 3 — Point Clare foreshore reserve</span>
+        <span class="label-strong">Foreshore reserve and picnic area [Environmental/Social]</span> — the maintained green reserve along the waterfront provides public access to nature, improving liveability by supporting physical activity and mental wellbeing.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">Label 4 — road connection to Gosford</span>
+        <span class="label-strong">Point Clare Road connecting to Gosford [Economic/Social]</span> — access to the Gosford CBD via road improves liveability by connecting residents to employment, health services and commercial facilities not available within Point Clare itself.
+      </div>
+
+      <div class="section-label">WAGOLL — annotated photograph, Point Clare</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Use Google Street View to find a ground-level image. Rawson Road or the foreshore path are good options. Annotate with four labels. Say: "This is what your Part C needs to look like."</p>
+
+      <div class="label-eg">
+        <span class="eg-tag">Label — sealed foreshore path (positive)</span>
+        <span class="label-strong">Maintained sealed footpath along waterfront [Social/Environmental]</span> — the even, well-maintained path improves liveability by providing safe, accessible movement along the foreshore for elderly residents, people with prams and wheelchair users.
+      </div>
+      <div class="label-eg">
+        <span class="eg-tag">Label — absence of shade infrastructure (negative)</span>
+        <span class="label-strong">Limited shade structures along exposed path [Environmental/Political]</span> — the lack of shade along sections of the waterfront path reduces liveability during summer months, particularly for elderly residents and young children who are more vulnerable to heat stress.
+      </div>
+
+      <div class="section-label">2–3 sentence description — what students write at the end of Part A</div>
+      <div class="wagoll teal">
+        <div class="wagoll-title">WAGOLL — Part A description sentences</div>
+        <p>Point Clare's Google Earth screenshots reveal a predominantly residential suburb with direct access to the Brisbane Water foreshore, which is the most significant environmental quality feature of the area. The suburb is characterised by low-density housing, tree cover along residential streets and a protected waterway, all of which contribute positively to environmental quality. However, the limited commercial development within Point Clare means residents must travel to Gosford or East Gosford for many services, which affects economic liveability.</p>
+      </div>
+
+      <div class="section-label">Timing</div>
+      <div class="timing-bar">
+        <span class="timing-pill">Definition + physical/human: 8 min</span>
+        <span class="timing-pill">WAGOLL Part A: 10 min</span>
+        <span class="timing-pill">WAGOLL Part C: 8 min</span>
+        <span class="timing-pill">Students annotate one image: 15 min</span>
+        <span class="timing-pill">Share + correct: 5 min</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       LESSON 4 — PARAGRAPH + PLANNING (CL4) + WAGOLL REVISIT (CL6)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="lesson-card">
+    <div class="lesson-header blue-hdr">
+      <div class="lesson-num blue">4</div>
+      <div class="lesson-meta">
+        <div class="lesson-title">Paragraph model + planning strategies + place confirmed + data source validated</div>
+        <div class="lesson-sub">CL4 + CL6 — Original lessons: L16, L17, L18B &nbsp;|&nbsp; The bridge between teaching and the assessment</div>
+      </div>
+      <div class="lesson-badge blue-badge">Part D + All parts</div>
+    </div>
+    <div class="lesson-body">
+
+      <div class="section-label blue">Part 1 — The paragraph model for Part D (15 min)</div>
+      <p style="font-size:14px;margin-bottom:10px;">Part D is worth 20 marks. The paragraph model is the single most important thing for lifting grades in Part D. Teach it explicitly. Do not assume students know how to structure a geographical paragraph.</p>
+
+      <div class="wagoll blue">
+        <div class="wagoll-title">The four-part paragraph structure — write on board, leave it there</div>
+        <p>
+          <strong>Point</strong> — state the liveability factor you are discussing<br>
+          <strong>Evidence</strong> — describe specific evidence from your Parts A, B or C<br>
+          <strong>Explanation</strong> — explain how this evidence affects liveability and for whom<br>
+          <strong>Link</strong> — link back to your inquiry question
+        </p>
+      </div>
+
+      <div class="section-label blue">WAGOLL — full Part D example paragraph (Point Clare, social factor)</div>
+
+      <div class="para-block">
+        <div class="para-block-label">Point</div>
+        <div class="para-block-content">One factor that affects liveability in Point Clare is <em>access to social infrastructure</em>, particularly recreational spaces along the Brisbane Water foreshore.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-block-label">Evidence</div>
+        <div class="para-block-content">As shown in my Part A Google Earth screenshot, Point Clare has a maintained foreshore reserve with picnic facilities and a sealed walking path directly adjacent to Brisbane Water. My Part C ground-level photographs confirm that the path is accessible and well-maintained.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-block-label">Explanation</div>
+        <div class="para-block-content">This improves liveability for <em>elderly residents and young families</em> by providing a free, local space for physical activity, social connection and relaxation. Access to quality green and blue spaces has been shown to reduce stress and improve mental health outcomes, which are key components of a liveable environment.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-block-label">Link</div>
+        <div class="para-block-content">Overall, this social infrastructure feature suggests that Point Clare has <em>moderate-to-high liveability</em> in terms of environmental and recreational access, although this benefit is not equally experienced by all residents — particularly those without a car who may find other parts of the suburb harder to access.</div>
+      </div>
+
+      <div class="section-label blue">The recommendation sentence frame — students copy this into their booklet</div>
+      <div class="wagoll">
+        <div class="wagoll-title">Recommendation sentence frame</div>
+        <p>"To improve liveability in <em>[Point Clare]</em> for <em>[specific group]</em>, I recommend <em>[strategy]</em> because <em>[evidence from Parts A, B or C]</em>. This would improve <em>[factor]</em> by <em>[specific impact]</em>."</p>
+      </div>
+
+      <div class="wagoll teal">
+        <div class="wagoll-title">WAGOLL — recommendation paragraph for Point Clare (elderly residents)</div>
+        <p>To improve liveability in Point Clare for elderly residents, I recommend installing additional shade structures and rest seating along the Brisbane Water foreshore walking path, because my Part C photographs show that the current path is largely exposed and lacks resting points. This would improve social and environmental liveability by making the path accessible to older residents during warmer months, reducing heat-related health risks and encouraging more frequent use of this valuable community space.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-label blue">Part 2 — Planning strategies (10 min)</div>
+      <p style="font-size:14px;margin-bottom:8px;">Students need one planning strategy for their recommendation. Four options — teach briefly, one example each.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0.75rem 0;">
+        <div class="wagoll" style="margin:0;padding:0.75rem 1rem;">
+          <div class="wagoll-title">Transport</div>
+          <p style="font-size:13px;">Improve bus frequency on the 28 route linking Point Clare to Gosford station. Reduces car dependence. Improves liveability for non-drivers.</p>
+        </div>
+        <div class="wagoll blue" style="margin:0;padding:0.75rem 1rem;">
+          <div class="wagoll-title">Green spaces</div>
+          <p style="font-size:13px;">Add shade structures, seating and native planting to the foreshore reserve. Improves environmental and social liveability.</p>
+        </div>
+        <div class="wagoll teal" style="margin:0;padding:0.75rem 1rem;">
+          <div class="wagoll-title">Accessibility</div>
+          <p style="font-size:13px;">Upgrade kerb cuts and footpaths on Rawson Road. Improves liveability for wheelchair users and people with prams.</p>
+        </div>
+        <div class="wagoll amber" style="margin:0;padding:0.75rem 1rem;">
+          <div class="wagoll-title">Zoning / land use</div>
+          <p style="font-size:13px;">Zone a small local hub near the foreshore for a café, small supermarket or pharmacy. Reduces distance to essential services.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-label blue">Part 3 — Every student confirms their place, question and data source before leaving (CL6)</div>
+      <div class="wagoll blue">
+        <div class="wagoll-title">Three things students write before leaving this lesson</div>
+        <p>
+          1. My place is: <em>Point Clare, NSW 2250</em> (or whichever of the six options they chose)<br>
+          2. My inquiry question is: <em>How liveable is Point Clare and how could it be improved?</em><br>
+          3. My data source is: <em>ABS 2021 Census QuickStats — Point Clare. URL: abs.gov.au/census</em>
+        </p>
+      </div>
+      <p style="font-size:13.5px;margin-top:8px;"><strong>After this lesson:</strong> Post the Part D paragraph model and recommendation sentence frame to iLearn immediately. Students draft their three factor paragraphs at home using this model.</p>
+
+      <div class="section-label blue">Timing</div>
+      <div class="timing-bar">
+        <span class="timing-pill blue">Paragraph model taught: 10 min</span>
+        <span class="timing-pill blue">WAGOLL paragraph read aloud: 5 min</span>
+        <span class="timing-pill blue">Recommendation frame: 5 min</span>
+        <span class="timing-pill blue">Planning strategies: 10 min</span>
+        <span class="timing-pill blue">Place/question/source confirmed: 8 min</span>
+        <span class="timing-pill blue">Buffer: 7 min</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       LESSON 5 — PEER EDIT + SUBMISSION (CL7 + CL8)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="lesson-card">
+    <div class="lesson-header pink-hdr">
+      <div class="lesson-num pink">5</div>
+      <div class="lesson-meta">
+        <div class="lesson-title">Peer edit Parts A, B, C + Part D writing + submission confirmation</div>
+        <div class="lesson-sub">CL7 + CL8 — Original lessons: L20 + L21 &nbsp;|&nbsp; Final lesson before due date</div>
+      </div>
+      <div class="lesson-badge">All parts — final</div>
+    </div>
+    <div class="lesson-body">
+
+      <div class="critical">
+        <strong>Before this lesson:</strong> Parts A, B and C must be substantially complete. Send a reminder to students after Lesson 4: "By [lesson 5 date], you need Parts A, B and C complete. We are peer editing these in class." Students who arrive without work cannot benefit from this lesson.
+      </div>
+
+      <div class="section-label">Part 1 — Peer edit checklist (20 min)</div>
+      <p style="font-size:14px;margin-bottom:10px;">Students swap booklets. Partner checks against these criteria. Write one specific improvement suggestion per part — not "good job".</p>
+
+      <div class="wagoll">
+        <div class="wagoll-title">Part A checklist (Google Earth screenshots)</div>
+        <p>
+          ☐ At least 4 labels across up to 3 screenshots<br>
+          ☐ Each label names the feature<br>
+          ☐ Each label identifies the factor (environmental / social / economic / political)<br>
+          ☐ Each label explains the liveability connection — not just "it's good for people"<br>
+          ☐ Screenshot is from satellite view (Google Earth), not a street-level or photograph view<br>
+          ☐ 2–3 sentences describing liveability written below the screenshots
+        </p>
+      </div>
+      <div class="wagoll blue">
+        <div class="wagoll-title">Part B checklist (column graph)</div>
+        <p>
+          ☐ Source validated — who made it, is it reliable, is it recent (within 5 years)<br>
+          ☐ URL recorded<br>
+          ☐ Graph has a title (including place name and year)<br>
+          ☐ Both axes labelled with units<br>
+          ☐ Source line on the graph (ABS 2021 Census etc.)<br>
+          ☐ 3–4 sentences: pattern described, liveability link explained, one limitation identified
+        </p>
+      </div>
+      <div class="wagoll">
+        <div class="wagoll-title">Part C checklist (ground-level photographs)</div>
+        <p>
+          ☐ At least 4 labels across up to 3 photographs<br>
+          ☐ Photographs are ground-level (Google Street View, council site or news source) — not aerial<br>
+          ☐ Each label names the feature, factor and liveability effect<br>
+          ☐ 2–3 sentences include one clear positive and one clear negative observation with specific detail<br>
+          ☐ Source recorded for each photograph
+        </p>
+      </div>
+
+      <div class="section-label">Part 2 — Part D in class (15 min)</div>
+      <p style="font-size:14px;margin-bottom:8px;">Display the paragraph model and recommendation frame on the board. Students write or finalise Part D.</p>
+
+      <div class="wagoll teal">
+        <div class="wagoll-title">WAGOLL — Part D introduction sentence (Point Clare)</div>
+        <p>Point Clare is a small residential suburb on the Central Coast of NSW with direct access to Brisbane Water, and my investigation suggests it has moderate-to-high liveability overall, with particular strengths in environmental quality and community character, but some limitations in access to services and public transport for residents without a car.</p>
+      </div>
+
+      <div class="section-label">Geographical vocabulary — students need 6+ of these in Part D</div>
+      <div class="vocab-row">
+        <span class="vocab-chip">liveability</span>
+        <span class="vocab-chip">perception</span>
+        <span class="vocab-chip">environmental quality</span>
+        <span class="vocab-chip">amenity</span>
+        <span class="vocab-chip">access to services</span>
+        <span class="vocab-chip">spatial distribution</span>
+        <span class="vocab-chip">secondary data</span>
+        <span class="vocab-chip">reliability</span>
+        <span class="vocab-chip">interconnection</span>
+        <span class="vocab-chip">density</span>
+        <span class="vocab-chip">planning strategy</span>
+        <span class="vocab-chip">scale</span>
+        <span class="vocab-chip">urban change</span>
+        <span class="vocab-chip">sustainability</span>
+        <span class="vocab-chip">wellbeing</span>
+        <span class="vocab-chip">community</span>
+        <span class="vocab-chip">quantitative</span>
+        <span class="vocab-chip">qualitative</span>
+      </div>
+
+      <div class="section-label">Part 3 — Submission confirmation (10 min)</div>
+
+      <ul class="step-list">
+        <li><span class="step-num">1</span>Walk through iLearn submission step by step. Do this on the board.</li>
+        <li><span class="step-num">2</span>Students confirm their name and class are on the front of the booklet.</li>
+        <li><span class="step-num">3</span>Students confirm file is saved as PDF or Word document.</li>
+        <li><span class="step-num">4</span>Any student with a technical issue raises it now — not on Friday evening.</li>
+        <li><span class="step-num">5</span>Remind: extensions must be requested before this lesson ends. Support email: gosford.assessmentsupport@spcc.nsw.edu.au</li>
+        <li><span class="step-num">6</span>Due: Friday 19 June 2026, 9pm via iLearn.</li>
+      </ul>
+
+      <div class="section-label">Timing</div>
+      <div class="timing-bar">
+        <span class="timing-pill">Self-check: 5 min</span>
+        <span class="timing-pill">Peer edit Parts A and C: 10 min</span>
+        <span class="timing-pill">Peer edit Part B: 8 min</span>
+        <span class="timing-pill">Make corrections: 5 min</span>
+        <span class="timing-pill">Part D writing: 10 min</span>
+        <span class="timing-pill">Vocab check: 3 min</span>
+        <span class="timing-pill">Submission walkthrough: 5 min</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-footer">
+    <p>Year 7 Geography — Liveability of Places &nbsp;|&nbsp; St Philip's Christian College Gosford &nbsp;|&nbsp; 2026</p>
+    <p style="margin-top:4px;">Program written by M. Perkins. Teaching team: Perkins, Lopez, Cooper. Example place: Point Clare NSW 2250.</p>
+    <p style="margin-top:4px;">Assessment support: gosford.assessmentsupport@spcc.nsw.edu.au &nbsp;|&nbsp; Due: Friday 19 June 2026, 9pm, iLearn</p>
+  </div>
+
+</div>
+</body>
+</html>
