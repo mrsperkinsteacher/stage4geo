@@ -627,6 +627,174 @@
   .wagoll-table tr:nth-child(even) td { background: #f4f9fa; }
 
 
+  /* ── PART A WAGOLL ── */
+  .wagoll-grades {
+    margin: 32px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+  }
+  .wagoll-grades-header {
+    background: var(--navy);
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .wagoll-grades-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  .wagoll-rubric-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    font-style: italic;
+  }
+  .wagoll-rubric-note a {
+    color: var(--lteal);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .grade-tabs {
+    display: flex;
+    background: rgba(0,0,0,0.2);
+  }
+  .grade-tab {
+    flex: 1;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    border: none;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    letter-spacing: 0.5px;
+  }
+  .grade-tab:hover { color: rgba(255,255,255,0.85); }
+  .grade-tab.active { color: var(--white); }
+  .grade-tab.grade-c.active  { border-bottom-color: #f0a500; }
+  .grade-tab.grade-b.active  { border-bottom-color: #6ab4c8; }
+  .grade-tab.grade-a.active  { border-bottom-color: #9d8fe0; }
+  .grade-panels {
+    background: var(--white);
+  }
+  .grade-panel { display: none; padding: 24px; }
+  .grade-panel.active { display: block; animation: fadeUp 0.25s ease; }
+  .grade-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .grade-badge.c { background: #fff3cd; color: #7a4a00; border: 1.5px solid #f0a500; }
+  .grade-badge.b { background: #e8f4f8; color: #1a4a5a; border: 1.5px solid #6ab4c8; }
+  .grade-badge.a { background: #ede8f8; color: #3a2a6a; border: 1.5px solid #9d8fe0; }
+  .wagoll-satellite {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #2a3a2a;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .wagoll-satellite img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+  .wagoll-satellite-placeholder {
+    aspect-ratio: 16/10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2a3a2a, #3a5a3a);
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .label-examples { display: flex; flex-direction: column; gap: 12px; }
+  .label-example {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    font-weight: 300;
+    border: 1.5px solid var(--border);
+    background: var(--cream);
+  }
+  .label-example .label-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .label-example .label-text { color: var(--text); }
+  .label-example .label-factor {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 0 2px;
+    letter-spacing: 0.5px;
+  }
+  .grade-panel.active.c-panel .label-example { border-color: #f0c060; background: #fffdf0; }
+  .grade-panel.active.b-panel .label-example { border-color: #a8d8e8; background: #f0f8fc; }
+  .grade-panel.active.a-panel .label-example { border-color: #c8b8f0; background: #f5f0fc; }
+
+  /* ── RED BANNER ── */
+  .red-banner {
+    background: #c0392b;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .red-banner-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .red-banner-text {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .red-banner-text span {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
   /* ── UNDER CONSTRUCTION ── */
   .under-construction {
     text-align: center;
@@ -812,6 +980,13 @@
           <h3>Take up to THREE screenshots</h3>
           <p><strong>On a MacBook:</strong> press <strong>Cmd + Shift + 4</strong>, drag to select the area, then drag the file from your Desktop into the table in your booklet.</p>
           <p style="margin-top:8px">You only need ONE screenshot, but up to three is fine if you want to show more.</p>
+          <div class="red-banner" style="margin-top:16px">
+            <div class="red-banner-icon">🚨</div>
+            <div class="red-banner-text">
+              <span>More screenshots do not mean more marks.</span>
+              You only need one screenshot if it clearly shows four different features you can label. Extra screenshots are there to help you — not to earn you more marks. A student with one screenshot and four strong labels will score higher than a student with three screenshots and weak labels.
+            </div>
+          </div>
         </div>
       </div>
       <div class="step">
@@ -876,6 +1051,89 @@
           </div>
         </div>
       </div>
+
+    <!-- WAGOLL GRADES -->
+    <div class="wagoll-grades">
+      <div class="wagoll-grades-header">
+        <span class="wagoll-grades-title">What does each grade look like?</span>
+        <span class="wagoll-rubric-note">Check your assessment booklet rubric to see which grade you are aiming for</span>
+      </div>
+      <div class="grade-tabs">
+        <button class="grade-tab grade-c active" onclick="switchGrade('c', this)">C Grade</button>
+        <button class="grade-tab grade-b" onclick="switchGrade('b', this)">B Grade</button>
+        <button class="grade-tab grade-a" onclick="switchGrade('a', this)">A Grade</button>
+      </div>
+      <div class="grade-panels">
+
+        <!-- C PANEL -->
+        <div id="grade-c" class="grade-panel c-panel active">
+          <div class="grade-badge c">C Grade &nbsp;|&nbsp; 5-6 marks</div>
+          <p style="font-size:13.5px; font-weight:300; color:var(--muted); margin-bottom:16px; line-height:1.6">Correct structure and factor, liveability connection attempted but surface-level. Place name or feature is vague.</p>
+          <div class="wagoll-satellite">
+            <div class="wagoll-satellite-placeholder">
+              <span style="font-size:28px">🛰️</span>
+              <span>Fagan Park, NSW — Google Earth satellite view</span>
+            </div>
+          </div>
+          <div class="label-examples">
+            <div class="label-example">
+              <div class="label-num">Label 1</div>
+              <div class="label-text">Park <span class="label-factor">Environmental</span> – there are trees which makes it a nice place for people to go.</div>
+            </div>
+            <div class="label-example">
+              <div class="label-num">Label 2</div>
+              <div class="label-text">Oval <span class="label-factor">Social</span> – people can play sport here which is good for the community.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B PANEL -->
+        <div id="grade-b" class="grade-panel b-panel">
+          <div class="grade-badge b">B Grade &nbsp;|&nbsp; 7-8 marks</div>
+          <p style="font-size:13.5px; font-weight:300; color:var(--muted); margin-bottom:16px; line-height:1.6">Feature named specifically, correct factor, liveability link is clear and explains who benefits.</p>
+          <div class="wagoll-satellite">
+            <div class="wagoll-satellite-placeholder">
+              <span style="font-size:28px">🛰️</span>
+              <span>Fagan Park, NSW — Google Earth satellite view</span>
+            </div>
+          </div>
+          <div class="label-examples">
+            <div class="label-example">
+              <div class="label-num">Label 1</div>
+              <div class="label-text">Fagan Park green space <span class="label-factor">Environmental / Social</span> – the large grassed area and trees give local residents a free outdoor space for exercise and relaxation, which improves liveability by supporting the health and wellbeing of people in the area.</div>
+            </div>
+            <div class="label-example">
+              <div class="label-num">Label 2</div>
+              <div class="label-text">Sealed car park <span class="label-factor">Social / Political</span> – the flat car park beside the park makes it easier for elderly residents and families with young children to visit, improving liveability by making the space accessible to more people.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A PANEL -->
+        <div id="grade-a" class="grade-panel a-panel">
+          <div class="grade-badge a">A Grade &nbsp;|&nbsp; 9-10 marks</div>
+          <p style="font-size:13.5px; font-weight:300; color:var(--muted); margin-bottom:16px; line-height:1.6">Precise geographical vocabulary used naturally, specific groups named, strong liveability reasoning throughout.</p>
+          <div class="wagoll-satellite">
+            <div class="wagoll-satellite-placeholder">
+              <span style="font-size:28px">🛰️</span>
+              <span>Fagan Park, NSW — Google Earth satellite view</span>
+            </div>
+          </div>
+          <div class="label-examples">
+            <div class="label-example">
+              <div class="label-num">Label 1</div>
+              <div class="label-text">Fagan Park recreational reserve <span class="label-factor">Environmental / Social</span> – the large area of green space and native vegetation improves environmental quality by giving residents of all ages free access to nature and recreation close to home, increasing liveability for families and elderly residents in surrounding streets.</div>
+            </div>
+            <div class="label-example">
+              <div class="label-num">Label 2</div>
+              <div class="label-text">Accessible sealed car park <span class="label-factor">Social / Political</span> – the flat car park improves access to the park for elderly residents and people with disabilities, reflecting a planning strategy that supports inclusion and increases liveability for all members of the community.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     </div>
   </div>
 
@@ -1279,6 +1537,13 @@
       input.value = '';
       input.focus();
     }
+  }
+
+  function switchGrade(grade, btn) {
+    document.querySelectorAll('.grade-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.grade-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('grade-' + grade).classList.add('active');
+    btn.classList.add('active');
   }
 
   function toggleCheck(li) {
