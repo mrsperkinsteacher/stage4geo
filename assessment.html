@@ -1892,10 +1892,11 @@
     let unticked = [];
     items.forEach(item => {
       const text = item.querySelector('.rub-text').textContent.trim();
+      const grade = item.getAttribute('data-grade');
       if (item.classList.contains('checked')) {
-        ticked.push('  YES: ' + text);
+        ticked.push('  YES [' + grade + ']: ' + text);
       } else {
-        unticked.push('  NO:  ' + text);
+        unticked.push('  NO  [' + grade + ']: ' + text);
       }
     });
     const subject = encodeURIComponent('Part A Self-Assessment – ' + name + ' – ' + cls);
