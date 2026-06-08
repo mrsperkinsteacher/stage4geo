@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessment – Liveability of Places | Year 7 Geography</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #003146;
+    --teal:    #54acb9;
+    --lteal:   #8ac5cf;
+    --dteal:   #004b5d;
+    --cream:   #f7eee9;
+    --yellow:  #ffcf01;
+    --amber:   #ffc20e;
+    --orange:  #eca223;
+    --red:     #892338;
+    --white:   #ffffff;
+    --text:    #1a2e38;
+    --muted:   #5a7080;
+    --border:  #d0e4e8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 320px; height: 320px;
+    background: var(--teal);
+    opacity: 0.12;
+    border-radius: 50%;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40px;
+    width: 180px; height: 180px;
+    background: var(--yellow);
+    opacity: 0.08;
+    border-radius: 50%;
+  }
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 44px 32px 36px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  header h1 em {
+    color: var(--yellow);
+    font-style: italic;
+  }
+  .header-sub {
+    font-size: 14px;
+    color: var(--lteal);
+    font-weight: 300;
+  }
+  .due-badge {
+    display: inline-block;
+    margin-top: 18px;
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    background: var(--dteal);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  .tab-nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-nav-inner::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    padding: 16px 22px;
+    position: relative;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 22px; right: 22px;
+    height: 3px;
+    background: var(--yellow);
+    border-radius: 2px 2px 0 0;
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,0.9); }
+  .tab-btn.active { color: var(--white); }
+  .tab-btn.active::after { transform: scaleX(1); }
+  .tab-mark {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 1px 7px;
+    margin-left: 6px;
+    color: var(--yellow);
+    font-weight: 600;
+  }
+
+  /* ── MAIN CONTENT ── */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeUp 0.3s ease; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION HEADING ── */
+  .part-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border);
+  }
+  .part-number {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    background: var(--navy);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--yellow);
+  }
+  .part-title h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .part-title p {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .marks-pill {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: var(--teal);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    align-self: center;
+  }
+
+  /* ── STEP CARDS ── */
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+  .step {
+    background: var(--white);
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    padding: 22px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .step:hover {
+    box-shadow: 0 4px 18px rgba(0,49,70,0.08);
+    border-color: var(--lteal);
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-top: 2px;
+  }
+  .step-body h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .step-body p, .step-body li {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .step-body ul { padding-left: 18px; margin-top: 6px; }
+  .step-body li { margin-bottom: 4px; }
+  .step-body strong { font-weight: 600; color: var(--navy); }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .callout-example {
+    background: #e8f6f8;
+    border-left: 4px solid var(--teal);
+    color: var(--dteal);
+  }
+  .callout-example strong { font-weight: 600; display: block; margin-bottom: 6px; color: var(--navy); }
+  .callout-tip {
+    background: #fffbe6;
+    border-left: 4px solid var(--yellow);
+    color: #4a3a00;
+  }
+  .callout-tip strong { font-weight: 600; display: block; margin-bottom: 6px; }
+  .callout-warn {
+    background: #fdf0e8;
+    border-left: 4px solid var(--orange);
+    color: #5a2d00;
+  }
+  .callout-warn strong { font-weight: 600; display: block; margin-bottom: 6px; }
+
+  /* ── LABEL FORMULA ── */
+  .label-formula {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 24px 0;
+  }
+  .label-formula .formula-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lteal);
+    margin-bottom: 14px;
+  }
+  .formula-parts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .formula-part {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .formula-plus {
+    color: var(--teal);
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .formula-example {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: var(--yellow);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── MINI LESSON (Part A special section) ── */
+  .mini-lesson {
+    background: var(--white);
+    border: 2px solid var(--teal);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .mini-lesson-header {
+    background: var(--teal);
+    padding: 14px 22px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .mini-lesson-body {
+    padding: 22px;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  @media (max-width: 560px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card {
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .compare-card.no {
+    background: #fdf0f0;
+    border: 1.5px solid #f0b8b8;
+  }
+  .compare-card.yes {
+    background: #eaf7f0;
+    border: 1.5px solid #7ecba1;
+  }
+  .compare-card .card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .compare-card.no .card-label { color: #c0392b; }
+  .compare-card.yes .card-label { color: #1a7a4a; }
+
+  /* ── SOURCE TABLE ── */
+  .source-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 13.5px;
+  }
+  .source-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .source-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-weight: 300;
+    line-height: 1.55;
+  }
+  .source-table tr:nth-child(even) td { background: #f4f9fa; }
+  .source-table a { color: var(--teal); text-decoration: none; font-weight: 500; }
+  .source-table a:hover { text-decoration: underline; }
+
+  /* ── VOCAB GRID ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .vocab-chip {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    text-align: center;
+    transition: background 0.15s, border-color 0.15s;
+    cursor: default;
+  }
+  .vocab-chip:hover { background: var(--lteal); border-color: var(--teal); color: var(--navy); }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .checklist li {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    user-select: none;
+  }
+  .checklist li:hover { border-color: var(--teal); }
+  .checklist li.checked { background: #eaf7f0; border-color: #7ecba1; }
+  .check-box {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--border);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    margin-top: 1px;
+  }
+  .checklist li.checked .check-box {
+    background: #1a7a4a;
+    border-color: #1a7a4a;
+    color: white;
+    font-size: 12px;
+  }
+
+  /* ── VIDEO SECTION ── */
+  .video-card {
+    background: var(--navy);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .video-placeholder {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #002030 0%, #004b5d 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+  }
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; height: 200px;
+    background: var(--teal);
+    opacity: 0.06;
+    border-radius: 50%;
+  }
+  .play-icon {
+    width: 64px; height: 64px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255,255,255,0.25);
+  }
+  .play-icon svg { margin-left: 4px; }
+  .video-caption {
+    padding: 16px 22px;
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .video-caption strong { color: var(--yellow); font-weight: 600; }
+
+  /* ── SENTENCE STARTERS ── */
+  .starter-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+  .starter {
+    background: var(--white);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--text);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .starter em { color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    font-weight: 300;
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-label">Year 7 Geography &nbsp;|&nbsp; Term 2, 2026</div>
+    <h1>Assessment – <em>Liveability of Places</em></h1>
+    <p class="header-sub">How liveable is our local place?</p>
+    <span class="due-badge">Due Friday 19 June 2026 at 9pm via iLearn</span>
+  </div>
+</header>
+
+<nav class="tab-nav" role="tablist">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" role="tab" onclick="switchTab('overview', this)">Overview</button>
+    <button class="tab-btn" role="tab" onclick="switchTab('partA', this)">Part A <span class="tab-mark">/10</span></button>
+    <button class="tab-btn" role="tab" onclick="switchTab('partB', this)">Part B <span class="tab-mark">/10</span></button>
+    <button class="tab-btn" role="tab" onclick="switchTab('partC', this)">Part C <span class="tab-mark">/10</span></button>
+    <button class="tab-btn" role="tab" onclick="switchTab('partD', this)">Part D <span class="tab-mark">/20</span></button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── OVERVIEW ── -->
+  <div id="overview" class="tab-panel active">
+    <div class="part-heading">
+      <div class="part-number">7</div>
+      <div class="part-title">
+        <h2>What is this task?</h2>
+        <p>Read this first before you begin</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Choose your place</h3>
+          <p>Pick <strong>ONE</strong> place on the Central Coast to investigate. Your options are:</p>
+          <ul>
+            <li>Gosford CBD</li>
+            <li>Terrigal Beach area</li>
+            <li>Woy Woy town centre</li>
+            <li>The Entrance</li>
+            <li>Tuggerah town centre</li>
+            <li>Erina Fair area</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Work through Parts A, B, C and D in order</h3>
+          <p>Each part builds on the one before. Your evidence from Parts A, B and C will feed directly into your written response in Part D.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Use your assessment booklet</h3>
+          <p>You have been given a working document. Use it alongside this page. It has planning spaces, sentence starters, and a full vocabulary list.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Submit as a PDF or Word document</h3>
+          <p>Upload your completed task to <strong>iLearn</strong> by <strong>9pm on Friday 19 June 2026</strong>.<br>Support: <a href="mailto:gosford.assessmentsupport@spcc.nsw.edu.au" style="color:var(--teal)">gosford.assessmentsupport@spcc.nsw.edu.au</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-tip" style="margin-top:28px">
+      <strong>Total marks: 60</strong>
+      Part A (/10) + Part B (/10) + Part C (/10) + Part D (/20) + Written Communication (/5) + Referencing (/5)
+    </div>
+  </div>
+
+  <!-- ── PART A ── -->
+  <div id="partA" class="tab-panel">
+    <div class="part-heading">
+      <div class="part-number">A</div>
+      <div class="part-title">
+        <h2>Annotated Google Earth Screenshots</h2>
+        <p>Up to 3 screenshots with at least 4 labels total</p>
+      </div>
+      <div class="marks-pill">/10 marks</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Open Google Earth and navigate to your place</h3>
+          <p>Go to <strong>earth.google.com</strong>. Search for your chosen place. Try different zoom levels to show different aspects of the area.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Take up to THREE screenshots</h3>
+          <p><strong>On a MacBook:</strong> press <strong>Cmd + Shift + 4</strong>, drag to select the area, then drag the file from your Desktop into the table in your booklet.</p>
+          <p style="margin-top:8px">You only need ONE screenshot, but up to three is fine if you want to show more.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Write at least FOUR labels</h3>
+          <p>Each label is <strong>one sentence</strong> that follows this formula:</p>
+
+          <div class="label-formula">
+            <div class="formula-title">The Label Formula</div>
+            <div class="formula-parts">
+              <div class="formula-part">Feature name</div>
+              <div class="formula-plus">+</div>
+              <div class="formula-part">[Factor]</div>
+              <div class="formula-plus">+</div>
+              <div class="formula-part">how it improves liveability</div>
+            </div>
+            <div class="formula-example">
+              "Gosford train station [Social/Economic] – provides access to transport which improves liveability by connecting residents to employment and services."
+            </div>
+          </div>
+
+          <div class="mini-lesson">
+            <div class="mini-lesson-header">Common mistake – and how to fix it</div>
+            <div class="mini-lesson-body">
+              <p style="font-size:14px; font-weight:300; color:var(--text)">Each label box needs <strong>ONE sentence</strong>, not a list of dot points. Here is the difference:</p>
+              <div class="compare-grid">
+                <div class="compare-card no">
+                  <div class="card-label">Not this</div>
+                  <p><strong>Car park [Social]</strong></p>
+                  <ul style="padding-left:16px; margin-top:8px; font-size:13px">
+                    <li>Helps people park safely</li>
+                    <li>Has pedestrian crossing</li>
+                    <li>Uses security cameras</li>
+                    <li>Has disabled parking</li>
+                  </ul>
+                </div>
+                <div class="compare-card yes">
+                  <div class="card-label">This</div>
+                  <p style="font-size:13.5px; font-style:italic; color:#1a4a30">"Car park [Social] – provides safe and accessible parking for shoppers, improving liveability by making services easy to reach."</p>
+                </div>
+              </div>
+              <div class="callout callout-tip" style="margin-top:16px; margin-bottom:0">
+                <strong>Trick</strong>
+                Take your best dot point idea and turn it into that one sentence structure. You do not have to use all four factors – if Social genuinely applies to two different features, that is fine. You need 4 labels total, each about something different.
+              </div>
+            </div>
+          </div>
+
+          <p style="margin-top:4px; font-size:14px; font-weight:300">The four factors are: <strong>Environmental, Social, Economic, Political.</strong> A label can use more than one if they genuinely both apply, e.g. [Social/Economic].</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Write 2-3 sentences describing liveability</h3>
+          <p>At the bottom of Part A, write a short paragraph describing what your screenshots show about liveability in your chosen place.</p>
+          <div class="starter-list" style="margin-top:12px">
+            <div class="starter">The screenshots of [place] show that liveability is [high/moderate/low] because…</div>
+            <div class="starter">One feature that improves liveability is… because…</div>
+            <div class="starter">Overall, the area appears [liveable/not very liveable] due to…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART B ── -->
+  <div id="partB" class="tab-panel">
+    <div class="part-heading">
+      <div class="part-number">B</div>
+      <div class="part-title">
+        <h2>Column Graph from Secondary Data</h2>
+        <p>Find data, validate your source, graph it, interpret it</p>
+      </div>
+      <div class="marks-pill">/10 marks</div>
+    </div>
+
+    <!-- VIDEO EMBED -->
+    <div class="video-card">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+        <iframe
+          src="https://www.youtube.com/embed/IIdcyJI6lRo"
+          title="Part B – Column Graph Walkthrough"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;">
+        </iframe>
+      </div>
+      <div class="video-caption">
+        <strong>Watch this first</strong> – a step-by-step walkthrough showing how to find your data, build your graph and write your interpretation.
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Find ONE set of secondary data from an approved source</h3>
+          <table class="source-table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>What it has</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ABS QuickStats</strong></td>
+                <td>Population, housing, income data by suburb</td>
+                <td><a href="https://abs.gov.au/census" target="_blank">abs.gov.au/census</a></td>
+              </tr>
+              <tr>
+                <td><strong>Central Coast Council open data</strong></td>
+                <td>Local council data sets</td>
+                <td><a href="https://data.centralcoast.nsw.gov.au" target="_blank">data.centralcoast.nsw.gov.au</a></td>
+              </tr>
+              <tr>
+                <td><strong>SEIFA Index (ABS)</strong></td>
+                <td>Socioeconomic advantage or disadvantage by area</td>
+                <td><a href="https://abs.gov.au" target="_blank">abs.gov.au</a></td>
+              </tr>
+              <tr>
+                <td><strong>BOM</strong></td>
+                <td>Weather and rainfall data</td>
+                <td><a href="https://bom.gov.au" target="_blank">bom.gov.au</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Validate your source</h3>
+          <p>In your booklet, answer these four questions about your source:</p>
+          <ul style="margin-top:8px">
+            <li>Who made this data?</li>
+            <li>Is this a reliable source? Why?</li>
+            <li>Is it recent (within 5 years)?</li>
+            <li>What is the URL?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Construct your column graph</h3>
+          <p>You can draw it by hand in your booklet, or use <strong>Excel or Google Sheets</strong> and insert it. Your graph must have:</p>
+          <ul style="margin-top:8px">
+            <li>A title</li>
+            <li>Labelled axes with units</li>
+            <li>A source line at the bottom</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Write 3-4 sentences interpreting your graph</h3>
+          <p>Your sentences must cover three things: the <strong>pattern</strong>, the <strong>liveability link</strong>, and <strong>one limitation</strong> of the data.</p>
+          <div class="starter-list" style="margin-top:12px">
+            <div class="starter">The data shows that…</div>
+            <div class="starter">This suggests that liveability in [place] is… because…</div>
+            <div class="starter">One limitation of this data is…</div>
+            <div class="starter">This is significant because…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART C ── -->
+  <div id="partC" class="tab-panel">
+    <div class="part-heading">
+      <div class="part-number">C</div>
+      <div class="part-title">
+        <h2>Annotated Photographs</h2>
+        <p>Up to 3 ground-level photographs with at least 4 labels</p>
+      </div>
+      <div class="marks-pill">/10 marks</div>
+    </div>
+
+    <div class="callout callout-warn">
+      <strong>Important – ground-level photos only</strong>
+      Do NOT use aerial or satellite images for Part C. Use Google Street View, a council website, or a reputable news source.
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Find up to THREE ground-level photographs</h3>
+          <p>Good places to find photos:</p>
+          <ul style="margin-top:8px">
+            <li><strong>Google Street View</strong> – maps.google.com</li>
+            <li>Central Coast Council website</li>
+            <li>A reputable local news source</li>
+          </ul>
+          <p style="margin-top:8px">Record the source and date for each photograph in your booklet.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Write at least FOUR labels using the same formula as Part A</h3>
+          <div class="callout callout-example" style="margin-top:12px">
+            <strong>Good label example for Part C:</strong>
+            "Cracked footpath [Environmental/Social] – damaged infrastructure reduces safety and accessibility for elderly residents and people with disabilities, reducing liveability."
+          </div>
+          <p style="margin-top:8px; font-size:14px; font-weight:300">Notice how Part C labels often name a <strong>negative</strong> feature too – that is fine and important for your evaluation.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Write 2-3 sentences evaluating liveability</h3>
+          <p>You must include <strong>one clear positive</strong> and <strong>one clear negative</strong> observation with specific detail.</p>
+          <div class="starter-list" style="margin-top:12px">
+            <div class="starter">One positive aspect of liveability in [place] is… because…</div>
+            <div class="starter">However, a negative aspect is… which reduces liveability for…</div>
+            <div class="starter">Overall, the photographs suggest that liveability is [judgement] because…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART D ── -->
+  <div id="partD" class="tab-panel">
+    <div class="part-heading">
+      <div class="part-number">D</div>
+      <div class="part-title">
+        <h2>Written Response with Recommendation</h2>
+        <p>Around 450 words – use your evidence from Parts A, B and C</p>
+      </div>
+      <div class="marks-pill">/20 marks</div>
+    </div>
+
+    <div class="callout callout-tip">
+      <strong>Before you write – use your notes from Parts A, B and C</strong>
+      Your dot points, labels and graph interpretations are your evidence. You have already done the hard thinking. Part D is where you bring it all together.
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Plan your response using the planner in your booklet</h3>
+          <p>Your response needs four sections:</p>
+          <ul style="margin-top:8px">
+            <li><strong>Introduction</strong> – state your place and overall liveability judgement</li>
+            <li><strong>Factor Paragraph 1</strong> – one liveability factor with evidence from A, B or C</li>
+            <li><strong>Factor Paragraph 2</strong> – a second liveability factor with evidence</li>
+            <li><strong>Factor Paragraph 3</strong> – a third liveability factor with evidence</li>
+            <li><strong>Recommendation</strong> – one specific improvement, targeting a specific group of people</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Use at least SIX geographical vocabulary words</h3>
+          <p>These words must appear in your written response. Here are all the options:</p>
+          <div class="vocab-grid">
+            <div class="vocab-chip">liveability</div>
+            <div class="vocab-chip">perception</div>
+            <div class="vocab-chip">environmental quality</div>
+            <div class="vocab-chip">amenity</div>
+            <div class="vocab-chip">access to services</div>
+            <div class="vocab-chip">spatial distribution</div>
+            <div class="vocab-chip">secondary data</div>
+            <div class="vocab-chip">reliability</div>
+            <div class="vocab-chip">interconnection</div>
+            <div class="vocab-chip">density</div>
+            <div class="vocab-chip">planning strategy</div>
+            <div class="vocab-chip">scale</div>
+            <div class="vocab-chip">liveability index</div>
+            <div class="vocab-chip">urban change</div>
+            <div class="vocab-chip">sustainability</div>
+            <div class="vocab-chip">wellbeing</div>
+            <div class="vocab-chip">community</div>
+            <div class="vocab-chip">quantitative / qualitative</div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Write your recommendation using this sentence frame</h3>
+          <div class="callout callout-example">
+            <strong>Recommendation sentence frame:</strong>
+            "To improve liveability in [place] for [group], I recommend [strategy] because [evidence]. This would improve [factor] by [impact]."
+          </div>
+          <p style="margin-top:10px; font-size:14px; font-weight:300">Your recommendation must target a <strong>specific group of people</strong> – for example, elderly residents, young families, people with disabilities, or young people.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Record your word count and check the checklist</h3>
+          <p>Aim for around <strong>450 words</strong>. Write your word count at the end of your response. Then work through the pre-submission checklist:</p>
+          <ul id="checkItems" class="checklist" style="margin-top:12px">
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Part A – up to 3 screenshots, at least 4 labels, each with feature, factor and liveability connection. 2-3 sentences written.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Part B – column graph with title, labelled axes with units, and source line. Source validation completed. 3-4 sentences written.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Part C – up to 3 ground-level photographs, at least 4 labels. 2-3 sentences with a clear positive and negative observation.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Part D – written response around 450 words. Introduction, three factor paragraphs using evidence from A, B and C, and a justified recommendation for a specific group.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Word count recorded at the end of Part D.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>At least six geographical vocabulary words used in my written response.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Spelling, grammar and editing checked throughout.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Reference list completed in alphabetical order. All sources from Parts A, B, C and D included. AI use referenced if applicable.</li>
+            <li onclick="toggleCheck(this)"><span class="check-box"></span>Name and class on all work. Submitted as PDF or Word document via iLearn by 9pm on Friday 19 June 2026.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Year 7 Geography &nbsp;|&nbsp; St Philip's Christian College Gosford &nbsp;|&nbsp; Term 2, 2026 &nbsp;|&nbsp;
+  <a href="mailto:gosford.assessmentsupport@spcc.nsw.edu.au">Assessment support</a>
+</footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleCheck(li) {
+    li.classList.toggle('checked');
+    const box = li.querySelector('.check-box');
+    box.textContent = li.classList.contains('checked') ? '✓' : '';
+  }
+</script>
+
+</body>
+</html>
