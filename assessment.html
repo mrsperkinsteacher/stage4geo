@@ -1674,6 +1674,14 @@
     </div>
 
     <p class="rubric-intro">Tick each statement that applies to your Part A. Be honest with yourself – this helps you know what to improve before you submit.</p>
+    <div class="callout callout-tip">
+      <strong>How this works</strong>
+      You need to tick <strong>every box in a grade band</strong> to reach that grade. If you have ticked all the C boxes but only some of the B boxes, you are sitting between C and B. To move up, go back to your work and improve it until you can honestly tick all boxes in the next band.
+    </div>
+    <div class="callout callout-warn" style="margin-top:12px">
+      <strong>Please note</strong>
+      This self-assessment is a guide to help you reflect on your work and improve before you submit. Your final grade will always be determined by your teacher based on the official marking criteria. Self-assessment and teacher assessment may not always match – that is completely normal.
+    </div>
 
     <!-- GRADE INDICATOR -->
     <div class="grade-indicator" id="gradeIndicator">
@@ -1775,7 +1783,7 @@
 
     <!-- SUBMIT -->
     <div class="submit-section">
-      <h3>Send your self-assessment to Mrs Perkins</h3>
+      <h3>Send your self-assessment</h3>
       <div class="submit-fields">
         <div class="submit-field">
           <label>Your full name</label>
@@ -1785,9 +1793,9 @@
           <label>Your class</label>
           <select id="studentClass">
             <option value="">Select your class</option>
-            <option>7GA</option>
-            <option>7GB</option>
-            <option>7GR</option>
+            <option>7C</option>
+            <option>7H</option>
+            <option>7R</option>
           </select>
         </div>
       </div>
@@ -1829,21 +1837,59 @@
   }
 
   function updateGrade() {
-    const checked = document.querySelectorAll('.rubric-item.checked');
-    let highestGrade = '–';
-    checked.forEach(item => {
-      const g = item.getAttribute('data-grade');
-      if (highestGrade === '–' || gradeOrder.indexOf(g) > gradeOrder.indexOf(highestGrade)) {
-        highestGrade = g;
+    // For each grade band, check if ALL items in that band are ticked
+    const bands = ['E', 'D', 'C', 'B', 'A'];
+    let completedBands = [];
+    let partialBand = null;
+
+    bands.forEach(grade => {
+      const all = document.querySelectorAll('.rubric-item[data-grade="' + grade + '"]');
+      const checked = document.querySelectorAll('.rubric-item[data-grade="' + grade + '"].checked');
+      if (all.length === 0) return;
+      if (checked.length === all.length) {
+        completedBands.push(grade);
+      } else if (checked.length > 0) {
+        if (!partialBand) partialBand = grade;
       }
     });
+
+    let displayGrade = '–';
+    let desc = 'Tick the boxes below to see your grade';
+
+    if (completedBands.length === 0 && !partialBand) {
+      displayGrade = '–';
+      desc = 'Tick the boxes below to see your grade';
+    } else {
+      const highestComplete = completedBands.length > 0 ? completedBands[completedBands.length - 1] : null;
+      const nextBandIdx = highestComplete ? bands.indexOf(highestComplete) + 1 : 0;
+      const nextBand = nextBandIdx < bands.length ? bands[nextBandIdx] : null;
+
+      if (partialBand && highestComplete && bands.indexOf(partialBand) === nextBandIdx) {
+        // Sitting between two grades
+        displayGrade = highestComplete + '/' + partialBand;
+        desc = 'You have completed all ' + highestComplete + ' criteria. Tick all ' + partialBand + ' criteria to reach a ' + partialBand + '.';
+      } else if (highestComplete) {
+        displayGrade = highestComplete;
+        if (nextBand) {
+          desc = gradeDescriptions[highestComplete] + ' – tick all ' + nextBand + ' criteria to move up.';
+        } else {
+          desc = gradeDescriptions[highestComplete];
+        }
+      } else if (partialBand) {
+        displayGrade = 'D';
+        desc = 'Working towards ' + partialBand + ' – keep ticking!';
+      }
+    }
+
     const indicator = document.getElementById('gradeIndicator');
-    const colours = gradeColours[highestGrade];
+    // Use the lower of the two grades for colour if between grades
+    const colourGrade = displayGrade.includes('/') ? displayGrade.split('/')[0] : displayGrade;
+    const colours = gradeColours[colourGrade] || gradeColours['–'];
     indicator.style.background = colours.bg;
     indicator.style.borderColor = colours.border;
     document.getElementById('gradeDisplay').style.color = colours.text;
-    document.getElementById('gradeDisplay').textContent = highestGrade;
-    document.getElementById('gradeDesc').textContent = gradeDescriptions[highestGrade];
+    document.getElementById('gradeDisplay').textContent = displayGrade;
+    document.getElementById('gradeDesc').textContent = desc;
   }
 
   function sendEmail() {
