@@ -1690,36 +1690,21 @@
       <div class="gi-desc" id="gradeDesc">Tick the boxes below to see your grade</div>
     </div>
 
-    <!-- E LEVEL -->
-    <div class="rubric-section">
-      <div class="rubric-section-title">Getting started</div>
-      <div class="rubric-items">
-        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="E">
-          <div class="rub-box"></div>
-          <div class="rub-text">I have added at least one label to my screenshot.</div>
-        </div>
-        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="E">
-          <div class="rub-box"></div>
-          <div class="rub-text">I have tried to name the feature I am labelling.</div>
-        </div>
-      </div>
-    </div>
-
     <!-- D LEVEL -->
     <div class="rubric-section">
-      <div class="rubric-section-title">Working towards C</div>
+      <div class="rubric-section-title">D grade</div>
       <div class="rubric-items">
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="D">
           <div class="rub-box"></div>
-          <div class="rub-text">I have labelled at least 3 features on my screenshot.</div>
+          <div class="rub-text">I have labelled some features on my screenshot.</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="D">
           <div class="rub-box"></div>
-          <div class="rub-text">I have tried to identify the factor (Environmental, Social, Economic or Political) for each label.</div>
+          <div class="rub-text">I have attempted to classify each feature using a factor.</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="D">
           <div class="rub-box"></div>
-          <div class="rub-text">I have tried to explain how each feature connects to liveability.</div>
+          <div class="rub-text">I have attempted to explain the liveability connection for each feature.</div>
         </div>
       </div>
     </div>
@@ -1730,15 +1715,15 @@
       <div class="rubric-items">
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="C">
           <div class="rub-box"></div>
-          <div class="rub-text">I have labelled <strong>4 features</strong> across my screenshot(s).</div>
+          <div class="rub-text">I have labelled 3 to 4 features across my screenshot(s).</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="C">
           <div class="rub-box"></div>
-          <div class="rub-text">Each label uses the correct factor in <strong>square brackets</strong>, e.g. [Social] or [Environmental/Social].</div>
+          <div class="rub-text">Each label has the correct factor classification.</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="C">
           <div class="rub-box"></div>
-          <div class="rub-text">Each label explains the liveability connection – not just "it is good for people."</div>
+          <div class="rub-text">The liveability connection is explained for each label.</div>
         </div>
       </div>
     </div>
@@ -1749,15 +1734,15 @@
       <div class="rubric-items">
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="B">
           <div class="rub-box"></div>
-          <div class="rub-text">Each label names the feature <strong>specifically</strong>, not just "park" or "road."</div>
+          <div class="rub-text">I have labelled 4 features across my screenshot(s).</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="B">
           <div class="rub-box"></div>
-          <div class="rub-text">My liveability connection is <strong>clear</strong> – I explain what the feature actually does for people.</div>
+          <div class="rub-text">Each label has the correct factor classification.</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="B">
           <div class="rub-box"></div>
-          <div class="rub-text">At least one label mentions <strong>who benefits</strong>, e.g. elderly residents, families, young people.</div>
+          <div class="rub-text">The liveability connection is clear for each label.</div>
         </div>
       </div>
     </div>
@@ -1768,15 +1753,19 @@
       <div class="rubric-items">
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="A">
           <div class="rub-box"></div>
-          <div class="rub-text">I have used at least one precise geographical vocabulary word across my labels, e.g. <strong>environmental quality, amenity, community wellbeing, access.</strong></div>
+          <div class="rub-text">I have labelled 4 or more features across my screenshot(s).</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="A">
           <div class="rub-box"></div>
-          <div class="rub-text">My labels are written as complete, well-structured sentences throughout.</div>
+          <div class="rub-text">Each label has the correct factor classification.</div>
         </div>
         <div class="rubric-item" onclick="toggleRubric(this)" data-grade="A">
           <div class="rub-box"></div>
-          <div class="rub-text">My liveability connections are specific and detailed – I explain <strong>how</strong> the feature improves liveability, not just that it does.</div>
+          <div class="rub-text">The liveability connection is clear for each label.</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="A">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have used precise geographical vocabulary in my labels.</div>
         </div>
       </div>
     </div>
@@ -1812,18 +1801,16 @@
 </footer>
 
 <script>
-  const gradeOrder = ['E', 'D', 'C', 'B', 'A'];
+  const gradeOrder = ['D', 'C', 'B', 'A'];
   const gradeDescriptions = {
     '–': 'Tick the boxes below to see your grade',
-    'E': 'Getting started – keep going',
-    'D': 'Working towards C – almost there',
-    'C': 'Solid C – well done',
-    'B': 'Strong B – great work',
+    'D': 'D grade – you are getting there',
+    'C': 'C grade – well done',
+    'B': 'B grade – great work',
     'A': 'A grade – excellent work'
   };
   const gradeColours = {
     '–': { bg: 'var(--white)', border: 'var(--border)', text: 'var(--navy)' },
-    'E': { bg: '#fdf0f0', border: '#f0b8b8', text: '#c0392b' },
     'D': { bg: '#fff3e0', border: '#ffb74d', text: '#7a4a00' },
     'C': { bg: '#fff3cd', border: '#f0a500', text: '#7a4a00' },
     'B': { bg: '#e8f4f8', border: '#6ab4c8', text: '#1a4a5a' },
