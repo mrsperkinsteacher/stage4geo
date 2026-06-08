@@ -785,6 +785,156 @@
   .grade-panel.active.b-panel .label-example { border-color: #a8d8e8; background: #f0f8fc; }
   .grade-panel.active.a-panel .label-example { border-color: #c8b8f0; background: #f5f0fc; }
 
+  /* ── RUBRIC / CHECKLIST TAB ── */
+  .rubric-intro {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .rubric-section {
+    margin-bottom: 28px;
+  }
+  .rubric-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .rubric-items { display: flex; flex-direction: column; gap: 8px; }
+  .rubric-item {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+  }
+  .rubric-item:hover { border-color: var(--teal); }
+  .rubric-item.checked { background: #eaf7f0; border-color: #7ecba1; }
+  .rubric-item .rub-box {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.15s;
+    margin-top: 1px;
+  }
+  .rubric-item.checked .rub-box {
+    background: #1a7a4a;
+    border-color: #1a7a4a;
+    color: white;
+  }
+  .rubric-item .rub-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .rubric-item .rub-text strong { font-weight: 600; color: var(--navy); }
+  .grade-indicator {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 24px 0;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .grade-indicator .gi-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .grade-indicator .gi-grade {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .grade-indicator .gi-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+  }
+  .submit-section {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 28px;
+  }
+  .submit-section h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .submit-fields { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+  .submit-field label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .submit-field input, .submit-field select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .submit-field input:focus, .submit-field select:focus { border-color: var(--teal); }
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.5px;
+  }
+  .submit-btn:hover { background: var(--dteal); transform: translateY(-1px); }
+  .submit-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
   /* ── RED BANNER ── */
   .red-banner {
     background: #c0392b;
@@ -918,6 +1068,7 @@
     <button class="tab-btn" role="tab" onclick="switchTab('partB', this)">Part B <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part C <span class="tab-mark">🔒</span></button>
     <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part D <span class="tab-mark">🔒</span></button>
+    <button class="tab-btn" role="tab" onclick="switchTab('rubric', this)">Part A Self Assess</button>
   </div>
 </nav>
 
@@ -1511,6 +1662,141 @@
   </div>
   </div>
 
+
+  <!-- ── RUBRIC / CHECKLIST ── -->
+  <div id="rubric" class="tab-panel">
+    <div class="part-heading">
+      <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">✓</div>
+      <div class="part-title">
+        <h2>My Part A Checklist</h2>
+        <p>Self-assess your work before you submit</p>
+      </div>
+    </div>
+
+    <p class="rubric-intro">Tick each statement that applies to your Part A. Be honest with yourself – this helps you know what to improve before you submit.</p>
+
+    <!-- GRADE INDICATOR -->
+    <div class="grade-indicator" id="gradeIndicator">
+      <div class="gi-label">Based on your ticks, you are working at</div>
+      <div class="gi-grade" id="gradeDisplay">–</div>
+      <div class="gi-desc" id="gradeDesc">Tick the boxes below to see your grade</div>
+    </div>
+
+    <!-- E LEVEL -->
+    <div class="rubric-section">
+      <div class="rubric-section-title">Getting started</div>
+      <div class="rubric-items">
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="E">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have added at least one label to my screenshot.</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="E">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have tried to name the feature I am labelling.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D LEVEL -->
+    <div class="rubric-section">
+      <div class="rubric-section-title">Working towards C</div>
+      <div class="rubric-items">
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="D">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have labelled at least 3 features on my screenshot.</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="D">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have tried to identify the factor (Environmental, Social, Economic or Political) for each label.</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="D">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have tried to explain how each feature connects to liveability.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C LEVEL -->
+    <div class="rubric-section">
+      <div class="rubric-section-title">C grade</div>
+      <div class="rubric-items">
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="C">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have labelled <strong>4 features</strong> across my screenshot(s).</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="C">
+          <div class="rub-box"></div>
+          <div class="rub-text">Each label uses the correct factor in <strong>square brackets</strong>, e.g. [Social] or [Environmental/Social].</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="C">
+          <div class="rub-box"></div>
+          <div class="rub-text">Each label explains the liveability connection – not just "it is good for people."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B LEVEL -->
+    <div class="rubric-section">
+      <div class="rubric-section-title">B grade</div>
+      <div class="rubric-items">
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="B">
+          <div class="rub-box"></div>
+          <div class="rub-text">Each label names the feature <strong>specifically</strong>, not just "park" or "road."</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="B">
+          <div class="rub-box"></div>
+          <div class="rub-text">My liveability connection is <strong>clear</strong> – I explain what the feature actually does for people.</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="B">
+          <div class="rub-box"></div>
+          <div class="rub-text">At least one label mentions <strong>who benefits</strong>, e.g. elderly residents, families, young people.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A LEVEL -->
+    <div class="rubric-section">
+      <div class="rubric-section-title">A grade</div>
+      <div class="rubric-items">
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="A">
+          <div class="rub-box"></div>
+          <div class="rub-text">I have used at least one precise geographical vocabulary word across my labels, e.g. <strong>environmental quality, amenity, community wellbeing, access.</strong></div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="A">
+          <div class="rub-box"></div>
+          <div class="rub-text">My labels are written as complete, well-structured sentences throughout.</div>
+        </div>
+        <div class="rubric-item" onclick="toggleRubric(this)" data-grade="A">
+          <div class="rub-box"></div>
+          <div class="rub-text">My liveability connections are specific and detailed – I explain <strong>how</strong> the feature improves liveability, not just that it does.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-section">
+      <h3>Send your self-assessment to Mrs Perkins</h3>
+      <div class="submit-fields">
+        <div class="submit-field">
+          <label>Your full name</label>
+          <input type="text" id="studentName" placeholder="e.g. James Smith">
+        </div>
+        <div class="submit-field">
+          <label>Your class</label>
+          <select id="studentClass">
+            <option value="">Select your class</option>
+            <option>7GA</option>
+            <option>7GB</option>
+            <option>7GR</option>
+          </select>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="sendEmail()">Send my checklist by email</button>
+      <p class="submit-note">This will open your email app with your results pre-filled. Just press send.</p>
+    </div>
+
+  </div>
+
 </main>
 
 <footer>
@@ -1518,7 +1804,79 @@
 </footer>
 
 <script>
-  const PASSWORD = 'LiveLoveGeo';
+  const gradeOrder = ['E', 'D', 'C', 'B', 'A'];
+  const gradeDescriptions = {
+    '–': 'Tick the boxes below to see your grade',
+    'E': 'Getting started – keep going',
+    'D': 'Working towards C – almost there',
+    'C': 'Solid C – well done',
+    'B': 'Strong B – great work',
+    'A': 'A grade – excellent work'
+  };
+  const gradeColours = {
+    '–': { bg: 'var(--white)', border: 'var(--border)', text: 'var(--navy)' },
+    'E': { bg: '#fdf0f0', border: '#f0b8b8', text: '#c0392b' },
+    'D': { bg: '#fff3e0', border: '#ffb74d', text: '#7a4a00' },
+    'C': { bg: '#fff3cd', border: '#f0a500', text: '#7a4a00' },
+    'B': { bg: '#e8f4f8', border: '#6ab4c8', text: '#1a4a5a' },
+    'A': { bg: '#ede8f8', border: '#9d8fe0', text: '#3a2a6a' }
+  };
+
+  function toggleRubric(item) {
+    item.classList.toggle('checked');
+    item.querySelector('.rub-box').textContent = item.classList.contains('checked') ? '✓' : '';
+    updateGrade();
+  }
+
+  function updateGrade() {
+    const checked = document.querySelectorAll('.rubric-item.checked');
+    let highestGrade = '–';
+    checked.forEach(item => {
+      const g = item.getAttribute('data-grade');
+      if (highestGrade === '–' || gradeOrder.indexOf(g) > gradeOrder.indexOf(highestGrade)) {
+        highestGrade = g;
+      }
+    });
+    const indicator = document.getElementById('gradeIndicator');
+    const colours = gradeColours[highestGrade];
+    indicator.style.background = colours.bg;
+    indicator.style.borderColor = colours.border;
+    document.getElementById('gradeDisplay').style.color = colours.text;
+    document.getElementById('gradeDisplay').textContent = highestGrade;
+    document.getElementById('gradeDesc').textContent = gradeDescriptions[highestGrade];
+  }
+
+  function sendEmail() {
+    const name = document.getElementById('studentName').value.trim();
+    const cls = document.getElementById('studentClass').value;
+    if (!name || !cls) {
+      alert('Please enter your name and select your class before sending.');
+      return;
+    }
+    const grade = document.getElementById('gradeDisplay').textContent;
+    const items = document.querySelectorAll('.rubric-item');
+    let ticked = [];
+    let unticked = [];
+    items.forEach(item => {
+      const text = item.querySelector('.rub-text').textContent.trim();
+      if (item.classList.contains('checked')) {
+        ticked.push('  YES: ' + text);
+      } else {
+        unticked.push('  NO:  ' + text);
+      }
+    });
+    const subject = encodeURIComponent('Part A Self-Assessment – ' + name + ' – ' + cls);
+    const body = encodeURIComponent(
+      'Student: ' + name + '\n' +
+      'Class: ' + cls + '\n' +
+      'Self-assessed grade: ' + grade + '\n\n' +
+      'TICKED:\n' + ticked.join('\n') + '\n\n' +
+      'NOT TICKED:\n' + unticked.join('\n')
+    );
+    window.location.href = 'mailto:michelle.perkins@spcc.nsw.edu.au?subject=' + subject + '&body=' + body;
+  }
+
+    const PASSWORD = 'LiveLoveGeo';
 
   function switchTab(id, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
