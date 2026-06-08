@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:    #003146;
-    --teal:    #54acb9;
-    --lteal:   #8ac5cf;
-    --dteal:   #004b5d;
-    --cream:   #f7eee9;
-    --yellow:  #ffcf01;
-    --amber:   #ffc20e;
-    --orange:  #eca223;
-    --red:     #892338;
+    --navy:    #2d2a4a;
+    --teal:    #6ab4c8;
+    --lteal:   #a8d8e8;
+    --dteal:   #4a7fa5;
+    --cream:   #f0f0f8;
+    --yellow:  #c8b8f0;
+    --amber:   #9ec8e0;
+    --orange:  #7eb8d4;
+    --red:     #6a5acd;
     --white:   #ffffff;
-    --text:    #1a2e38;
-    --muted:   #5a7080;
-    --border:  #d0e4e8;
+    --text:    #2a2540;
+    --muted:   #6b6890;
+    --border:  #d0cce8;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -532,6 +532,174 @@
   }
   .starter em { color: var(--muted); }
 
+  /* ── WAGOLL UPGRADE BLOCK ── */
+  .wagoll-block {
+    background: var(--white);
+    border: 2px solid var(--navy);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .wagoll-header {
+    background: var(--navy);
+    padding: 14px 22px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  .wagoll-body {
+    padding: 24px 22px;
+  }
+  .wagoll-intro {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .wagoll-grade-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  .c-label {
+    background: #fff0d6;
+    color: #7a4500;
+    border: 1px solid var(--amber);
+  }
+  .wagoll-response {
+    background: #fffbe6;
+    border: 1.5px solid var(--amber);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .wagoll-response p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .wagoll-upgrade-heading {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .wagoll-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .wagoll-table th {
+    background: var(--dteal);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .wagoll-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .wagoll-table td:first-child {
+    white-space: nowrap;
+    color: var(--navy);
+  }
+  .wagoll-table td strong { font-weight: 600; }
+  .wagoll-table tr:nth-child(even) td { background: #f4f9fa; }
+
+
+  /* ── UNDER CONSTRUCTION ── */
+  .under-construction {
+    text-align: center;
+    padding: 64px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .uc-icon { font-size: 52px; }
+  .under-construction h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--navy);
+  }
+  .under-construction > p {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .uc-password-area {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 32px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .uc-teacher-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .uc-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .uc-input:focus { border-color: var(--teal); }
+  .uc-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .uc-btn:hover { background: var(--dteal); }
+  .uc-error {
+    font-size: 12px;
+    color: #c0392b;
+    min-height: 16px;
+  }
+
   /* ── FOOTER ── */
   footer {
     background: var(--navy);
@@ -560,8 +728,8 @@
     <button class="tab-btn active" role="tab" onclick="switchTab('overview', this)">Overview</button>
     <button class="tab-btn" role="tab" onclick="switchTab('partA', this)">Part A <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="switchTab('partB', this)">Part B <span class="tab-mark">/10</span></button>
-    <button class="tab-btn" role="tab" onclick="switchTab('partC', this)">Part C <span class="tab-mark">/10</span></button>
-    <button class="tab-btn" role="tab" onclick="switchTab('partD', this)">Part D <span class="tab-mark">/20</span></button>
+    <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part C <span class="tab-mark">🔒</span></button>
+    <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part D <span class="tab-mark">🔒</span></button>
   </div>
 </nav>
 
@@ -570,7 +738,7 @@
   <!-- ── OVERVIEW ── -->
   <div id="overview" class="tab-panel active">
     <div class="part-heading">
-      <div class="part-number">7</div>
+      <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">TASK</div>
       <div class="part-title">
         <h2>What is this task?</h2>
         <p>Read this first before you begin</p>
@@ -611,15 +779,12 @@
         <div class="step-num">4</div>
         <div class="step-body">
           <h3>Submit as a PDF or Word document</h3>
-          <p>Upload your completed task to <strong>iLearn</strong> by <strong>9pm on Friday 19 June 2026</strong>.<br>Support: <a href="mailto:gosford.assessmentsupport@spcc.nsw.edu.au" style="color:var(--teal)">gosford.assessmentsupport@spcc.nsw.edu.au</a></p>
+          <p>Upload your completed task to <strong>iLearn</strong> by <strong>9pm on Friday 19 June 2026</strong>.</p>
         </div>
       </div>
     </div>
 
-    <div class="callout callout-tip" style="margin-top:28px">
-      <strong>Total marks: 60</strong>
-      Part A (/10) + Part B (/10) + Part C (/10) + Part D (/20) + Written Communication (/5) + Referencing (/5)
-    </div>
+
   </div>
 
   <!-- ── PART A ── -->
@@ -742,6 +907,85 @@
       </div>
     </div>
 
+    <!-- WAGOLL UPGRADE SECTION -->
+    <div class="wagoll-block">
+      <div class="wagoll-header">After watching the video – now look at this</div>
+      <div class="wagoll-body">
+
+        <p class="wagoll-intro">The video showed these sentences as an example of graph interpretation. Read the C response below, then use the tables to understand what is missing at each grade level.</p>
+
+        <!-- C RESPONSE -->
+        <div class="wagoll-grade-label c-label">C Response</div>
+        <div class="wagoll-response">
+          <p>The data shows that income in Point Clare went up from 2011 to 2021.</p>
+          <p>This suggests that liveability in Point Clare is getting better because people have more money.</p>
+          <p>One limitation of this data is that it uses old information from 2021.</p>
+          <p>This is significant because things may have changed since then.</p>
+        </div>
+
+        <!-- C TO B -->
+        <div class="wagoll-upgrade-heading">What is missing from your C response?</div>
+        <table class="wagoll-table">
+          <thead>
+            <tr><th>What</th><th>C response</th><th>What a B response does instead</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pattern</strong></td>
+              <td>You said income went up.</td>
+              <td>A B response uses the actual numbers from your graph.</td>
+            </tr>
+            <tr>
+              <td><strong>Liveability link</strong></td>
+              <td>You said people have more money.</td>
+              <td>A B response explains what more money actually lets people do, for example, afford housing or access services.</td>
+            </tr>
+            <tr>
+              <td><strong>Limitation</strong></td>
+              <td>You named a limitation.</td>
+              <td>A B response explains why that limitation is a problem for your conclusion.</td>
+            </tr>
+            <tr>
+              <td><strong>Significance</strong></td>
+              <td>You said things may have changed.</td>
+              <td>A B response says what specifically might have changed and why that matters.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- B TO A -->
+        <div class="wagoll-upgrade-heading" style="margin-top:22px">What is missing from your B response?</div>
+        <table class="wagoll-table">
+          <thead>
+            <tr><th>What</th><th>B response</th><th>What an A response does instead</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pattern</strong></td>
+              <td>You used the numbers.</td>
+              <td>An A response looks at the numbers more carefully – is the increase getting bigger or smaller over time?</td>
+            </tr>
+            <tr>
+              <td><strong>Liveability link</strong></td>
+              <td>You explained what more money lets people do.</td>
+              <td>An A response asks whether that means liveability is good for everyone in the area, or just some people.</td>
+            </tr>
+            <tr>
+              <td><strong>Limitation</strong></td>
+              <td>You explained why the limitation is a problem.</td>
+              <td>An A response makes a judgement about how serious that limitation actually is.</td>
+            </tr>
+            <tr>
+              <td><strong>Significance</strong></td>
+              <td>You gave a specific consequence.</td>
+              <td>An A response ties it back to the question – what does this mean for how liveable Point Clare actually is?</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
@@ -764,7 +1008,7 @@
               <tr>
                 <td><strong>Central Coast Council open data</strong></td>
                 <td>Local council data sets</td>
-                <td><a href="https://data.centralcoast.nsw.gov.au" target="_blank">data.centralcoast.nsw.gov.au</a></td>
+                <td><a href="https://data.nsw.gov.au/data/organization/central-coast-council" target="_blank">data.nsw.gov.au</a></td>
               </tr>
               <tr>
                 <td><strong>SEIFA Index (ABS)</strong></td>
@@ -823,6 +1067,19 @@
 
   <!-- ── PART C ── -->
   <div id="partC" class="tab-panel">
+    <div class="under-construction">
+      <div class="uc-icon">🚧</div>
+      <h2>Under Construction</h2>
+      <p>This section is not yet available. Check back soon.</p>
+      <div class="uc-password-area">
+        <p class="uc-teacher-label">Teacher access</p>
+        <input type="password" id="pwC" class="uc-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')unlockTab('C')">
+        <button class="uc-btn" onclick="unlockTab('C')">Unlock</button>
+        <p id="pwC-error" class="uc-error"></p>
+      </div>
+    </div>
+  </div>
+  <div id="partC-real" class="tab-panel">
     <div class="part-heading">
       <div class="part-number">C</div>
       <div class="part-title">
@@ -876,9 +1133,23 @@
       </div>
     </div>
   </div>
+  </div>
 
   <!-- ── PART D ── -->
   <div id="partD" class="tab-panel">
+    <div class="under-construction">
+      <div class="uc-icon">🚧</div>
+      <h2>Under Construction</h2>
+      <p>This section is not yet available. Check back soon.</p>
+      <div class="uc-password-area">
+        <p class="uc-teacher-label">Teacher access</p>
+        <input type="password" id="pwD" class="uc-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')unlockTab('D')">
+        <button class="uc-btn" onclick="unlockTab('D')">Unlock</button>
+        <p id="pwD-error" class="uc-error"></p>
+      </div>
+    </div>
+  </div>
+  <div id="partD-real" class="tab-panel">
     <div class="part-heading">
       <div class="part-number">D</div>
       <div class="part-title">
@@ -966,21 +1237,48 @@
       </div>
     </div>
   </div>
+  </div>
 
 </main>
 
 <footer>
-  Year 7 Geography &nbsp;|&nbsp; St Philip's Christian College Gosford &nbsp;|&nbsp; Term 2, 2026 &nbsp;|&nbsp;
-  <a href="mailto:gosford.assessmentsupport@spcc.nsw.edu.au">Assessment support</a>
+  Year 7 Geography &nbsp;|&nbsp; Liveability of Places &nbsp;|&nbsp; Term 2, 2026
 </footer>
 
 <script>
+  const PASSWORD = 'LiveLoveGeo';
+
   function switchTab(id, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function lockedTab(btn) {
+    // Work out which part (C or D) from the button text
+    const label = btn.textContent.trim();
+    const part = label.startsWith('Part C') ? 'C' : 'D';
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('part' + part).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function unlockTab(part) {
+    const input = document.getElementById('pw' + part);
+    const error = document.getElementById('pw' + part + '-error');
+    if (input.value === PASSWORD) {
+      document.getElementById('part' + part).classList.remove('active');
+      document.getElementById('part' + part + '-real').classList.add('active');
+      error.textContent = '';
+    } else {
+      error.textContent = 'Incorrect password. Try again.';
+      input.value = '';
+      input.focus();
+    }
   }
 
   function toggleCheck(li) {
