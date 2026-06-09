@@ -973,6 +973,39 @@
     letter-spacing: 0.5px;
   }
 
+  /* ── VOCAB DEFINITIONS ── */
+  .vocab-def-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .vocab-def-item {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+    align-items: baseline;
+    transition: border-color 0.2s;
+  }
+  .vocab-def-item:hover { border-color: var(--teal); }
+  .vocab-def-term {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .vocab-def-body {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  @media (max-width: 560px) {
+    .vocab-def-item { grid-template-columns: 1fr; gap: 6px; }
+  }
+
   /* ── UNDER CONSTRUCTION ── */
   .under-construction {
     text-align: center;
@@ -1072,6 +1105,7 @@
 <nav class="tab-nav" role="tablist">
   <div class="tab-nav-inner">
     <button class="tab-btn active" role="tab" onclick="switchTab('overview', this)">Overview</button>
+    <button class="tab-btn" role="tab" onclick="switchTab('vocab', this)">Vocab</button>
     <button class="tab-btn" role="tab" onclick="switchTab('partA', this)">Part A <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="switchTab('partB', this)">Part B <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part C <span class="tab-mark">🔒</span></button>
@@ -1084,13 +1118,6 @@
 
   <!-- ── OVERVIEW ── -->
   <div id="overview" class="tab-panel active">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
       <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">TASK</div>
       <div class="part-title">
@@ -1141,15 +1168,104 @@
 
   </div>
 
-  <!-- ── PART A ── -->
-  <div id="partA" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
+  <!-- ── VOCAB ── -->
+  <div id="vocab" class="tab-panel">
+    <div class="red-banner" style="margin-bottom:32px;">
+      <div class="red-banner-text">
+        <span>Before you begin</span>
+        Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
+      </div>
+    </div>
+    <div class="part-heading">
+      <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">V</div>
+      <div class="part-title">
+        <h2>Vocabulary</h2>
+        <p>Key terms for this assessment</p>
+      </div>
+    </div>
+    <p style="font-size:14px;font-weight:300;color:var(--muted);margin-bottom:24px;line-height:1.65;">These are the key geographical terms you need to know for this assessment. You must use at least six of them in your Part D written response.</p>
+    <div class="vocab-def-list">
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Liveability</div>
+        <div class="vocab-def-body">How suitable a place is to live in, based on factors such as access to services, safety, environmental quality, and social infrastructure.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Perception</div>
+        <div class="vocab-def-body">The way a person sees or interprets a place, which may differ from another person's view depending on their age, background, or experience.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Environmental quality</div>
+        <div class="vocab-def-body">The condition of the natural and built environment in a place, including air quality, green space, cleanliness, and the upkeep of infrastructure.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Amenity</div>
+        <div class="vocab-def-body">A feature of a place that makes it more attractive or comfortable to live in, such as a park, library, cafe, or sports facility.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Access to services</div>
+        <div class="vocab-def-body">The ability of people in a place to reach essential facilities such as schools, hospitals, public transport, and shops.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Spatial distribution</div>
+        <div class="vocab-def-body">The way features, people, or resources are spread across a geographical area.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Secondary data</div>
+        <div class="vocab-def-body">Information that has already been collected and published by someone else, such as census data, government statistics, or weather records.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Reliability</div>
+        <div class="vocab-def-body">The degree to which a source or piece of data can be trusted to be accurate, current, and free from bias.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Interconnection</div>
+        <div class="vocab-def-body">The way people, places, environments, and events are linked to and affected by each other.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Density</div>
+        <div class="vocab-def-body">The number of people or features within a given area, often used to describe how crowded or spread out a place is.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Planning strategy</div>
+        <div class="vocab-def-body">A deliberate decision made by governments or councils to manage how a place grows, changes, or is used over time.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Scale</div>
+        <div class="vocab-def-body">The level at which a geographical issue is examined, such as local, regional, national, or global.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Liveability index</div>
+        <div class="vocab-def-body">A ranking system used to compare how liveable different cities or places are, based on measurable criteria such as infrastructure, stability, and healthcare.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Urban change</div>
+        <div class="vocab-def-body">The process by which cities and towns grow, shrink, or transform over time due to factors such as population growth, economic activity, or planning decisions.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Sustainability</div>
+        <div class="vocab-def-body">Meeting the needs of people today without compromising the ability of future generations to meet their own needs.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Wellbeing</div>
+        <div class="vocab-def-body">A person's overall quality of life, including their physical health, mental health, social connections, and sense of belonging to a place.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Community</div>
+        <div class="vocab-def-body">A group of people who live in the same place or share common interests, values, or experiences.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Quantitative data</div>
+        <div class="vocab-def-body">Information expressed in numbers, such as population counts, income figures, or rainfall totals.</div>
+      </div>
+      <div class="vocab-def-item">
+        <div class="vocab-def-term">Qualitative data</div>
+        <div class="vocab-def-body">Information expressed in words, descriptions, or observations, such as photographs, interviews, or personal accounts.</div>
+      </div>
     </div>
   </div>
 
+    <!-- ── PART A ── -->
+  <div id="partA" class="tab-panel">
     <div class="part-heading">
       <div class="part-number">A</div>
       <div class="part-title">
@@ -1326,13 +1442,6 @@
 
   <!-- ── PART B ── -->
   <div id="partB" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
       <div class="part-number">B</div>
       <div class="part-title">
@@ -1532,13 +1641,6 @@
     </div>
   </div>
   <div id="partC-real" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
       <div class="part-number">C</div>
       <div class="part-title">
@@ -1609,13 +1711,6 @@
     </div>
   </div>
   <div id="partD-real" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
       <div class="part-number">D</div>
       <div class="part-title">
