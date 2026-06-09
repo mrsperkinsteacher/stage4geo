@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NH0WN47NP2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-NH0WN47NP2');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Assessment – Liveability of Places | Year 7 Geography</title>
@@ -943,6 +935,131 @@
     line-height: 1.5;
   }
 
+  /* ── FIND YOUR PLACE ── */
+  .place-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .place-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .place-card:hover {
+    box-shadow: 0 6px 24px rgba(45,42,74,0.1);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+  .place-card-header {
+    background: var(--navy);
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .place-card-header::after {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    background: var(--teal);
+    opacity: 0.12;
+    border-radius: 50%;
+  }
+  .place-card-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+  }
+  .place-card-header p {
+    font-size: 12px;
+    color: var(--lteal);
+    font-weight: 300;
+    margin-top: 3px;
+    position: relative;
+    z-index: 1;
+  }
+  .place-card-links {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .place-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.15s;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+  }
+  .place-link:hover { background: var(--cream); border-color: var(--teal); }
+  .place-link-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .place-link-icon.earth { background: #e8f4f8; }
+  .place-link-icon.street { background: #eaf7f0; }
+  .place-link-icon.abs { background: #ede8f8; }
+  .place-link-text { flex: 1; }
+  .place-link-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  .place-link-arrow { color: var(--teal); font-size: 14px; }
+
+  /* ── VOCAB TABLE ── */
+  .vocab-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .vocab-row {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    align-items: start;
+    transition: border-color 0.15s;
+  }
+  .vocab-row:hover { border-color: var(--teal); }
+  .vocab-term {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+  .vocab-defn {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  @media (max-width: 560px) {
+    .vocab-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+
   /* ── RED BANNER ── */
   .red-banner {
     background: #c0392b;
@@ -971,39 +1088,6 @@
     margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-  }
-
-  /* ── VOCAB DEFINITIONS ── */
-  .vocab-def-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .vocab-def-item {
-    background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 20px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 16px;
-    align-items: baseline;
-    transition: border-color 0.2s;
-  }
-  .vocab-def-item:hover { border-color: var(--teal); }
-  .vocab-def-term {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--navy);
-  }
-  .vocab-def-body {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text);
-    line-height: 1.65;
-  }
-  @media (max-width: 560px) {
-    .vocab-def-item { grid-template-columns: 1fr; gap: 6px; }
   }
 
   /* ── UNDER CONSTRUCTION ── */
@@ -1106,15 +1190,110 @@
   <div class="tab-nav-inner">
     <button class="tab-btn active" role="tab" onclick="switchTab('overview', this)">Overview</button>
     <button class="tab-btn" role="tab" onclick="switchTab('vocab', this)">Vocab</button>
+    <button class="tab-btn" role="tab" onclick="switchTab('findplace', this)">Find Your Place</button>
     <button class="tab-btn" role="tab" onclick="switchTab('partA', this)">Part A <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="switchTab('partB', this)">Part B <span class="tab-mark">/10</span></button>
-    <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part C <span class="tab-mark">🔒</span></button>
+    <button class="tab-btn" role="tab" onclick="switchTab('partC-real', this)">Part C <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part D <span class="tab-mark">🔒</span></button>
     <button class="tab-btn" role="tab" onclick="switchTab('rubric', this)">Part A Self Assess</button>
   </div>
 </nav>
 
 <main>
+
+
+  <!-- ── VOCAB ── -->
+  <div id="vocab" class="tab-panel">
+    <div class="part-heading">
+      <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">V</div>
+      <div class="part-title">
+        <h2>Vocabulary</h2>
+        <p>Key terms for this assessment</p>
+      </div>
+    </div>
+
+    <p style="font-size:14px; font-weight:300; color:var(--muted); margin-bottom:24px; line-height:1.65">These are the key geographical terms you need to know for this assessment. You must use at least <strong>six</strong> of them in your Part D written response.</p>
+
+    <div class="callout callout-tip" style="margin-bottom:24px">
+      <strong>Plurals and variations are accepted</strong>
+      For example, <em>amenities</em> for <em>amenity</em>, or <em>perceptions</em> for <em>perception</em>.
+    </div>
+
+    <div class="vocab-table">
+        <div class="vocab-row">
+          <div class="vocab-term">Liveability</div>
+          <div class="vocab-defn">How suitable a place is to live in, based on factors such as access to services, safety, environmental quality, and social infrastructure.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Perception</div>
+          <div class="vocab-defn">The way a person sees or interprets a place, which may differ from another person's view depending on their age, background, or experience.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Environmental quality</div>
+          <div class="vocab-defn">The condition of the natural and built environment in a place, including air quality, green space, cleanliness, and the upkeep of infrastructure.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Amenity (amenities)</div>
+          <div class="vocab-defn">A feature of a place that makes it pleasant, convenient or comfortable to live in – such as parks, libraries, footpaths or recreational facilities.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Access to services</div>
+          <div class="vocab-defn">How easily people can reach essential services such as schools, hospitals, public transport, and shops.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Spatial distribution</div>
+          <div class="vocab-defn">The way something is spread across an area or region – for example, where services or green spaces are located.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Secondary data</div>
+          <div class="vocab-defn">Information that has already been collected by someone else, such as census data, statistics, or published reports.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Reliability</div>
+          <div class="vocab-defn">How trustworthy a source of information is – whether it is accurate, up to date, and from a credible organisation.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Interconnection</div>
+          <div class="vocab-defn">The way places, people, and environments are linked and affect each other.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Density</div>
+          <div class="vocab-defn">How concentrated something is within an area – for example, population density measures how many people live per square kilometre.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Planning strategy</div>
+          <div class="vocab-defn">A plan made by government or councils to manage how a place develops or improves over time.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Scale</div>
+          <div class="vocab-defn">The level at which something is studied or occurs – for example, local, regional, national or global scale.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Liveability index</div>
+          <div class="vocab-defn">A measure used to rank or compare how liveable different cities or places are, based on a range of factors.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Urban change</div>
+          <div class="vocab-defn">Changes that occur in towns and cities over time, such as growth, redevelopment, or changes in population.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Sustainability</div>
+          <div class="vocab-defn">Meeting the needs of people today without damaging the environment or reducing resources for future generations.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Wellbeing</div>
+          <div class="vocab-defn">A person's overall quality of life, including their physical health, mental health, safety, and social connections.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Community</div>
+          <div class="vocab-defn">A group of people who live in the same area or share common interests, values, or experiences.</div>
+        </div>
+        <div class="vocab-row">
+          <div class="vocab-term">Quantitative / Qualitative</div>
+          <div class="vocab-defn">Quantitative data uses numbers and statistics. Qualitative data uses descriptions, observations, or opinions.</div>
+        </div>
+    </div>
+  </div>
 
   <!-- ── OVERVIEW ── -->
   <div id="overview" class="tab-panel active">
@@ -1168,105 +1347,8 @@
 
   </div>
 
-  <!-- ── VOCAB ── -->
-  <div id="vocab" class="tab-panel">
-    <div class="part-heading">
-      <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">V</div>
-      <div class="part-title">
-        <h2>Vocabulary</h2>
-        <p>Key terms for this assessment</p>
-      </div>
-    </div>
-    <p style="font-size:14px;font-weight:300;color:var(--muted);margin-bottom:24px;line-height:1.65;">These are the key geographical terms you need to know for this assessment. You must use at least six of them in your Part D written response.</p>
-    <div class="vocab-def-list">
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Liveability</div>
-        <div class="vocab-def-body">How suitable a place is to live in, based on factors such as access to services, safety, environmental quality, and social infrastructure.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Perception</div>
-        <div class="vocab-def-body">The way a person sees or interprets a place, which may differ from another person's view depending on their age, background, or experience.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Environmental quality</div>
-        <div class="vocab-def-body">The condition of the natural and built environment in a place, including air quality, green space, cleanliness, and the upkeep of infrastructure.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Amenity</div>
-        <div class="vocab-def-body">A feature of a place that makes it more attractive or comfortable to live in, such as a park, library, cafe, or sports facility.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Access to services</div>
-        <div class="vocab-def-body">The ability of people in a place to reach essential facilities such as schools, hospitals, public transport, and shops.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Spatial distribution</div>
-        <div class="vocab-def-body">The way features, people, or resources are spread across a geographical area.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Secondary data</div>
-        <div class="vocab-def-body">Information that has already been collected and published by someone else, such as census data, government statistics, or weather records.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Reliability</div>
-        <div class="vocab-def-body">The degree to which a source or piece of data can be trusted to be accurate, current, and free from bias.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Interconnection</div>
-        <div class="vocab-def-body">The way people, places, environments, and events are linked to and affected by each other.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Density</div>
-        <div class="vocab-def-body">The number of people or features within a given area, often used to describe how crowded or spread out a place is.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Planning strategy</div>
-        <div class="vocab-def-body">A deliberate decision made by governments or councils to manage how a place grows, changes, or is used over time.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Scale</div>
-        <div class="vocab-def-body">The level at which a geographical issue is examined, such as local, regional, national, or global.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Liveability index</div>
-        <div class="vocab-def-body">A ranking system used to compare how liveable different cities or places are, based on measurable criteria such as infrastructure, stability, and healthcare.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Urban change</div>
-        <div class="vocab-def-body">The process by which cities and towns grow, shrink, or transform over time due to factors such as population growth, economic activity, or planning decisions.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Sustainability</div>
-        <div class="vocab-def-body">Meeting the needs of people today without compromising the ability of future generations to meet their own needs.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Wellbeing</div>
-        <div class="vocab-def-body">A person's overall quality of life, including their physical health, mental health, social connections, and sense of belonging to a place.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Community</div>
-        <div class="vocab-def-body">A group of people who live in the same place or share common interests, values, or experiences.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Quantitative data</div>
-        <div class="vocab-def-body">Information expressed in numbers, such as population counts, income figures, or rainfall totals.</div>
-      </div>
-      <div class="vocab-def-item">
-        <div class="vocab-def-term">Qualitative data</div>
-        <div class="vocab-def-body">Information expressed in words, descriptions, or observations, such as photographs, interviews, or personal accounts.</div>
-      </div>
-    </div>
-  </div>
-
-    <!-- ── PART A ── -->
+  <!-- ── PART A ── -->
   <div id="partA" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
       <div class="part-number">A</div>
       <div class="part-title">
@@ -1443,13 +1525,6 @@
 
   <!-- ── PART B ── -->
   <div id="partB" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
       <div class="part-number">B</div>
       <div class="part-title">
@@ -1635,80 +1710,149 @@
   </div>
 
   <!-- ── PART C ── -->
-  <div id="partC" class="tab-panel">
-    <div class="under-construction">
-      <div class="uc-icon">🚧</div>
-      <h2>Under Construction</h2>
-      <p>This section is not yet available. Check back soon.</p>
-      <div class="uc-password-area">
-        <p class="uc-teacher-label">Teacher access</p>
-        <input type="password" id="pwC" class="uc-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')unlockTab('C')">
-        <button class="uc-btn" onclick="unlockTab('C')">Unlock</button>
-        <p id="pwC-error" class="uc-error"></p>
-      </div>
-    </div>
-  </div>
   <div id="partC-real" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
-      <div class="part-number">C</div>
+      <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">C</div>
       <div class="part-title">
         <h2>Annotated Photographs</h2>
-        <p>Up to 3 ground-level photographs with at least 4 labels</p>
+        <p>Up to 3 ground-level photographs with at least 4 labels total</p>
       </div>
       <div class="marks-pill">/10 marks</div>
     </div>
 
     <div class="callout callout-warn">
-      <strong>Important – ground-level photos only</strong>
-      Do NOT use aerial or satellite images for Part C. Use Google Street View, a council website, or a reputable news source.
+      <strong>Ground-level photographs only</strong>
+      Do not use aerial or satellite images for Part C. Use Google Street View, a council website, or a reputable news source. You may visit the place in person if you would like to.
     </div>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <h3>Find up to THREE ground-level photographs</h3>
-          <p>Good places to find photos:</p>
+          <h3>Find up to THREE ground-level photographs of your chosen place</h3>
+          <p>Good places to look:</p>
           <ul style="margin-top:8px">
-            <li><strong>Google Street View</strong> – maps.google.com</li>
-            <li>Central Coast Council website</li>
-            <li>A reputable local news source</li>
+            <li><strong>Google Street View</strong> – open the Find Your Place tab and click the Street View link for your place</li>
+            <li><strong>Central Coast Council website</strong> – centralcoast.nsw.gov.au</li>
+            <li><strong>A reputable local news source</strong> – such as the Central Coast Gosford Express Advocate</li>
           </ul>
-          <p style="margin-top:8px">Record the source and date for each photograph in your booklet.</p>
+          <p style="margin-top:10px">Record the <strong>source and date</strong> for each photograph in your booklet.</p>
+          <div class="red-banner" style="margin-top:14px">
+            <div class="red-banner-icon">🚨</div>
+            <div class="red-banner-text">
+              <span>More photographs do not mean more marks.</span>
+              You only need one photograph if it clearly shows four different features you can label. Extra photographs are there to help you – not to earn you more marks.
+            </div>
+          </div>
         </div>
       </div>
+
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
           <h3>Write at least FOUR labels using the same formula as Part A</h3>
-          <div class="callout callout-example" style="margin-top:12px">
-            <strong>Good label example for Part C:</strong>
-            "Cracked footpath [Environmental/Social] – damaged infrastructure reduces safety and accessibility for elderly residents and people with disabilities, reducing liveability."
+          <p>The formula is the same as Part A:</p>
+          <div class="label-formula">
+            <div class="formula-title">The Label Formula</div>
+            <div class="formula-parts">
+              <div class="formula-part">Feature name</div>
+              <div class="formula-plus">+</div>
+              <div class="formula-part">[Factor]</div>
+              <div class="formula-plus">+</div>
+              <div class="formula-part">how it affects liveability</div>
+            </div>
+            <div class="formula-example">
+              "Cracked footpath [Environmental/Social] – damaged infrastructure reduces safety and accessibility for elderly residents and people with disabilities, reducing liveability."
+            </div>
           </div>
-          <p style="margin-top:8px; font-size:14px; font-weight:300">Notice how Part C labels often name a <strong>negative</strong> feature too – that is fine and important for your evaluation.</p>
+          <div class="callout callout-tip" style="margin-top:12px">
+            <strong>Part C labels can be negative</strong>
+            Unlike Part A where most features improve liveability, Part C photographs often show both positives and negatives. A label about something that <em>reduces</em> liveability is just as valid – and important for your evaluation in Step 3.
+          </div>
         </div>
       </div>
+
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
           <h3>Write 2-3 sentences evaluating liveability</h3>
-          <p>You must include <strong>one clear positive</strong> and <strong>one clear negative</strong> observation with specific detail.</p>
+          <p>You must include <strong>one clear positive observation</strong> and <strong>one clear negative observation</strong> with specific detail. Use these sentence starters:</p>
           <div class="starter-list" style="margin-top:12px">
             <div class="starter">One positive aspect of liveability in [place] is… because…</div>
             <div class="starter">However, a negative aspect is… which reduces liveability for…</div>
             <div class="starter">Overall, the photographs suggest that liveability is [judgement] because…</div>
           </div>
+          <div class="callout callout-tip" style="margin-top:14px; margin-bottom:0">
+            These sentences are not separately marked, but do not skip them – they are great practice for Part D and will help you feel confident when you get there.
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- WAGOLL GRADES -->
+    <div class="wagoll-grades">
+      <div class="wagoll-grades-header">
+        <span class="wagoll-grades-title">What does each grade look like?</span>
+        <span class="wagoll-rubric-note">Check your assessment booklet rubric to see which grade you are aiming for</span>
+      </div>
+      <div class="grade-tabs">
+        <button class="grade-tab grade-c active" onclick="switchGradeC('c', this)">C Grade</button>
+        <button class="grade-tab grade-b" onclick="switchGradeC('b', this)">B Grade</button>
+        <button class="grade-tab grade-a" onclick="switchGradeC('a', this)">A Grade</button>
+      </div>
+      <div class="grade-panels">
+
+        <!-- C PANEL -->
+        <div id="gradec-c" class="grade-panel c-panel active">
+          <div class="grade-badge c">C Grade &nbsp;|&nbsp; 5-6 marks</div>
+          <p style="font-size:13.5px; font-weight:300; color:var(--muted); margin-bottom:16px; line-height:1.6">Labels 3+ features, liveability effect described for most, some evaluation present.</p>
+          <div class="label-examples">
+            <div class="label-example">
+              <div class="label-num">Label 1</div>
+              <div class="label-text">Footpath [Environmental] – the footpath is broken which makes it hard for people to walk.</div>
+            </div>
+            <div class="label-example">
+              <div class="label-num">Label 2</div>
+              <div class="label-text">Shops [Economic] – there are shops on the street which is good for the community.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B PANEL -->
+        <div id="gradec-b" class="grade-panel b-panel">
+          <div class="grade-badge b">B Grade &nbsp;|&nbsp; 7-8 marks</div>
+          <p style="font-size:13.5px; font-weight:300; color:var(--muted); margin-bottom:16px; line-height:1.6">Labels 4 features correctly, liveability effect clearly explained, who benefits mentioned, clear positive and negative evaluation.</p>
+          <div class="label-examples">
+            <div class="label-example">
+              <div class="label-num">Label 1</div>
+              <div class="label-text">Cracked footpath [Environmental/Social] – the broken footpath is unsafe for elderly people and families with prams, which reduces liveability by making the area harder to get around.</div>
+            </div>
+            <div class="label-example">
+              <div class="label-num">Label 2</div>
+              <div class="label-text">Row of shops [Economic] – the shops along the main street make it easy for local residents to buy what they need nearby, which improves liveability.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A PANEL -->
+        <div id="gradec-a" class="grade-panel a-panel">
+          <div class="grade-badge a">A Grade &nbsp;|&nbsp; 9-10 marks</div>
+          <p style="font-size:13.5px; font-weight:300; color:var(--muted); margin-bottom:16px; line-height:1.6">Labels 4+ features correctly, liveability effect explained precisely with specific detail, precise geographical vocabulary used naturally.</p>
+          <div class="label-examples">
+            <div class="label-example">
+              <div class="label-num">Label 1</div>
+              <div class="label-text">Cracked footpath [Environmental/Social] – the uneven footpath reduces accessibility for elderly residents and people with disabilities, which lowers the liveability of the area because these groups cannot move through the space safely.</div>
+            </div>
+            <div class="label-example">
+              <div class="label-num">Label 2</div>
+              <div class="label-text">Row of shops [Economic/Social] – the shops along the main street improve liveability by giving residents easy access to services and community amenity close to home, which means people do not have to travel far to meet their daily needs.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <!-- ── PART D ── -->
@@ -1726,13 +1870,6 @@
     </div>
   </div>
   <div id="partD-real" class="tab-panel">
-  <div class="red-banner" style="margin-bottom:32px;">
-    <div class="red-banner-text">
-      <span>Before you begin</span>
-      Your teacher will walk you through this in class, but feel free to explore it beforehand. The examples here show you what a strong response looks like &ndash; they are there to give you ideas and guide your thinking. They are not there to be copied word for word. Using them that way will not help you learn the skills &ndash; and the marker will notice.
-    </div>
-  </div>
-
     <div class="part-heading">
       <div class="part-number">D</div>
       <div class="part-title">
@@ -1767,24 +1904,25 @@
         <div class="step-body">
           <h3>Use at least SIX geographical vocabulary words</h3>
           <p>These words must appear in your written response. Here are all the options:</p>
+          <p style="font-size:13px; font-weight:300; color:var(--muted); margin-bottom:12px; font-style:italic">Appropriate plurals and variations are accepted – for example, <em>amenities</em> for <em>amenity</em>, or <em>perceptions</em> for <em>perception</em>.</p>
           <div class="vocab-grid">
             <div class="vocab-chip">liveability</div>
-            <div class="vocab-chip">perception</div>
+            <div class="vocab-chip">perception (perceptions)</div>
             <div class="vocab-chip">environmental quality</div>
-            <div class="vocab-chip">amenity</div>
+            <div class="vocab-chip">amenity (amenities)</div>
             <div class="vocab-chip">access to services</div>
             <div class="vocab-chip">spatial distribution</div>
             <div class="vocab-chip">secondary data</div>
             <div class="vocab-chip">reliability</div>
-            <div class="vocab-chip">interconnection</div>
-            <div class="vocab-chip">density</div>
-            <div class="vocab-chip">planning strategy</div>
-            <div class="vocab-chip">scale</div>
+            <div class="vocab-chip">interconnection (interconnections)</div>
+            <div class="vocab-chip">density (densities)</div>
+            <div class="vocab-chip">planning strategy (strategies)</div>
+            <div class="vocab-chip">scale (scales)</div>
             <div class="vocab-chip">liveability index</div>
             <div class="vocab-chip">urban change</div>
             <div class="vocab-chip">sustainability</div>
             <div class="vocab-chip">wellbeing</div>
-            <div class="vocab-chip">community</div>
+            <div class="vocab-chip">community (communities)</div>
             <div class="vocab-chip">quantitative / qualitative</div>
           </div>
         </div>
@@ -1954,6 +2092,134 @@
 
   </div>
 
+
+  <!-- ── FIND YOUR PLACE ── -->
+  <div id="findplace" class="tab-panel">
+    <div class="part-heading">
+      <div class="part-number" style="background:var(--teal);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);">📍</div>
+      <div class="part-title">
+        <h2>Find Your Place</h2>
+        <p>Direct links for all six place options – Google Earth, Street View and ABS data</p>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <strong>How to use these links</strong>
+      Each card has three links – one for each part of your task. Use Google Earth for Part A screenshots, Street View for Part C ground-level photos, and ABS QuickStats for your Part B data. Click the link, explore your place, then come back to your booklet.
+    </div>
+
+    <div class="place-grid">
+        <div class="place-card">
+          <div class="place-card-header">
+            <h3>Gosford CBD</h3>
+            <p>Central Coast, NSW 2250</p>
+          </div>
+          <div class="place-card-links">
+            <a class="place-link" href="https://earth.google.com/web/search/Gosford+CBD+NSW" target="_blank">
+              <div class="place-link-icon earth">🛰️</div>
+              <div class="place-link-text">Google Earth<span>Satellite view for Part A</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            <a class="place-link" href="https://www.google.com/maps/@-33.4244,151.3418,3a,75y,90t/data=!3m1!1e1" target="_blank">
+              <div class="place-link-icon street">📍</div>
+              <div class="place-link-text">Google Street View<span>Ground-level photos for Part C</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            </div>
+        </div>
+        <div class="place-card">
+          <div class="place-card-header">
+            <h3>Terrigal Beach Area</h3>
+            <p>Central Coast, NSW 2260</p>
+          </div>
+          <div class="place-card-links">
+            <a class="place-link" href="https://earth.google.com/web/search/Terrigal+NSW" target="_blank">
+              <div class="place-link-icon earth">🛰️</div>
+              <div class="place-link-text">Google Earth<span>Satellite view for Part A</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            <a class="place-link" href="https://www.google.com/maps/@-33.4513,151.4473,3a,75y,90t/data=!3m1!1e1" target="_blank">
+              <div class="place-link-icon street">📍</div>
+              <div class="place-link-text">Google Street View<span>Ground-level photos for Part C</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            </div>
+        </div>
+        <div class="place-card">
+          <div class="place-card-header">
+            <h3>Woy Woy Town Centre</h3>
+            <p>Central Coast, NSW 2256</p>
+          </div>
+          <div class="place-card-links">
+            <a class="place-link" href="https://earth.google.com/web/search/Woy+Woy+NSW" target="_blank">
+              <div class="place-link-icon earth">🛰️</div>
+              <div class="place-link-text">Google Earth<span>Satellite view for Part A</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            <a class="place-link" href="https://www.google.com/maps/@-33.4848,151.3232,3a,75y,90t/data=!3m1!1e1" target="_blank">
+              <div class="place-link-icon street">📍</div>
+              <div class="place-link-text">Google Street View<span>Ground-level photos for Part C</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            </div>
+        </div>
+        <div class="place-card">
+          <div class="place-card-header">
+            <h3>The Entrance</h3>
+            <p>Central Coast, NSW 2261</p>
+          </div>
+          <div class="place-card-links">
+            <a class="place-link" href="https://earth.google.com/web/search/The+Entrance+NSW" target="_blank">
+              <div class="place-link-icon earth">🛰️</div>
+              <div class="place-link-text">Google Earth<span>Satellite view for Part A</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            <a class="place-link" href="https://www.google.com/maps/@-33.3415,151.4977,3a,75y,90t/data=!3m1!1e1" target="_blank">
+              <div class="place-link-icon street">📍</div>
+              <div class="place-link-text">Google Street View<span>Ground-level photos for Part C</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            </div>
+        </div>
+        <div class="place-card">
+          <div class="place-card-header">
+            <h3>Tuggerah Town Centre</h3>
+            <p>Central Coast, NSW 2259</p>
+          </div>
+          <div class="place-card-links">
+            <a class="place-link" href="https://earth.google.com/web/search/Tuggerah+NSW" target="_blank">
+              <div class="place-link-icon earth">🛰️</div>
+              <div class="place-link-text">Google Earth<span>Satellite view for Part A</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            <a class="place-link" href="https://www.google.com/maps/@-33.3208,151.4163,3a,75y,90t/data=!3m1!1e1" target="_blank">
+              <div class="place-link-icon street">📍</div>
+              <div class="place-link-text">Google Street View<span>Ground-level photos for Part C</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            </div>
+        </div>
+        <div class="place-card">
+          <div class="place-card-header">
+            <h3>Erina Fair Area</h3>
+            <p>Central Coast, NSW 2250</p>
+          </div>
+          <div class="place-card-links">
+            <a class="place-link" href="https://earth.google.com/web/search/Erina+NSW" target="_blank">
+              <div class="place-link-icon earth">🛰️</div>
+              <div class="place-link-text">Google Earth<span>Satellite view for Part A</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            <a class="place-link" href="https://www.google.com/maps/@-33.4333,151.3857,3a,75y,90t/data=!3m1!1e1" target="_blank">
+              <div class="place-link-icon street">📍</div>
+              <div class="place-link-text">Google Street View<span>Ground-level photos for Part C</span></div>
+              <div class="place-link-arrow">→</div>
+            </a>
+            </div>
+        </div>
+    </div>
+  </div>
+
 </main>
 
 <footer>
@@ -2103,6 +2369,13 @@
       input.value = '';
       input.focus();
     }
+  }
+
+  function switchGradeC(grade, btn) {
+    document.querySelectorAll('#gradec-c, #gradec-b, #gradec-a').forEach(p => p.classList.remove('active'));
+    btn.closest('.grade-tabs').querySelectorAll('.grade-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('gradec-' + grade).classList.add('active');
+    btn.classList.add('active');
   }
 
   function switchGrade(grade, btn) {
