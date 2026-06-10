@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Videos – Liveability of Places</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#2d2a4a;
+  --teal:#6ab4c8;
+  --lteal:#a8d8e8;
+  --dteal:#4a7fa5;
+  --cream:#f0f0f8;
+  --yellow:#c8b8f0;
+  --white:#ffffff;
+  --text:#2a2540;
+  --muted:#6b6890;
+  --border:#d0cce8;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* HERO */
+header{
+  background:var(--navy);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+header::before{
+  content:'';
+  position:absolute;
+  top:-60px;right:-80px;
+  width:320px;height:320px;
+  background:var(--teal);
+  opacity:.12;
+  border-radius:50%;
+}
+header::after{
+  content:'';
+  position:absolute;
+  bottom:-40px;left:40px;
+  width:180px;height:180px;
+  background:var(--yellow);
+  opacity:.08;
+  border-radius:50%;
+}
+.header-inner{
+  max-width:960px;
+  margin:0 auto;
+  padding:44px 32px 36px;
+  position:relative;
+  z-index:1;
+}
+.header-label{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--teal);
+  margin-bottom:10px;
+}
+header h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(24px,4vw,40px);
+  color:var(--white);
+  line-height:1.15;
+  margin-bottom:8px;
+}
+header h1 em{
+  color:var(--yellow);
+  font-style:italic;
+}
+.header-sub{
+  font-size:14px;
+  color:var(--lteal);
+  font-weight:300;
+  max-width:560px;
+  line-height:1.6;
+}
+
+/* STICKY LESSON NAV */
+.lesson-nav{
+  background:var(--dteal);
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.18);
+}
+.lesson-nav-inner{
+  max-width:960px;
+  margin:0 auto;
+  display:flex;
+  padding:0 16px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.lesson-nav-inner::-webkit-scrollbar{display:none}
+.nav-btn{
+  flex-shrink:0;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  color:rgba(255,255,255,.65);
+  padding:14px 20px;
+  position:relative;
+  transition:color .2s;
+  white-space:nowrap;
+}
+.nav-btn::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:20px;right:20px;
+  height:3px;
+  background:var(--yellow);
+  border-radius:2px 2px 0 0;
+  transform:scaleX(0);
+  transition:transform .2s;
+}
+.nav-btn:hover{color:rgba(255,255,255,.9)}
+.nav-btn:hover::after{transform:scaleX(1)}
+
+/* MAIN */
+main{
+  max-width:960px;
+  margin:0 auto;
+  padding:40px 24px 80px;
+}
+
+/* LESSON SECTION */
+.lesson{margin-bottom:48px}
+.lesson-header{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom:2px solid var(--border);
+}
+.lesson-code{
+  font-family:'DM Serif Display',serif;
+  font-size:22px;
+  color:var(--navy);
+  flex-shrink:0;
+}
+.lesson-topic{
+  font-size:15px;
+  font-weight:500;
+  color:var(--navy);
+}
+
+/* VIDEO GRID */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;
+}
+
+/* VIDEO CARD */
+.video-card{
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  text-decoration:none;
+  color:inherit;
+  display:flex;
+  flex-direction:column;
+  transition:box-shadow .2s,border-color .2s,transform .15s;
+}
+.video-card:hover{
+  box-shadow:0 6px 24px rgba(45,42,74,.1);
+  border-color:var(--teal);
+  transform:translateY(-2px);
+}
+
+/* THUMBNAIL AREA */
+.thumb{
+  background:var(--navy);
+  height:160px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.thumb::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(74,127,165,.3) 0%,transparent 60%);
+}
+.thumb-play{
+  width:52px;height:52px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  border:2px solid rgba(255,255,255,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:1;
+  transition:background .2s,transform .2s;
+}
+.video-card:hover .thumb-play{
+  background:rgba(255,255,255,.25);
+  transform:scale(1.08);
+}
+.thumb-play svg{
+  width:20px;height:20px;
+  fill:white;
+  margin-left:3px;
+}
+
+/* SOURCE BADGE */
+.source-badge{
+  position:absolute;
+  bottom:10px;left:12px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  padding:3px 8px;
+  border-radius:6px;
+  z-index:1;
+}
+.badge-yt{background:#c0392b;color:#fff}
+.badge-abc{background:#1976d2;color:#fff}
+.badge-ted{background:#e03c1e;color:#fff}
+.badge-cv{background:#2e7d32;color:#fff}
+.badge-wiki{background:#555;color:#fff}
+.badge-cool{background:#00796b;color:#fff}
+.badge-other{background:#5e35b1;color:#fff}
+
+/* THUMB ACCENT LINES */
+.thumb-lines{
+  position:absolute;
+  inset:0;
+  opacity:.08;
+  background-image:repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.5) 0,
+    rgba(255,255,255,.5) 1px,
+    transparent 1px,
+    transparent 40px
+  );
+}
+
+/* DURATION BADGE */
+.duration{
+  position:absolute;
+  bottom:10px;right:12px;
+  background:rgba(0,0,0,.6);
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  padding:3px 8px;
+  border-radius:6px;
+  z-index:1;
+}
+
+/* CARD BODY */
+.card-body{
+  padding:14px 16px 16px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.card-title{
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--navy);
+  line-height:1.4;
+}
+.card-desc{
+  font-size:12.5px;
+  color:var(--muted);
+  font-weight:300;
+  line-height:1.5;
+  flex:1;
+}
+.card-arrow{
+  font-size:12px;
+  color:var(--teal);
+  font-weight:600;
+  margin-top:4px;
+  opacity:0;
+  transition:opacity .2s;
+}
+.video-card:hover .card-arrow{opacity:1}
+
+/* RESOURCE LINK (non-video) */
+.resource-card{
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  text-decoration:none;
+  color:inherit;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  transition:box-shadow .2s,border-color .2s;
+}
+.resource-card:hover{
+  box-shadow:0 4px 16px rgba(45,42,74,.09);
+  border-color:var(--teal);
+}
+.resource-icon{
+  width:42px;height:42px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  flex-shrink:0;
+}
+.resource-info{flex:1}
+.resource-title{
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--navy);
+  line-height:1.35;
+}
+.resource-desc{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:300;
+  margin-top:2px;
+}
+.resource-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:4px;
+}
+.time-pill{
+  font-size:11px;
+  font-weight:700;
+  color:var(--dteal);
+  background:#eef6f9;
+  border-radius:10px;
+  padding:2px 9px;
+  white-space:nowrap;
+}
+.link-arrow{
+  font-size:14px;
+  color:var(--teal);
+  opacity:0;
+  transition:opacity .2s;
+}
+.resource-card:hover .link-arrow{opacity:1}
+
+/* NOTE */
+.page-note{
+  margin-top:40px;
+  padding:16px 20px;
+  background:rgba(106,180,200,.1);
+  border-left:3px solid var(--teal);
+  border-radius:0 10px 10px 0;
+  font-size:12.5px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* BACK LINK */
+.back-bar{
+  background:var(--navy);
+  padding:12px 24px;
+}
+.back-bar a{
+  font-size:13px;
+  color:var(--lteal);
+  text-decoration:none;
+  font-weight:500;
+}
+.back-bar a:hover{color:#fff}
+
+footer{
+  background:var(--navy);
+  color:rgba(255,255,255,.4);
+  font-size:12px;
+  text-align:center;
+  padding:18px;
+  font-weight:300;
+}
+
+@media(max-width:600px){
+  .video-grid{grid-template-columns:1fr}
+  .header-inner{padding:32px 20px 28px}
+}
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="assessment.html">← Back to Assessment</a>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="header-label">Year 7 Geography &nbsp;|&nbsp; Term 2, 2026</div>
+    <h1>As we close out on <em>Liveability of Places...</em></h1>
+    <p class="header-sub">You might find these videos useful or enjoyable to watch. Click any card to open the link in a new tab.</p>
+  </div>
+</header>
+
+<nav class="lesson-nav" aria-label="Jump to lesson">
+  <div class="lesson-nav-inner">
+    <button class="nav-btn" onclick="jump('l20')">L20 – What is liveability?</button>
+    <button class="nav-btn" onclick="jump('l21')">L21 – Data and graphs</button>
+    <button class="nav-btn" onclick="jump('l22')">L22 – Environmental quality</button>
+    <button class="nav-btn" onclick="jump('l23')">L23 – PEEL writing</button>
+    <button class="nav-btn" onclick="jump('l24')">L24 – Planning strategies</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- L20 -->
+<section class="lesson" id="l20">
+  <div class="lesson-header">
+    <span class="lesson-code">L20</span>
+    <span class="lesson-topic">What is liveability, and the four factors</span>
+  </div>
+  <div class="video-grid">
+
+    <a class="video-card" href="https://youtu.be/yJhpdiao8Dg" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-abc">ABC News</span>
+        <span class="duration">4.5 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Liveability census shows Australians happy with where they live</div>
+        <div class="card-desc">How Australians feel about where they live. A strong opening hook for the whole unit.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/VrKVQzaisa0" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">5.5 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Top 10 Most Liveable Cities 2021 – Adelaide, Auckland, Osaka, Zurich</div>
+        <div class="card-desc">Quick tour of the world's most liveable cities and why they rank so highly. Links directly to the four factors.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/RdEIBtFu5B8" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~6 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">What Makes a City Liveable?</div>
+        <div class="card-desc">Breaks down the key factors that researchers and planners use to measure how liveable a city is.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://en.wikipedia.org/wiki/Global_Liveability_Ranking" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#eef6f9">🌏</div>
+      <div class="resource-info">
+        <div class="resource-title">Global Liveability Ranking – Wikipedia</div>
+        <div class="resource-desc">See where Sydney and Melbourne rank and what factors are scored by the Economist Intelligence Unit.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">~5 min</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://www.coolaustralia.org/activity/blue-liveability-geography-year-7/" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#e0f7f4">🌱</div>
+      <div class="resource-info">
+        <div class="resource-title">Cool.org – Blue: Liveability (Year 7)</div>
+        <div class="resource-desc">A free full clip-led lesson if you want to go deeper than a filler clip.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">Full lesson</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- L21 -->
+<section class="lesson" id="l21">
+  <div class="lesson-header">
+    <span class="lesson-code">L21</span>
+    <span class="lesson-topic">Secondary data, reliability and reading a graph</span>
+  </div>
+  <div class="video-grid">
+
+    <a class="video-card" href="https://youtu.be/GShvK5jj7Os?si=QfW1CfH2QhSVLVmJ" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-abc">ABC BTN</span>
+        <span class="duration">4 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Australia's 2021 Census – Behind the News</div>
+        <div class="card-desc">Where official data comes from and why it is reliable. Great for understanding secondary data before Part B.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/fk-iFv5_Rdo?si=-aJeC-de_26LIok8" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">3 min 20 sec</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Making a Column Graph in Excel</div>
+        <div class="card-desc">A quick step-by-step walkthrough. Watch this before you build your Part B graph.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/sxYrzzy3cq8?si=X6PX0dab4hnsTY3U" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-ted">TED-Ed</span>
+        <span class="duration">4 min 20 sec</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">How Statistics Can Be Misleading – Mark Liddell</div>
+        <div class="card-desc">Covers limitations and reliability of data. A great discussion starter before writing your interpretation.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/hVimVzgtD6w" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~5 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">How to Read and Interpret a Graph</div>
+        <div class="card-desc">Explains titles, axes, units, trends and patterns — everything you need before writing your graph interpretation.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://www.clickview.net/secondary/videos/64099074/interpreting-data" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#e8f5e9">📊</div>
+      <div class="resource-info">
+        <div class="resource-title">ClickView – Interpreting Data</div>
+        <div class="resource-desc">Curriculum-aligned graph reading. School login required.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">3 min 20 sec</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- L22 -->
+<section class="lesson" id="l22">
+  <div class="lesson-header">
+    <span class="lesson-code">L22</span>
+    <span class="lesson-topic">Environmental quality, physical and human influences</span>
+  </div>
+  <div class="video-grid">
+
+    <a class="video-card" href="https://youtu.be/sFg-6d_3ets" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~5 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Urban Heat Island Effect Explained</div>
+        <div class="card-desc">How human changes to cities make them hotter — a key example of how people affect environmental quality.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/Wpzvaqypav8" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-abc">ABC</span>
+        <span class="duration">~4 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Australia's Urban Heat Problem</div>
+        <div class="card-desc">Australian examples of the physical versus human split in environmental quality. Real places, real data.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/nq3Iu3W3kUo" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-ted">TED-Ed</span>
+        <span class="duration">~5 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">How Green Spaces Make Cities Healthier</div>
+        <div class="card-desc">Looks at how parks and trees improve environmental quality and wellbeing in urban areas.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/CXVhvdDEcpE" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~6 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Why Air Quality Matters for Cities</div>
+        <div class="card-desc">Air pollution as a liveability factor — what causes it, how it is measured, and what cities can do.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://www.abc.net.au/education" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#e8f4ff">📺</div>
+      <div class="resource-info">
+        <div class="resource-title">ABC Education – search "urban heat"</div>
+        <div class="resource-desc">More Australian clips on environmental quality. Ad-free and curriculum-aligned.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">Various</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- L23 -->
+<section class="lesson" id="l23">
+  <div class="lesson-header">
+    <span class="lesson-code">L23</span>
+    <span class="lesson-topic">PEEL paragraphs and geographical vocabulary</span>
+  </div>
+  <div class="video-grid">
+
+    <a class="video-card" href="https://youtu.be/4AZkOm0_NwE" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~4 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">PEEL Paragraph Structure Explained</div>
+        <div class="card-desc">Models the Point–Evidence–Explanation–Link structure before you write Part D. Clear and easy to follow.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/Yj5CgCx7VCo" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~6 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">How to Write an Extended Response</div>
+        <div class="card-desc">Walks through a full extended response from planning to final paragraph — exactly what you need for Part D.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/N9K5WMqVHF0" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~5 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Using Evidence in Your Writing</div>
+        <div class="card-desc">How to link your data and observations from Parts A, B and C back into a written argument.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://quizlet.com" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#f3f0ff">🃏</div>
+      <div class="resource-info">
+        <div class="resource-title">Quizlet or Blooket – your 12 vocabulary terms</div>
+        <div class="resource-desc">A vocabulary brain break. Sometimes a game beats a clip.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">~5 min</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://www.clickview.com.au" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#e8f5e9">📊</div>
+      <div class="resource-info">
+        <div class="resource-title">ClickView – search "writing an extended response"</div>
+        <div class="resource-desc">Curriculum-aligned paragraph structure support. School login required.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">~4 min</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- L24 -->
+<section class="lesson" id="l24">
+  <div class="lesson-header">
+    <span class="lesson-code">L24</span>
+    <span class="lesson-topic">Planning strategies, recommendations and the 15-minute city</span>
+  </div>
+  <div class="video-grid">
+
+    <a class="video-card" href="https://www.ted.com/talks/carlos_moreno_the_15_minute_city" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-ted">TED</span>
+        <span class="duration">15 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The 15-Minute City – Carlos Moreno</div>
+        <div class="card-desc">The clearest hook for planning strategies. Even just the first five minutes is worth watching.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://www.ted.com/talks/jeff_speck_4_ways_to_make_a_city_more_walkable" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-ted">TED</span>
+        <span class="duration">12 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">4 Ways to Make a City More Walkable – Jeff Speck</div>
+        <div class="card-desc">Transport and accessibility planning strategies done well. Great examples for your recommendation.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/gB7EDJvNFVw" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~7 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">How Cities Are Designed to Improve Liveability</div>
+        <div class="card-desc">Real-world examples of planning strategies that have improved liveability — good for generating recommendation ideas.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/eGSCRGM7vGk" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~8 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The Future of Urban Planning</div>
+        <div class="card-desc">Looks at how planners think about sustainability, accessibility and environmental quality together.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="video-card" href="https://youtu.be/N_bCkjfDDCw" target="_blank" rel="noopener">
+      <div class="thumb">
+        <div class="thumb-lines"></div>
+        <div class="thumb-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="source-badge badge-yt">YouTube</span>
+        <span class="duration">~10 min</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Singapore: World's Most Liveable City?</div>
+        <div class="card-desc">A detailed case study of planning strategies in action — green infrastructure, transport, density and more.</div>
+        <div class="card-arrow">Watch ↗</div>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://ed.ted.com/blog/2021/12/13/these-8-cities-around-the-world-are-putting-their-focus-on-biking-and-walking" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#fff0ed">🚲</div>
+      <div class="resource-info">
+        <div class="resource-title">TED-Ed – 8 cities focusing on biking and walking</div>
+        <div class="resource-desc">A quick read on real-world planning strategies around the globe.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">5 min read</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="resource-card" href="https://www.abc.net.au/btn" target="_blank" rel="noopener">
+      <div class="resource-icon" style="background:#e8f4ff">📺</div>
+      <div class="resource-info">
+        <div class="resource-title">ABC BTN – search "Caring for Country"</div>
+        <div class="resource-desc">Australian planning and the Caring for Country angle. Ad-free.</div>
+      </div>
+      <div class="resource-right">
+        <span class="time-pill">~4 min</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<p class="page-note">ABC (BTN and ABC Education) and ClickView are ad-free and curriculum-aligned. ClickView requires a school login. All other links open YouTube, TED or external websites. Preview before class if you are unsure about a clip.</p>
+
+</main>
+
+<footer>Year 7 Geography &nbsp;|&nbsp; Liveability of Places &nbsp;|&nbsp; Term 2, 2026</footer>
+
+<script>
+function jump(id){
+  const el=document.getElementById(id);
+  if(el){const y=el.getBoundingClientRect().top+window.scrollY-60;window.scrollTo({top:y,behavior:'smooth'});}
+}
+</script>
+</body>
+</html>
