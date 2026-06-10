@@ -1178,6 +1178,86 @@
     margin-bottom: 12px;
   }
 
+  /* ── FEEDBACK FOOTER ── */
+  .feedback-section {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1.5px solid var(--border);
+  }
+  .feedback-inner {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .feedback-inner h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .feedback-inner p {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .feedback-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 500px) { .feedback-fields { grid-template-columns: 1fr; } }
+  .feedback-field label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .feedback-field input,
+  .feedback-field select,
+  .feedback-field textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .feedback-field input:focus,
+  .feedback-field select:focus,
+  .feedback-field textarea:focus { border-color: var(--teal); }
+  .feedback-field.full { grid-column: 1 / -1; }
+  .feedback-error {
+    font-size: 12px;
+    color: #c0392b;
+    margin-bottom: 8px;
+    min-height: 16px;
+  }
+  .feedback-btn {
+    padding: 10px 22px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .feedback-btn:hover { background: var(--dteal); }
+
   /* ── RED BANNER ── */
   .red-banner {
     background: #c0392b;
@@ -1411,6 +1491,34 @@
           <div class="vocab-defn">Quantitative data uses numbers and statistics. Qualitative data uses descriptions, observations, or opinions.</div>
         </div>
     </div>
+    <div class="feedback-section">
+      <div class="feedback-inner">
+        <h4>Found something wrong or confusing?</h4>
+        <p>If you spot an error, a broken link, or something that does not make sense, let us know. Be as descriptive as you can – tell us exactly what you found and where.</p>
+        <div class="feedback-fields">
+          <div class="feedback-field">
+            <label>Your full name</label>
+            <input type="text" class="fb-name" placeholder="e.g. James Smith">
+          </div>
+          <div class="feedback-field">
+            <label>Your class</label>
+            <select class="fb-class">
+              <option value="">Select your class</option>
+              <option>7C</option>
+              <option>7H</option>
+              <option>7R</option>
+            </select>
+          </div>
+          <div class="feedback-field full">
+            <label>What did you find? Where was it?</label>
+            <textarea class="fb-message" rows="3" placeholder="e.g. On the Part A tab, the label formula example uses the wrong factor. It says [Political] but I think it should be [Social]."></textarea>
+          </div>
+        </div>
+        <p class="feedback-error fb-error"></p>
+        <button class="feedback-btn" onclick="sendFeedback(this)">Send feedback</button>
+      </div>
+    </div>
+
   </div>
 
   <!-- ── OVERVIEW ── -->
@@ -1639,6 +1747,34 @@
     </div>
 
     </div>
+    <div class="feedback-section">
+      <div class="feedback-inner">
+        <h4>Found something wrong or confusing?</h4>
+        <p>If you spot an error, a broken link, or something that does not make sense, let us know. Be as descriptive as you can – tell us exactly what you found and where.</p>
+        <div class="feedback-fields">
+          <div class="feedback-field">
+            <label>Your full name</label>
+            <input type="text" class="fb-name" placeholder="e.g. James Smith">
+          </div>
+          <div class="feedback-field">
+            <label>Your class</label>
+            <select class="fb-class">
+              <option value="">Select your class</option>
+              <option>7C</option>
+              <option>7H</option>
+              <option>7R</option>
+            </select>
+          </div>
+          <div class="feedback-field full">
+            <label>What did you find? Where was it?</label>
+            <textarea class="fb-message" rows="3" placeholder="e.g. On the Part A tab, the label formula example uses the wrong factor. It says [Political] but I think it should be [Social]."></textarea>
+          </div>
+        </div>
+        <p class="feedback-error fb-error"></p>
+        <button class="feedback-btn" onclick="sendFeedback(this)">Send feedback</button>
+      </div>
+    </div>
+
   </div>
 
   <!-- ── PART B ── -->
@@ -1825,6 +1961,34 @@
         </div>
       </div>
     </div>
+    <div class="feedback-section">
+      <div class="feedback-inner">
+        <h4>Found something wrong or confusing?</h4>
+        <p>If you spot an error, a broken link, or something that does not make sense, let us know. Be as descriptive as you can – tell us exactly what you found and where.</p>
+        <div class="feedback-fields">
+          <div class="feedback-field">
+            <label>Your full name</label>
+            <input type="text" class="fb-name" placeholder="e.g. James Smith">
+          </div>
+          <div class="feedback-field">
+            <label>Your class</label>
+            <select class="fb-class">
+              <option value="">Select your class</option>
+              <option>7C</option>
+              <option>7H</option>
+              <option>7R</option>
+            </select>
+          </div>
+          <div class="feedback-field full">
+            <label>What did you find? Where was it?</label>
+            <textarea class="fb-message" rows="3" placeholder="e.g. On the Part A tab, the label formula example uses the wrong factor. It says [Political] but I think it should be [Social]."></textarea>
+          </div>
+        </div>
+        <p class="feedback-error fb-error"></p>
+        <button class="feedback-btn" onclick="sendFeedback(this)">Send feedback</button>
+      </div>
+    </div>
+
   </div>
 
   <!-- ── PART C ── -->
@@ -1968,6 +2132,34 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <div class="feedback-section">
+      <div class="feedback-inner">
+        <h4>Found something wrong or confusing?</h4>
+        <p>If you spot an error, a broken link, or something that does not make sense, let us know. Be as descriptive as you can – tell us exactly what you found and where.</p>
+        <div class="feedback-fields">
+          <div class="feedback-field">
+            <label>Your full name</label>
+            <input type="text" class="fb-name" placeholder="e.g. James Smith">
+          </div>
+          <div class="feedback-field">
+            <label>Your class</label>
+            <select class="fb-class">
+              <option value="">Select your class</option>
+              <option>7C</option>
+              <option>7H</option>
+              <option>7R</option>
+            </select>
+          </div>
+          <div class="feedback-field full">
+            <label>What did you find? Where was it?</label>
+            <textarea class="fb-message" rows="3" placeholder="e.g. On the Part A tab, the label formula example uses the wrong factor. It says [Political] but I think it should be [Social]."></textarea>
+          </div>
+        </div>
+        <p class="feedback-error fb-error"></p>
+        <button class="feedback-btn" onclick="sendFeedback(this)">Send feedback</button>
       </div>
     </div>
 
@@ -2208,6 +2400,34 @@
       <p class="submit-note">This will open your email app with your results pre-filled. Just press send.</p>
     </div>
 
+    <div class="feedback-section">
+      <div class="feedback-inner">
+        <h4>Found something wrong or confusing?</h4>
+        <p>If you spot an error, a broken link, or something that does not make sense, let us know. Be as descriptive as you can – tell us exactly what you found and where.</p>
+        <div class="feedback-fields">
+          <div class="feedback-field">
+            <label>Your full name</label>
+            <input type="text" class="fb-name" placeholder="e.g. James Smith">
+          </div>
+          <div class="feedback-field">
+            <label>Your class</label>
+            <select class="fb-class">
+              <option value="">Select your class</option>
+              <option>7C</option>
+              <option>7H</option>
+              <option>7R</option>
+            </select>
+          </div>
+          <div class="feedback-field full">
+            <label>What did you find? Where was it?</label>
+            <textarea class="fb-message" rows="3" placeholder="e.g. On the Part A tab, the label formula example uses the wrong factor. It says [Political] but I think it should be [Social]."></textarea>
+          </div>
+        </div>
+        <p class="feedback-error fb-error"></p>
+        <button class="feedback-btn" onclick="sendFeedback(this)">Send feedback</button>
+      </div>
+    </div>
+
   </div>
 
 
@@ -2223,7 +2443,7 @@
 
     <div class="callout callout-tip">
       <strong>How to use these links</strong>
-      Each card has four links. Use Google Earth for Part A screenshots, Street View for Part C ground-level photos, ABS QuickStats for census data, and BOM for climate and rainfall data – both useful for Part B. Click the link, explore your place, then come back to your booklet.
+      Each card has five links. Use Google Earth for Part A screenshots, Street View for Part C ground-level photos, ABS QuickStats or BOM for Part B data, and the Community Profile for additional suburb data. Click the link, explore your place, then come back to your booklet.
     </div>
 
     <!-- HINT CARDS -->
@@ -2233,8 +2453,8 @@
     </div>
     <div class="hint-grid">
       <div class="hint-card" onclick="toggleHint('hint-abs')">
-        <div class="hint-card-top">
-          <span class="hint-icon">📊</span>
+        <div class="hint-card-top" style="background:#4a7fa5;">
+          <span class="hint-icon">📈</span>
           <div>
             <div class="hint-title">ABS QuickStats</div>
             <div class="hint-sub">Click for tips</div>
@@ -2247,7 +2467,7 @@
         </div>
       </div>
       <div class="hint-card" onclick="toggleHint('hint-bom')">
-        <div class="hint-card-top">
+        <div class="hint-card-top" style="background:#6a5acd;">
           <span class="hint-icon">🌧️</span>
           <div>
             <div class="hint-title">BOM Climate Data</div>
@@ -2261,7 +2481,7 @@
         </div>
       </div>
       <div class="hint-card" onclick="toggleHint('hint-profile')">
-        <div class="hint-card-top">
+        <div class="hint-card-top" style="background:#2d7a6a;">
           <span class="hint-icon">🏘️</span>
           <div>
             <div class="hint-title">Community Profile</div>
@@ -2484,6 +2704,34 @@
     </div>
 
   </div>
+    <div class="feedback-section">
+      <div class="feedback-inner">
+        <h4>Found something wrong or confusing?</h4>
+        <p>If you spot an error, a broken link, or something that does not make sense, let us know. Be as descriptive as you can – tell us exactly what you found and where.</p>
+        <div class="feedback-fields">
+          <div class="feedback-field">
+            <label>Your full name</label>
+            <input type="text" class="fb-name" placeholder="e.g. James Smith">
+          </div>
+          <div class="feedback-field">
+            <label>Your class</label>
+            <select class="fb-class">
+              <option value="">Select your class</option>
+              <option>7C</option>
+              <option>7H</option>
+              <option>7R</option>
+            </select>
+          </div>
+          <div class="feedback-field full">
+            <label>What did you find? Where was it?</label>
+            <textarea class="fb-message" rows="3" placeholder="e.g. On the Part A tab, the label formula example uses the wrong factor. It says [Political] but I think it should be [Social]."></textarea>
+          </div>
+        </div>
+        <p class="feedback-error fb-error"></p>
+        <button class="feedback-btn" onclick="sendFeedback(this)">Send feedback</button>
+      </div>
+    </div>
+
   </div>
 
 </main>
@@ -2602,7 +2850,35 @@
     window.location.href = 'mailto:michelle.perkins@spcc.nsw.edu.au?subject=' + subject + '&body=' + body;
   }
 
-    const PASSWORD = 'LiveLoveGeo';
+    function sendFeedback(btn) {
+    const section = btn.closest('.feedback-section');
+    const name = section.querySelector('.fb-name').value.trim();
+    const cls = section.querySelector('.fb-class').value;
+    const message = section.querySelector('.fb-message').value.trim();
+    const error = section.querySelector('.fb-error');
+
+    if (!name) { error.textContent = 'Please enter your name.'; return; }
+    if (!cls) { error.textContent = 'Please select your class.'; return; }
+    if (!message) { error.textContent = 'Please describe what you found.'; return; }
+    if (message.length < 20) { error.textContent = 'Please be more descriptive – tell us exactly what you found and where.'; return; }
+
+    error.textContent = '';
+
+    // Work out which tab they are on
+    const activeTab = document.querySelector('.tab-btn.active');
+    const tabName = activeTab ? activeTab.textContent.trim() : 'Unknown tab';
+
+    const subject = encodeURIComponent('Website Feedback – ' + name + ' – ' + cls);
+    const body = encodeURIComponent(
+      'Student: ' + name + '\n' +
+      'Class: ' + cls + '\n' +
+      'Tab: ' + tabName + '\n\n' +
+      'Feedback:\n' + message
+    );
+    window.location.href = 'mailto:michelle.perkins@spcc.nsw.edu.au?subject=' + subject + '&body=' + body;
+  }
+
+  const PASSWORD = 'LiveLoveGeo';
 
   function switchTab(id, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
