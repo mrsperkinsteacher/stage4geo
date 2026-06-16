@@ -1394,7 +1394,7 @@
     <button class="tab-btn" role="tab" onclick="switchTab('partA', this)">Part A <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="switchTab('partB', this)">Part B <span class="tab-mark">/10</span></button>
     <button class="tab-btn" role="tab" onclick="switchTab('partC-real', this)">Part C <span class="tab-mark">/10</span></button>
-    <button class="tab-btn" role="tab" onclick="lockedTab(this)">Part D <span class="tab-mark">🔒</span></button>
+    <button class="tab-btn" role="tab" onclick="switchTab('partD-real', this)">Part D <span class="tab-mark">/20</span></button>
     <button class="tab-btn" role="tab" onclick="switchTab('rubric', this)">Part A Self Assess</button>
     <button class="tab-btn" role="tab" onclick="window.open('videos.html','_blank')">Videos</button>
   </div>
@@ -2169,20 +2169,7 @@
   </div>
 
   <!-- ── PART D ── -->
-  <div id="partD" class="tab-panel">
-    <div class="under-construction">
-      <div class="uc-icon">🚧</div>
-      <h2>Under Construction</h2>
-      <p>This section is not yet available. Check back soon.</p>
-      <div class="uc-password-area">
-        <p class="uc-teacher-label">Teacher access</p>
-        <input type="password" id="pwD" class="uc-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')unlockTab('D')">
-        <button class="uc-btn" onclick="unlockTab('D')">Unlock</button>
-        <p id="pwD-error" class="uc-error"></p>
-      </div>
-    </div>
-  </div>
-  <div id="partD-real" class="tab-panel">
+   <div id="partD-real" class="tab-panel">
     <div class="part-heading">
       <div class="part-number">D</div>
       <div class="part-title">
