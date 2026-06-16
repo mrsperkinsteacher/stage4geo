@@ -1373,6 +1373,149 @@
     font-weight: 300;
   }
   footer a { color: var(--teal); text-decoration: none; }
+
+  /* ── PART D ACCORDION ── */
+  .partd-accordion {
+    margin: 28px 0 8px 0;
+  }
+  .partd-accordion-intro {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .partd-own-words {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #92400e;
+    margin-bottom: 20px;
+  }
+  details.partd-section {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  details.partd-section[open] {
+    border-color: var(--teal);
+  }
+  details.partd-section summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    cursor: pointer;
+    list-style: none;
+    background: var(--cream);
+    user-select: none;
+  }
+  details.partd-section[open] summary {
+    background: var(--teal);
+    color: #fff;
+  }
+  details.partd-section summary::-webkit-details-marker { display: none; }
+  .partd-summary-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  details.partd-section[open] .partd-summary-num {
+    background: #fff;
+    color: var(--teal);
+  }
+  .partd-summary-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    flex: 1;
+  }
+  details.partd-section[open] .partd-summary-title {
+    color: #fff;
+  }
+  .partd-summary-arrow {
+    font-size: 12px;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+  details.partd-section[open] .partd-summary-arrow {
+    transform: rotate(180deg);
+    color: #fff;
+  }
+  .partd-section-body {
+    padding: 18px 20px 20px 20px;
+  }
+  .partd-checklist {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.9;
+    margin-bottom: 16px;
+    padding-left: 18px;
+  }
+  .partd-grades {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .partd-grade-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .partd-grade-badge {
+    font-size: 13px;
+    font-weight: 800;
+    width: 28px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .partd-grade-badge.c { color: #b45309; }
+  .partd-grade-badge.b { color: #1d6a8e; }
+  .partd-grade-badge.a { color: #166534; }
+  .partd-grade-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .partd-grade-text em {
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 12.5px;
+  }
+  .partd-frame {
+    background: #f0f9ff;
+    border-left: 4px solid var(--teal);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--navy);
+  }
+  .partd-frame strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+  }
+
 </style>
 </head>
 <body>
@@ -2256,6 +2399,168 @@
           </ul>
         </div>
       </div>
+
+    <!-- ── PART D WRITING GUIDE ── -->
+    <div class="partd-accordion">
+
+      <div class="wagoll-warn" style="margin-bottom:16px;">
+        <strong>Point Clare is a fictional place.</strong> The examples below are a guide only -- do not copy them. Your response must be about your own chosen place, using your own evidence from Parts A, B and C.
+      </div>
+
+      <div class="partd-own-words">
+        ✏️ Use your own words throughout. Every sentence must come from your own thinking.
+      </div>
+
+      <p class="partd-accordion-intro">Open each section when you are ready to write it.</p>
+
+      <!-- INTRODUCTION -->
+      <details class="partd-section">
+        <summary>
+          <span class="partd-summary-num">1</span>
+          <span class="partd-summary-title">Introduction</span>
+          <span class="partd-summary-arrow">▼</span>
+        </summary>
+        <div class="partd-section-body">
+          <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">Your introduction needs:</p>
+          <ul class="partd-checklist">
+            <li>The name of your place</li>
+            <li>An overall liveability judgement (high / moderate / low)</li>
+            <li>A brief reason mentioning at least one factor</li>
+          </ul>
+          <div class="partd-grades">
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge c">C</span>
+              <span class="partd-grade-text">Names the place and states a judgement.<em>"Point Clare is a moderately liveable place."</em></span>
+            </div>
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge b">B</span>
+              <span class="partd-grade-text">Names the place, gives a judgement, and adds a reason.<em>"Point Clare is a moderately liveable place because it has good transport access but limited services."</em></span>
+            </div>
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge a">A</span>
+              <span class="partd-grade-text">Precise judgement using geographical vocabulary, with factors signalled.<em>"Point Clare has moderate liveability because, while it provides strong transport access and community amenity, its environmental quality and access to services are limited for some residents."</em></span>
+            </div>
+          </div>
+          <div class="partd-frame">
+            <strong>Sentence frame</strong>
+            "[Place] is a [high / moderate / low] liveability place because [reason 1] and [reason 2]."
+          </div>
+        </div>
+      </details>
+
+      <!-- FACTOR PARAGRAPH 1 -->
+      <details class="partd-section">
+        <summary>
+          <span class="partd-summary-num">2</span>
+          <span class="partd-summary-title">Factor Paragraph 1</span>
+          <span class="partd-summary-arrow">▼</span>
+        </summary>
+        <div class="partd-section-body">
+          <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">Each factor paragraph needs:</p>
+          <ul class="partd-checklist">
+            <li>Which factor you are writing about</li>
+            <li>Specific evidence from Part A, B or C -- say where it came from</li>
+            <li>An explanation of how that evidence affects liveability</li>
+          </ul>
+          <div class="partd-grades">
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge c">C</span>
+              <span class="partd-grade-text">Names a factor and describes some evidence. Connection to liveability is there but not fully explained.<em>"One social factor is that Point Clare has a train station. In Part A I could see this on my screenshot. This helps liveability because people can travel."</em></span>
+            </div>
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge b">B</span>
+              <span class="partd-grade-text">Names the factor, uses evidence clearly, and explains the liveability link.<em>"One social factor affecting liveability in Point Clare is access to transport. My Part A screenshot showed the train station near the town centre, which gives residents direct access to services in Gosford. This improves liveability because people do not need a car to meet their daily needs."</em></span>
+            </div>
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge a">A</span>
+              <span class="partd-grade-text">Uses geographical vocabulary precisely, names the evidence and its source, and connects back to the overall judgement.<em>"One social factor contributing to Point Clare's moderate liveability is access to services. My Part A screenshot identified the train station as a key transport amenity within walking distance of residential streets. This interconnection between transport and daily needs improves wellbeing -- however, my Part B data showed high car ownership, suggesting liveability for people without a car may be more limited."</em></span>
+            </div>
+          </div>
+          <div class="partd-frame">
+            <strong>Sentence frame</strong>
+            "One [environmental / social / economic / political] factor affecting liveability in [place] is [factor]. In Part [A / B / C], [describe your evidence]. This affects liveability because [explanation]."
+          </div>
+        </div>
+      </details>
+
+      <!-- FACTOR PARAGRAPH 2 -->
+      <details class="partd-section">
+        <summary>
+          <span class="partd-summary-num">3</span>
+          <span class="partd-summary-title">Factor Paragraph 2</span>
+          <span class="partd-summary-arrow">▼</span>
+        </summary>
+        <div class="partd-section-body">
+          <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">Your second factor paragraph needs:</p>
+          <ul class="partd-checklist">
+            <li>A <strong>different</strong> factor from Paragraph 1</li>
+            <li>Specific evidence from Part A, B or C -- say where it came from</li>
+            <li>An explanation of how that evidence affects liveability</li>
+          </ul>
+          <div class="partd-frame">
+            <strong>Sentence frame</strong>
+            "A second factor affecting liveability in [place] is [factor]. In Part [A / B / C], [describe your evidence]. This affects liveability because [explanation]."
+          </div>
+        </div>
+      </details>
+
+      <!-- FACTOR PARAGRAPH 3 -->
+      <details class="partd-section">
+        <summary>
+          <span class="partd-summary-num">4</span>
+          <span class="partd-summary-title">Factor Paragraph 3</span>
+          <span class="partd-summary-arrow">▼</span>
+        </summary>
+        <div class="partd-section-body">
+          <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">Your third factor paragraph needs:</p>
+          <ul class="partd-checklist">
+            <li>A <strong>different</strong> factor from Paragraphs 1 and 2</li>
+            <li>Specific evidence from Part A, B or C -- say where it came from</li>
+            <li>An explanation of how that evidence affects liveability</li>
+          </ul>
+          <div class="partd-frame">
+            <strong>Sentence frame</strong>
+            "A third factor affecting liveability in [place] is [factor]. In Part [A / B / C], [describe your evidence]. This affects liveability because [explanation]."
+          </div>
+        </div>
+      </details>
+
+      <!-- RECOMMENDATION -->
+      <details class="partd-section">
+        <summary>
+          <span class="partd-summary-num">5</span>
+          <span class="partd-summary-title">Recommendation</span>
+          <span class="partd-summary-arrow">▼</span>
+        </summary>
+        <div class="partd-section-body">
+          <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">Your recommendation needs:</p>
+          <ul class="partd-checklist">
+            <li>A specific improvement -- not just "make it better"</li>
+            <li>A specific group of people it would help</li>
+            <li>A reason linked to your evidence from Parts A, B or C</li>
+          </ul>
+          <div class="partd-grades">
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge c">C</span>
+              <span class="partd-grade-text">A general suggestion with a broad group.<em>"I recommend that Point Clare gets more parks. This would help families and people who live there."</em></span>
+            </div>
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge b">B</span>
+              <span class="partd-grade-text">A specific recommendation, a named group, and a reason linked to evidence.<em>"To improve liveability in Point Clare, I recommend Council upgrades the footpaths. This would help elderly residents because my Part C photographs showed cracked footpaths that are unsafe to walk on."</em></span>
+            </div>
+            <div class="partd-grade-row">
+              <span class="partd-grade-badge a">A</span>
+              <span class="partd-grade-text">Specific, justified recommendation linked directly to evidence, with a clear liveability impact.<em>"To improve liveability in Point Clare for elderly residents, I recommend Central Coast Council implement a planning strategy to upgrade footpaths along the main street. My Part C photographs showed damaged footpaths that reduce environmental quality and limit safe access for people with limited mobility. This would improve community amenity and increase wellbeing for residents who rely on walking."</em></span>
+            </div>
+          </div>
+          <div class="partd-frame">
+            <strong>Sentence frame</strong>
+            "To improve liveability in [place] for [specific group], I recommend [specific strategy] because [evidence from A, B or C]. This would improve [factor] by [impact]."
+          </div>
+        </div>
+      </details>
+
+    </div>
     </div>
   </div>
 
