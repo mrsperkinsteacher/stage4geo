@@ -6,7 +6,7 @@
 <title>Year 7 Geography | Stage 4</title>
 <style>
   :root { --blue:#065A82; --teal:#1C7293; --midnight:#21295C; --mint:#02C39A;
-          --land:#2C5F2D; --water:#028090; --live:#B85042; }
+          --land:#1E4D3B; --land-gold:#E3B23C; --water:#123F66; --water-mid:#1F6FB2; --live:#534AB7; }
   * { box-sizing: border-box; }
   body { font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin:0; color:#222; background:#fff; }
   .top { background:var(--midnight); color:#fff; padding:2.6rem 1rem; text-align:center; }
@@ -15,16 +15,17 @@
   .top p { margin:0; opacity:.9; }
   main { max-width:900px; margin:0 auto; padding:1.5rem 1rem 3rem; }
   .intro { background:#f2f7fa; border:1px solid #d7e5ee; border-radius:12px; padding:1.1rem 1.4rem; margin:1.5rem 0; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem; margin-top:1.5rem; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:1.5rem; }
+  @media (max-width:640px) { .grid { grid-template-columns:1fr; } }
   .card { border:1px solid #d7e5ee; border-radius:12px; padding:1.3rem 1.4rem; display:flex; flex-direction:column; }
   .card h2 { margin:.1rem 0 .4rem; font-size:1.25rem; }
   .card .fa { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
   .card p { font-size:.93rem; margin:.4rem 0 1rem; flex:1; }
   .card a.btn, .card span.btn { display:inline-block; align-self:flex-start; color:#fff; text-decoration:none; padding:.5rem 1.1rem; border-radius:8px; font-size:.92rem; }
-  .c-land .fa, .c-land h2 { color:var(--land); }   .c-land a.btn { background:var(--land); }
-  .c-water .fa, .c-water h2 { color:var(--water); } .c-water a.btn { background:var(--water); }
-  .c-inter .fa, .c-inter h2 { color:var(--blue); }  .c-inter a.btn { background:var(--blue); }
-  .c-live .fa, .c-live h2 { color:var(--live); }    .c-live a.btn { background:var(--live); }
+  .c-land .fa { color:var(--land-gold); } .c-land h2 { color:var(--land); }   .c-land a.btn, .c-land span.btn { background:var(--land); }
+  .c-water .fa { color:var(--water-mid); } .c-water h2 { color:var(--water); } .c-water a.btn, .c-water span.btn { background:var(--water); }
+  .c-inter .fa { color:var(--teal); } .c-inter h2 { color:var(--blue); }  .c-inter a.btn { background:var(--blue); }
+  .c-live .fa { color:#7F77DD; } .c-live h2 { color:var(--live); }    .c-live a.btn { background:var(--live); }
   .card.soon { opacity:.65; }
   .card.soon span.btn { background:#b8c6cf; }
   footer { text-align:center; font-size:.85rem; color:#777; padding:2rem 1rem; border-top:1px solid #eee; }
@@ -48,6 +49,12 @@
       <p>How landscapes form and change, why they matter to people, and how we manage geomorphic hazards.</p>
       <span class="btn">Coming soon</span>
     </div>
+    <div class="card c-live">
+      <div class="fa">Focus Area</div>
+      <h2>Liveability of Places</h2>
+      <p>What makes a place liveable, whose liveability matters, and how we can enhance the places we share.</p>
+      <a class="btn" href="liveability/index.html">Open unit</a>
+    </div>
     <div class="card c-water soon">
       <div class="fa">Focus Area</div>
       <h2>Water in the World</h2>
@@ -59,12 +66,6 @@
       <h2>Interconnections and Trade</h2>
       <p>How travel, technology and trade connect people, places and environments — and the true cost of the things we consume.</p>
       <a class="btn" href="interconnections/index.html">Open unit</a>
-    </div>
-    <div class="card c-live">
-      <div class="fa">Focus Area</div>
-      <h2>Liveability of Places</h2>
-      <p>What makes a place liveable, whose liveability matters, and how we can enhance the places we share.</p>
-      <a class="btn" href="liveability/index.html">Open unit</a>
     </div>
   </div>
 </main>
