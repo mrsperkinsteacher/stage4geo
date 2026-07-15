@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2 — Water in the World</title>
+<style>
+:root {
+  --water:#123F66; --water-mid:#1F6FB2; --teal:#1C7293; --mint:#02C39A;
+  --light-blue:#E8F1F6; --light-mint:#E3F7F1;
+}
+* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background:#fbfdfe; color:#1c2b36; line-height:1.5; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+header.banner { background: var(--water); color:#fff; border-radius:14px; padding:28px 30px; margin: 24px 0 26px; }
+.kicker { color: var(--mint); text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem; font-weight: 700; margin-bottom: 6px; }
+header.banner h1 { margin: 4px 0 10px; font-size: 1.7rem; }
+header.banner .theme { margin:0; font-size: 0.92rem; color:#dfeaf3; }
+a { color: var(--water-mid); }
+.back-link { display:inline-block; margin: 18px 0 0; font-size: 0.85rem; }
+.protocol { background:#fff6e8; border:1.5px solid #e8c98a; border-radius:12px; padding:16px 20px; margin-bottom:26px; font-size:0.9rem; }
+.protocol strong { color:#9a6a1b; }
+.meta { border:1.5px solid #d8e2ea; border-radius:12px; padding:16px 20px; margin-bottom:26px; font-size:0.9rem; background:#f6f9fb; }
+.sourcebox { border:1.5px solid #cfe3d6; background:#f3faf5; border-radius:12px; padding:14px 20px; margin-bottom:26px; font-size:0.86rem; color:#2c5c3f; }
+section.lesson { border:1px solid #e1e8ee; border-radius:14px; padding:22px 24px; margin-bottom:22px; background:#fff; }
+.lesson-tag { display:inline-block; background:var(--water-mid); color:#fff; font-weight:bold; font-size:0.8rem; letter-spacing:1px; border-radius:999px; padding:4px 14px; margin-bottom:10px; }
+.lesson h2 { margin: 4px 0 12px; font-size: 1.25rem; color: var(--water); }
+.li-box { background: var(--light-blue); border:1.5px solid #bcd4e2; border-radius:10px; padding:12px 16px; margin-bottom: 14px; font-size: 0.92rem; }
+h3 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--teal); margin: 18px 0 8px; }
+ol, ul { margin: 0; padding-left: 22px; font-size: 0.94rem; }
+li { margin-bottom: 6px; }
+.worldview { background: var(--light-mint); border:1.5px solid var(--mint); border-radius:10px; padding:14px 18px; margin-top: 10px; }
+.worldview .verse { font-style: italic; color: var(--water); margin: 0 0 4px; }
+.worldview .ref { font-weight: bold; color: var(--water-mid); margin: 0 0 6px; }
+.worldview p:last-child { margin: 0; font-size: 0.92rem; }
+.files { background:#f6f9fb; border:1.5px dashed var(--teal); border-radius:10px; padding:12px 16px; margin-top: 10px; }
+.files code { background: var(--water-mid); color:#fff; border-radius:6px; padding:2px 10px; margin:2px 6px 2px 0; font-size: 0.82rem; display:inline-block; }
+.files code a, .sourcebox a { color:#fff; text-decoration: underline; }
+.sourcebox a { color: var(--water); font-weight: 600; }
+.footer-note { text-align:center; font-size: 0.8rem; color:#7c8a95; margin: 30px 0 10px; }
+.eq { border-left:4px solid var(--mint); padding:.2rem 0 .2rem 1rem; margin:1.2rem 0; font-style:italic; color:#444; }
+.intro { font-size: 0.98rem; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top: 20px; }
+@media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+.card { border:1px solid #d7e5ee; border-radius:12px; padding:1.3rem 1.4rem; background:#fff; }
+.card .wk { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); font-weight:700; }
+.card h2 { font-size: 1.05rem; margin: 6px 0 8px; color: var(--water); }
+.card p { font-size: 0.88rem; color:#48586a; margin: 0 0 14px; }
+.card a.btn { display:inline-block; background: var(--water-mid); color:#fff; text-decoration:none; padding:8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
+.card a.btn:hover { background: var(--water); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back-link" href="index.html">&larr; Back to Water in the World overview</a>
+<header class="banner">
+  <div class="kicker">Stage 4 Geography&nbsp;|&nbsp;Year 8&nbsp;|&nbsp;Water in the World</div>
+  <h1>Week 2 — The Water Cycle, Catchments and Topographic Mapping</h1>
+  <p class="theme">Syllabus focus: Water in the World. Outcomes: GE4-PRI-01, GE4-TAP-01. Thread: Caretaking Earth.</p>
+</header>
+
+<div class="sourcebox"><strong>Source:</strong> <a href="ppt/Wk02-03_PPT%20slides%2013-19%20-%20Water%20cycle%2C%20catchments%20and%20topographic%20mapping.pptx" target="_blank" rel="noopener">PPT slides 13–19</a> &middot; <a href="worksheets/Wk02_Worksheet%202.1%20-%20Hydrological%20processes.pdf" target="_blank" rel="noopener">Worksheets 2.1</a>, <a href="worksheets/Wk02-03_Worksheet%202.2%20-%20Movement%20of%20a%20raindrop.pdf" target="_blank" rel="noopener">2.2</a> (GTA NSW &amp; ACT "Water in the World" Stage 4 Resource, 2026)</div>
+<div class="meta"><strong>Week at a glance:</strong> L4 revises the water cycle and catchment processes; L5 teaches contour lines and relief using the NSW topographic map viewer; L6 traces raindrops through different environments using the Global River Runner tool.</div>
+<section class="lesson">
+      <span class="lesson-tag">LESSON 4</span>
+      <h2>The Water Cycle and Catchments</h2>
+      <div class="li-box"><strong>Learning intention:</strong> we are learning the stages of the water cycle and how catchment processes move water through the landscape.</div>
+      <h3>Lesson outline</h3>
+      <ol>
+        <li><strong>Starter (5 min):</strong> Draw the water cycle from memory in 90 seconds.</li>
+        <li><strong>Teach (10&ndash;15 min):</strong> Revise evaporation, condensation, precipitation, infiltration and runoff, and how they operate within a catchment.</li>
+        <li><strong>Worldview (5 min):</strong> Psalm 24:1 discussion (see box below).</li>
+        <li><strong>Main task (20&ndash;25 min):</strong> Label a water cycle diagram and explain one human impact on catchment processes. (Worksheet 2.1)</li>
+        <li><strong>Exit ticket (5 min):</strong> Name one human activity that changes how water moves through a catchment.</li>
+      </ol>
+      <h3>Main task instructions</h3>
+      <ol><li>Label each stage of the water cycle diagram provided.</li><li>Under each label, note whether infiltration or runoff is occurring.</li><li>Explain one way human activity (e.g. paving, land clearing) changes catchment processes.</li></ol>
+      
+      <h3>Christian worldview — Caretaking Earth</h3>
+      <div class="worldview">
+        <p class="verse">“The earth is the Lord’s, and everything in it.”</p>
+        <p class="ref">Psalm 24:1</p>
+        <p>Catchments and rivers belong to God before they belong to any water authority.</p>
+      </div>
+      <h3>Files for this lesson</h3><div class="files"><code><a href="worksheets/Wk02_Worksheet%202.1%20-%20Hydrological%20processes.pdf" target="_blank" rel="noopener">Worksheet 2.1</a> – Hydrological processes</code></div>
+    </section>
+<section class="lesson">
+      <span class="lesson-tag">LESSON 5</span>
+      <h2>Contour Lines and Relief</h2>
+      <div class="li-box"><strong>Learning intention:</strong> we are learning to read contour lines and relief on a topographic map, and explain how they affect water flow.</div>
+      <h3>Lesson outline</h3>
+      <ol>
+        <li><strong>Starter (5 min):</strong> What do you think the lines on a topographic map actually represent?</li>
+        <li><strong>Teach (10&ndash;15 min):</strong> Explicit teaching of contour lines and altitude using the NSW Spatial Services topographic map viewer over a river valley/catchment.</li>
+        
+        <li><strong>Main task (20&ndash;25 min):</strong> Identify contours on the map, determine altitude at given points, describe elevation change, and explain how relief affects water flow.</li>
+        <li><strong>Exit ticket (5 min):</strong> If contour lines are close together, is the slope steep or gentle?</li>
+      </ol>
+      <h3>Main task instructions</h3>
+      <ol><li>Open the NSW topographic map viewer and locate the river valley provided.</li><li>Identify the altitude at three marked points using the contour lines.</li><li>Describe how the change in elevation between two points would affect water flow and speed.</li></ol>
+      <h3>External links</h3><ul><li><a href="https://portal.spatial.nsw.gov.au/portal/apps/webappviewer/index.html?id=06e3c2e0de1e4efda863854048c613c6" target="_blank" rel="noopener">NSW Spatial Services – topographic map viewer</a></li></ul>
+      
+      <h3>Files for this lesson</h3><div class="files"><code><a href="ppt/Wk02-03_PPT%20slides%2013-19%20-%20Water%20cycle%2C%20catchments%20and%20topographic%20mapping.pptx" target="_blank" rel="noopener">PPT slides 13–19</a></code></div>
+    </section>
+<section class="lesson">
+      <span class="lesson-tag">LESSON 6</span>
+      <h2>Movement of a Raindrop</h2>
+      <div class="li-box"><strong>Learning intention:</strong> we are learning how topography, vegetation and landforms affect the movement of water using a digital tool.</div>
+      <h3>Lesson outline</h3>
+      <ol>
+        <li><strong>Starter (5 min):</strong> If you dropped a marble on the roof of your house, where would it end up?</li>
+        <li><strong>Teach (10&ndash;15 min):</strong> Introduce the Global River Runner tool and how to trace a raindrop's journey.</li>
+        
+        <li><strong>Main task (20&ndash;25 min):</strong> Use the Global River Runner tool to trace raindrops through two different environments and compare how topography, vegetation and landforms affect their movement. (Worksheet 2.2)</li>
+        <li><strong>Exit ticket (5 min):</strong> Which of your two raindrops reached the ocean faster, and why?</li>
+      </ol>
+      <h3>Main task instructions</h3>
+      <ol><li>Drop a virtual raindrop in your first chosen location using Global River Runner.</li><li>Record the path, distance and landforms it passes through.</li><li>Repeat for a second, different location and compare the two journeys.</li></ol>
+      <h3>External links</h3><ul><li><a href="https://river-runner-global.samlearner.com/" target="_blank" rel="noopener">Global River Runner</a></li></ul>
+      
+      <h3>Files for this lesson</h3><div class="files"><code><a href="worksheets/Wk02-03_Worksheet%202.2%20-%20Movement%20of%20a%20raindrop.pdf" target="_blank" rel="noopener">Worksheet 2.2</a> – Movement of a raindrop</code></div>
+    </section>
+<a class="back-link" href="index.html">&larr; Back to Water in the World overview</a>
+
+<p class="footer-note">Stage 4 Geography | Water in the World | NESA Geography 7&ndash;10 Syllabus (2024) | Built around the GTA NSW &amp; ACT "Water in the World" Stage 4 Resource (2026)</p>
+</div>
+</body>
+</html>
