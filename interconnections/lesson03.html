@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 03 - How Connected Is My Life? | Stage 4 Geography</title>
+<style>
+  :root {
+    --ocean: #065A82;
+    --teal: #1C7293;
+    --midnight: #21295C;
+    --mint: #02C39A;
+    --light-blue: #E8F1F6;
+    --light-mint: #E3F7F1;
+    --amber: #E3B23C;
+    --light-amber: #FBF1DB;
+    --border: #d5dee6;
+    --text: #222222;
+    --muted: #5a6b78;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px 60px 20px;
+    line-height: 1.55;
+  }
+  a { color: var(--ocean); }
+  header.page-header {
+    background: var(--midnight);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 22px;
+  }
+  header.page-header .crumb {
+    color: var(--mint);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+  }
+  header.page-header .crumb a { color: var(--mint); text-decoration: none; }
+  header.page-header .crumb a:hover { text-decoration: underline; }
+  header.page-header h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.8rem;
+    line-height: 1.25;
+  }
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
+  }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
+
+  .lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 26px;
+    font-size: 0.92rem;
+  }
+  .lesson-nav a {
+    text-decoration: none;
+    color: var(--ocean);
+    font-weight: bold;
+  }
+  .lesson-nav a:hover { text-decoration: underline; }
+  .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
+
+  /* Resource grid (hub view) */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .resource-box {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 18px;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+  .resource-box:hover {
+    box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+  .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+  .resource-box .rb-title {
+    font-weight: bold;
+    color: var(--midnight);
+    font-size: 1.02rem;
+  }
+
+  /* Subpage (detail) view */
+  .resource-subpage {
+    display: none;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 28px;
+    background: #ffffff;
+    margin-bottom: 10px;
+  }
+  .resource-subpage.active { display: block; }
+  .resource-grid.hidden { display: none; }
+  .subpage-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--midnight);
+    font-size: 1.3rem;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--light-blue);
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.92rem;
+    cursor: pointer;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+
+  footer.site-footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 03</p>
+  <h1>Lesson 03: How Connected Is My Life?</h1>
+  
+  <p class="intro">Audit the technology you use and plot your personal connections onto a world map.</p>
+</header>
+
+<nav class="lesson-nav">
+  <a href="lesson02.html">&larr; Lesson 02</a>
+  <a href="index.html">All lessons</a>
+  <a href="lesson04.html">Lesson 04 &rarr;</a>
+</nav>
+
+<div class="resource-grid" id="hub-grid">
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+</div>
+
+
+<div class="resource-subpage" id="box-summary">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
+  
+            <p>Today you're investigating something surprising: your ordinary daily life - your
+            phone, your breakfast, your clothes, the shows you watch - connects you to dozens of
+            countries you've probably never thought about. You'll audit the apps and technology you use,
+            then plot on a world map exactly where your food, clothes, media and family connections come
+            from.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-videos">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
+  
+            <div class="res-item">
+                <div class="res-item-title">What's a Smartphone Made Of? - TED-Ed</div>
+                <p>A real, kid-appropriate breakdown of the minerals, materials and countries behind a
+                smartphone - exactly the "how many countries made my phone" idea you'll guess at
+                today.</p>
+                <p><a href="https://www.youtube.com/watch?v=eIdJ22AfsO8" target="_blank" rel="noopener">Watch on YouTube</a></p>
+            </div>
+        
+</div>
+
+<div class="resource-subpage" id="box-interest">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
+  
+            <ul>
+                <li><a href="https://www.ethicalconsumer.org/technology/global-supply-chain-mobile-phone" target="_blank" rel="noopener">Ethical Consumer - The Global Supply Chain of a Mobile Phone</a> - the raw materials and countries behind a phone, with a materials breakdown</li>
+                <li><a href="https://www.fairphone.com/about-us" target="_blank" rel="noopener">Fairphone - About Us</a> - a real company making phones with a transparent, fairer supply chain</li>
+            </ul>
+        
+</div>
+
+<div class="resource-subpage" id="box-glossary">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
+  
+            <div class="glossary-grid">
+                <div class="term"><b>Audit</b> - a careful check or count of something.</div>
+                <div class="term"><b>Continent</b> - one of the world's seven large land masses.</div>
+                <div class="term"><b>Goods</b> - physical things that are made, bought and sold.</div>
+                <div class="term"><b>Interdependence</b> - when people and places rely on each other to meet their needs.</div>
+                <div class="term"><b>Supply chain</b> - the chain of people, places and steps that gets a product to you.</div>
+                <div class="term"><b>BOLTSS</b> - Border, Orientation, Legend, Title, Scale, Source.</div>
+            </div>
+        
+</div>
+
+<div class="resource-subpage" id="box-sdgs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
+  
+            <ul>
+                <li><b>SDG 12 - Responsible Consumption and Production:</b> directly about making global supply chains (like the one behind your phone) more sustainable and fair.</li>
+                <li><b>SDG 8 - Decent Work and Economic Growth:</b> connects to the people behind every "unseen" link in the supply chain, and whether their work is safe and fairly paid.</li>
+                <li><b>SDG 9 - Industry, Innovation and Infrastructure:</b> the global industry and infrastructure (mines, factories, shipping) that makes a smartphone possible.</li>
+            </ul>
+        
+</div>
+
+<div class="resource-subpage" id="box-fact">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
+  
+            <p>A single smartphone is typically made from around <b>30 different chemical
+            elements/metals</b> - roughly a quarter of the entire periodic table - including
+            silicon, copper, gold, cobalt and rare earth elements, mostly mined in different
+            countries.</p>
+            <p class="src">Source: Ethical Consumer; Compound Interest, "The Chemical Elements of a Smartphone".</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-news">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📰</span> In the News</h2>
+  
+            <p><b>"Apple is ramping up production in India to avoid Donald Trump's tariffs on
+            China"</b> - Apple has been shifting a large share of iPhone assembly from China to
+            India in response to US tariffs, a real, current example of how a supply-chain map can shift
+            country to country almost overnight.</p>
+            <p class="src">Source: ABC News, 11 April 2025.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-world">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
+  
+            <p><b>The Democratic Republic of Congo (DRC)</b> - produces over half the world's
+            cobalt and is a major source of tantalum (used in smartphone circuit boards), both essential
+            minerals in the phone most students are holding.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-related">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
+  
+            <p>Builds directly on <b>L01</b> and <b>L02's</b> "map your connections" skill, shifting from
+            places/culture to objects and technology. Sets up <b>L04-L06</b>, which shift the lens
+            to First Nations' connections to Country and economies - a different but related angle
+            on the same big question.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-stage56">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  
+            <p><b>Stage 5 - Human Wellbeing:</b> the supply-chain theme opens the door to comparing
+            quality of life and working conditions between countries connected by trade.</p>
+            <p><b>Stage 6 (HSC) - People and Economic Activity:</b> studies global patterns of
+            production, trade and economic interdependence - a formal, data-driven version of "my
+            life is connected to the world".</p>
+        
+</div>
+
+<footer class="site-footer">
+  Stage 4 Geography - Interconnections and Trade &nbsp;|&nbsp; A resource hub for curious students, not a worksheet.
+</footer>
+
+<script>
+function showResourceSub(key) {
+  document.getElementById('hub-grid').classList.add('hidden');
+  document.querySelectorAll('.resource-subpage').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('box-' + key).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function showResourceHub() {
+  document.querySelectorAll('.resource-subpage').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('hub-grid').classList.remove('hidden');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html>
