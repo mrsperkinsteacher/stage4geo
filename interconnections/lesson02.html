@@ -156,6 +156,32 @@
   }
   .term b { color: var(--midnight); }
 
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
   p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
 
   #box-fact { background: var(--light-amber); border-color: var(--amber); }
@@ -198,7 +224,8 @@
   <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
   <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
   <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">📚</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
@@ -266,10 +293,18 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
   
-            <ul>
-                <li><b>SDG 11 - Sustainable Cities and Communities:</b> today's "shared places" (markets, ovals, parks) are exactly the inclusive, accessible public spaces SDG 11 wants every community to have.</li>
-                <li><b>SDG 3 - Good Health and Well-being:</b> feeling connected to others through shared places is linked to better mental health - the flip side being the loneliness covered in the video above.</li>
-            </ul>
+            <div class="sdg-grid">
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/cities/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-11-1024x1024.png" alt="SDG 11: Sustainable Cities and Communities" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 11 - Sustainable Cities and Communities</b><p>Today's "shared places" (markets, ovals, parks) are exactly the inclusive, accessible public spaces SDG 11 wants every community to have.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/health/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-03-1024x1024.png" alt="SDG 3: Good Health and Well-being" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 3 - Good Health and Well-being</b><p>Feeling connected to others through shared places is linked to better mental health - the flip side being the loneliness covered in the video above.</p></div>
+            </a>
+            </div>
+            <p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://www.un.org/sustainabledevelopment" target="_blank" rel="noopener">un.org/sustainabledevelopment</a>.</p>
         
 </div>
 
@@ -287,10 +322,19 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>📰</span> In the News</h2>
   
-            <p><b>"Brisbane's 'third places' providing a spot away from work, home, and online echo
-            chambers"</b> - a genuine, recent Australian news story about people going to parks,
-            libraries and markets specifically to feel connected to others.</p>
+            <p><b>19 March 2026:</b> "Brisbane's 'third places' providing a spot away from work, home,
+            and online echo chambers" - a genuine, recent Australian news story about people going to
+            parks, libraries and markets specifically to feel connected to others.</p>
             <p class="src">Source: ABC News, Ned Hammond, 19 March 2026.</p>
+            <p><b>10 October 2025:</b> A national Beyond Blue survey found that loneliness has a deeper
+            impact on some Australians' mental health than financial hardship - real evidence for why
+            "shared places" matter so much.</p>
+            <p class="src">Source: ABC News, 10 October 2025, "Beyond Blue survey finds loneliness has deeper impact on some Australians' mental health than financial hardship."</p>
+            <p><b>3-9 August 2026:</b> Australia held its first national Loneliness Awareness Week,
+            alongside the release of the country's first "State of the Nation" report on social
+            connection - a sign that shared, community places are now a genuine national policy
+            issue, not just a personal one.</p>
+            <p class="src">Source: Ending Loneliness Together, Loneliness Awareness Week Australia, August 2026.</p>
         
 </div>
 
@@ -316,14 +360,34 @@
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  <h2 class="subpage-title"><span>🎓</span> What You'll Study in Stage 5 &amp; 6</h2>
   
-            <p><b>Stage 5 - Human Wellbeing:</b> examines how factors like social connectedness and
-            access to community spaces shape people's quality of life - a direct extension of
-            today's idea that shared places support wellbeing.</p>
-            <p><b>Stage 6 (HSC) - Urban Places:</b> examines liveability and access to community
-            facilities and public space in cities - the exact "third places" idea in this lesson,
-            scaled up into a formal HSC topic.</p>
+            <p><b>The idea of a "shared place" doesn't stop at Year 7.</b> It becomes a real,
+            examinable concept in senior Geography.</p>
+            <p><b>Stage 5 - Human Wellbeing:</b> investigates how access to spaces like the ones in
+            today's lesson - parks, ovals, markets - genuinely changes people's quality of life, and
+            why some communities have far more of them than others.</p>
+            <p><b>Stage 6 (HSC) - Urban Places:</b> studies liveability and access to community
+            facilities and public space in real cities around the world - taking today's "third
+            places" idea and turning it into a formal tool for judging how well a city works for the
+            people living in it.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📚</span> References and Further Reading</h2>
+  
+            <ul>
+                <li>ABC Education (n.d.) <i>Social Media Ban Survey Results</i> - <a href="https://www.abc.net.au/btn/classroom/social-media-ban-survey-results/106089124" target="_blank" rel="noopener">abc.net.au</a></li>
+                <li>ABC Education (n.d.) <i>Why Are Young Australians Lonely?</i> - <a href="https://www.abc.net.au/btn/high/why-young-australians-are-lonely/102762184" target="_blank" rel="noopener">abc.net.au</a></li>
+                <li>Surf Life Saving Australia (n.d.) <i>Our History</i> - <a href="https://www.surflifesaving.com.au/about-us/our-history/" target="_blank" rel="noopener">surflifesaving.com.au</a></li>
+                <li>Project for Public Spaces (n.d.) <i>What Are "Third Places"?</i> - <a href="https://www.pps.org/article/roldenburg" target="_blank" rel="noopener">pps.org</a></li>
+                <li>Australian Bureau of Statistics (n.d.) <i>The Australian Census</i> - <a href="https://www.abs.gov.au/census/about-census/australian-census" target="_blank" rel="noopener">abs.gov.au</a></li>
+                <li>ABC News (19 March 2026) <i>Brisbane's 'third places' providing a spot away from work, home, and online echo chambers</i> - <a href="https://www.abc.net.au/news/2026-03-19/brisbane-third-places-mental-health-urban-planning/106459284" target="_blank" rel="noopener">abc.net.au</a></li>
+                <li>ABC News (10 October 2025) <i>Beyond Blue survey finds loneliness has deeper impact on some Australians' mental health than financial hardship</i> - <a href="https://www.abc.net.au/news/2025-10-10/beyond-blue-survey-loneliness-deeper-impact-financial-hardship/105870174" target="_blank" rel="noopener">abc.net.au</a></li>
+                <li>Ending Loneliness Together (2026) <i>Loneliness Awareness Week Australia</i> - <a href="https://endingloneliness.com.au/australias-first-loneliness-awareness-week-7-13-august-and-the-release-of-australias-first-and-largest-state-of-the-nation-report-on-social-connection/" target="_blank" rel="noopener">endingloneliness.com.au</a></li>
+            </ul>
         
 </div>
 
