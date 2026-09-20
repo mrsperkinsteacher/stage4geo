@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 01 - What Connects Us? | Stage 4 Geography</title>
+<style>
+  :root {
+    --ocean: #065A82;
+    --teal: #1C7293;
+    --midnight: #21295C;
+    --mint: #02C39A;
+    --light-blue: #E8F1F6;
+    --light-mint: #E3F7F1;
+    --amber: #E3B23C;
+    --light-amber: #FBF1DB;
+    --border: #d5dee6;
+    --text: #222222;
+    --muted: #5a6b78;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px 60px 20px;
+    line-height: 1.55;
+  }
+  a { color: var(--ocean); }
+  header.page-header {
+    background: var(--midnight);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 22px;
+  }
+  header.page-header .crumb {
+    color: var(--mint);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+  }
+  header.page-header .crumb a { color: var(--mint); text-decoration: none; }
+  header.page-header .crumb a:hover { text-decoration: underline; }
+  header.page-header h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.8rem;
+    line-height: 1.25;
+  }
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
+  }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
+
+  .lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 26px;
+    font-size: 0.92rem;
+  }
+  .lesson-nav a {
+    text-decoration: none;
+    color: var(--ocean);
+    font-weight: bold;
+  }
+  .lesson-nav a:hover { text-decoration: underline; }
+  .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
+
+  /* Resource grid (hub view) */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .resource-box {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 18px;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+  .resource-box:hover {
+    box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+  .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+  .resource-box .rb-title {
+    font-weight: bold;
+    color: var(--midnight);
+    font-size: 1.02rem;
+  }
+
+  /* Subpage (detail) view */
+  .resource-subpage {
+    display: none;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 28px;
+    background: #ffffff;
+    margin-bottom: 10px;
+  }
+  .resource-subpage.active { display: block; }
+  .resource-grid.hidden { display: none; }
+  .subpage-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--midnight);
+    font-size: 1.3rem;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--light-blue);
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.92rem;
+    cursor: pointer;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+
+  footer.site-footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 01</p>
+  <h1>Lesson 01: What Connects Us?</h1>
+  <p class="subheading">Defining Interconnection</p>
+  <p class="intro">Explore the hidden web of connections behind your everyday life - before you even dig into the lesson itself.</p>
+</header>
+
+<nav class="lesson-nav">
+  <span class="disabled">&larr; Lesson</span>
+  <a href="index.html">All lessons</a>
+  <a href="lesson02.html">Lesson 02 &rarr;</a>
+</nav>
+
+<div class="resource-grid" id="hub-grid">
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+</div>
+
+
+<div class="resource-subpage" id="box-summary">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
+  
+            <p>Today you're starting to notice something that's usually invisible: how connected your
+            everyday life already is to people and places all over the world. You'll look at ordinary
+            things - your breakfast, your phone, your clothes - and trace where they really
+            come from. Then you'll build a class definition of <b>interconnection</b> and draw your own
+            sketch map showing the personal connections in your life, from family and food to overseas
+            places.</p>
+            <p>This matters because the rest of the term builds on this idea - that nothing in your
+            life exists in isolation. It's all part of a bigger, connected world.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-videos">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
+  
+            <div class="res-item">
+                <div class="res-item-title">What's a Smartphone Made Of? - TED-Ed</div>
+                <p>Traces the raw materials and manufacturing behind a phone - a perfect extension
+                of "what connected you before 9am today".</p>
+                <p><a href="https://www.youtube.com/watch?v=eIdJ22AfsO8" target="_blank" rel="noopener">Watch on YouTube</a></p>
+            </div>
+            <div class="res-item">
+                <div class="res-item-title">The Globe-Trotting Journey of a Sneaker - CFR Education</div>
+                <p>Follows a sneaker's design, sourcing, assembly and marketing across multiple countries.</p>
+                <p><a href="https://www.youtube.com/watch?v=vmyH2YFR2cw" target="_blank" rel="noopener">Watch on YouTube</a></p>
+            </div>
+        
+</div>
+
+<div class="resource-subpage" id="box-interest">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
+  
+            <ul>
+                <li><a href="https://www.cosmosourcing.com/blog/where-does-nike-make-shoes-and-apparel" target="_blank" rel="noopener">Where Does Nike Make Shoes and Apparel?</a> - the source behind "how many countries did your sneakers touch?"</li>
+                <li><a href="https://www.dfat.gov.au/geo/china/china-country-brief" target="_blank" rel="noopener">China Country Brief (DFAT)</a> - Australia's largest two-way trading partner, explained</li>
+                <li><a href="https://www.vividsydney.com" target="_blank" rel="noopener">Vivid Sydney</a> - a real, local example of a cultural connection drawing millions of visitors</li>
+            </ul>
+        
+</div>
+
+<div class="resource-subpage" id="box-glossary">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
+  
+            <div class="glossary-grid">
+                <div class="term"><b>Interconnection</b> - the relationships between people, places and environments.</div>
+                <div class="term"><b>Trade</b> - buying, selling or swapping goods and services between people, businesses or countries.</div>
+                <div class="term"><b>Globalisation</b> - the way the world's people, businesses and cultures are becoming more connected.</div>
+                <div class="term"><b>Sketch map</b> - a simple hand-drawn map showing the main features of a place, not drawn to exact scale.</div>
+                <div class="term"><b>BOLTSS</b> - the six things every good map needs: Border, Orientation, Legend, Title, Scale, Source.</div>
+            </div>
+        
+</div>
+
+<div class="resource-subpage" id="box-sdgs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
+  
+            <ul>
+                <li><b>SDG 17 - Partnerships for the Goals:</b> today's whole lesson is about the web of global partnerships that connect people and places.</li>
+                <li><b>SDG 12 - Responsible Consumption and Production:</b> understanding where your things come from is the first step to thinking about how they're made.</li>
+                <li><b>SDG 8 - Decent Work and Economic Growth:</b> behind every "invisible" connection is a real worker - exactly what today's worldview reflection asks you to consider.</li>
+            </ul>
+        
+</div>
+
+<div class="resource-subpage" id="box-fact">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
+  
+            <p>Nike doesn't make its shoes in just one country - its footwear alone is produced
+            across roughly <b>11 countries</b>, and its full supply chain (materials, components,
+            assembly) spans <b>37+ countries</b> in total.</p>
+            <p class="src">Source: Cosmo Sourcing industry blog, citing Nike's public supply-chain disclosures.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-news">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📰</span> In the News</h2>
+  
+            <p>In <b>March 2024</b>, China officially lifted tariffs of up to 218% on Australian wine,
+            ending a three-year trade freeze that began in 2021 - a real, recent example of how
+            trade relationships between countries can change quickly.</p>
+            <p class="src">Source: ABC News, 28 March 2024, "China's government officially abolishes heavy tariffs on Australian wine."</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-world">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
+  
+            <p><b>Dhaka, Bangladesh</b> - Bangladesh is the world's second-largest clothing
+            exporter (behind only China), and its garment industry employs around four million workers.
+            This is the real place behind the idea that "a factory worker in Bangladesh may have sewn
+            your school bag."</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-related">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
+  
+            <p><b>L02 - Shared Culture, Shared Places</b> and <b>L03 - How Connected Is My
+            Life?</b> continue directly from today, extending "interconnection" into culture/recreation
+            and then into a personal world-map of connections. Later in the term, the unit returns to
+            trade and globalisation in more depth, building on the vocabulary introduced today.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-stage56">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  
+            <p><b>Stage 5 - Human Wellbeing:</b> looks at how global connections and inequalities
+            (like the ones you start noticing today) affect people's quality of life in different
+            places.</p>
+            <p><b>Stage 6 (HSC) - People and Economic Activity / Global Challenges:</b> both build
+            directly on the idea that places and economies are interconnected through trade - the
+            exact foundation laid in this lesson.</p>
+        
+</div>
+
+<footer class="site-footer">
+  Stage 4 Geography - Interconnections and Trade &nbsp;|&nbsp; A resource hub for curious students, not a worksheet.
+</footer>
+
+<script>
+function showResourceSub(key) {
+  document.getElementById('hub-grid').classList.add('hidden');
+  document.querySelectorAll('.resource-subpage').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('box-' + key).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function showResourceHub() {
+  document.querySelectorAll('.resource-subpage').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('hub-grid').classList.remove('hidden');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html>
