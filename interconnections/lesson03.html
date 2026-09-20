@@ -156,6 +156,32 @@
   }
   .term b { color: var(--midnight); }
 
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
   p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
 
   #box-fact { background: var(--light-amber); border-color: var(--amber); }
@@ -198,7 +224,8 @@
   <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
   <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
   <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">📚</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
@@ -258,11 +285,23 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
   
-            <ul>
-                <li><b>SDG 12 - Responsible Consumption and Production:</b> directly about making global supply chains (like the one behind your phone) more sustainable and fair.</li>
-                <li><b>SDG 8 - Decent Work and Economic Growth:</b> connects to the people behind every "unseen" link in the supply chain, and whether their work is safe and fairly paid.</li>
-                <li><b>SDG 9 - Industry, Innovation and Infrastructure:</b> the global industry and infrastructure (mines, factories, shipping) that makes a smartphone possible.</li>
-            </ul>
+            <div class="sdg-grid">
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/sustainable-consumption-production/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-12-1024x1024.png" alt="SDG 12: Responsible Consumption and Production" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 12 - Responsible Consumption and Production</b><p>Directly about making global supply chains (like the one behind your phone) more sustainable and fair.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/economic-growth/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-08-1024x1024.png" alt="SDG 8: Decent Work and Economic Growth" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 8 - Decent Work and Economic Growth</b><p>Connects to the people behind every "unseen" link in the supply chain, and whether their work is safe and fairly paid.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/infrastructure-industrialization/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-09-1024x1024.png" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 9 - Industry, Innovation and Infrastructure</b><p>The global industry and infrastructure (mines, factories, shipping) that makes a smartphone possible.</p></div>
+            </a>
+            </div>
+            <p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://www.un.org/sustainabledevelopment" target="_blank" rel="noopener">un.org/sustainabledevelopment</a>.</p>
         
 </div>
 
@@ -282,11 +321,20 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>📰</span> In the News</h2>
   
-            <p><b>"Apple is ramping up production in India to avoid Donald Trump's tariffs on
-            China"</b> - Apple has been shifting a large share of iPhone assembly from China to
+            <p><b>11 April 2025:</b> "Apple is ramping up production in India to avoid Donald Trump's
+            tariffs on China" - Apple has been shifting a large share of iPhone assembly from China to
             India in response to US tariffs, a real, current example of how a supply-chain map can shift
             country to country almost overnight.</p>
             <p class="src">Source: ABC News, 11 April 2025.</p>
+            <p><b>2026:</b> China tightened export controls on rare-earth elements such as gallium,
+            germanium and dysprosium - the exact materials that make smartphone screens bright and
+            colourful - creating fresh supply-chain risk for phone makers worldwide.</p>
+            <p class="src">Source: S&amp;P Global, "Rare Earth Supply Bottlenecks Set to Persist in 2026," and Clark Hill PLC industry briefing, 2026.</p>
+            <p><b>2026:</b> The United States and partner countries signed new bilateral critical
+            minerals agreements and launched the Forum on Resource Geostrategic Engagement (FORGE),
+            aiming to build supply chains for tech materials that don't rely on any single country - a
+            direct response to the risks your phone's supply chain faces.</p>
+            <p class="src">Source: US Department of State, 2026 Critical Minerals Ministerial.</p>
         
 </div>
 
@@ -313,13 +361,30 @@
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  <h2 class="subpage-title"><span>🎓</span> What You'll Study in Stage 5 &amp; 6</h2>
   
-            <p><b>Stage 5 - Human Wellbeing:</b> the supply-chain theme opens the door to comparing
-            quality of life and working conditions between countries connected by trade.</p>
-            <p><b>Stage 6 (HSC) - People and Economic Activity:</b> studies global patterns of
-            production, trade and economic interdependence - a formal, data-driven version of "my
-            life is connected to the world".</p>
+            <p><b>That "how many countries made my phone" question keeps getting bigger.</b></p>
+            <p><b>Stage 5 - Human Wellbeing:</b> uses supply chains just like today's to compare
+            working conditions and quality of life between the countries a single product passes
+            through.</p>
+            <p><b>Stage 6 (HSC) - People and Economic Activity:</b> studies real global patterns of
+            production, trade and economic interdependence using genuine data sets - a formal,
+            evidence-based version of the "my life is connected to the world" idea you mapped today.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📚</span> References and Further Reading</h2>
+  
+            <ul>
+                <li>TED-Ed (n.d.) <i>What's a Smartphone Made Of?</i> - <a href="https://www.youtube.com/watch?v=eIdJ22AfsO8" target="_blank" rel="noopener">youtube.com</a></li>
+                <li>Ethical Consumer (n.d.) <i>The Global Supply Chain of a Mobile Phone</i> - <a href="https://www.ethicalconsumer.org/technology/global-supply-chain-mobile-phone" target="_blank" rel="noopener">ethicalconsumer.org</a></li>
+                <li>Fairphone (n.d.) <i>About Us</i> - <a href="https://www.fairphone.com/about-us" target="_blank" rel="noopener">fairphone.com</a></li>
+                <li>ABC News (11 April 2025) <i>Apple is ramping up production in India to avoid Donald Trump's tariffs on China</i></li>
+                <li>S&amp;P Global (2026) <i>Rare Earth Supply Bottlenecks Set to Persist in 2026</i> - <a href="https://www.spglobal.com/energy/en/news-research/latest-news/metals/012726-rare-earth-supply-bottlenecks-set-to-persist-in-2026" target="_blank" rel="noopener">spglobal.com</a></li>
+                <li>US Department of State (2026) <i>2026 Critical Minerals Ministerial</i> - <a href="https://www.state.gov/releases/office-of-the-spokesperson/2026/02/2026-critical-minerals-ministerial" target="_blank" rel="noopener">state.gov</a></li>
+            </ul>
         
 </div>
 
