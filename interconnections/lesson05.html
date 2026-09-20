@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 05 - Seen and Unseen Economies | Stage 4 Geography</title>
+<style>
+  :root {
+    --ocean: #065A82;
+    --teal: #1C7293;
+    --midnight: #21295C;
+    --mint: #02C39A;
+    --light-blue: #E8F1F6;
+    --light-mint: #E3F7F1;
+    --amber: #E3B23C;
+    --light-amber: #FBF1DB;
+    --border: #d5dee6;
+    --text: #222222;
+    --muted: #5a6b78;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px 60px 20px;
+    line-height: 1.55;
+  }
+  a { color: var(--ocean); }
+  header.page-header {
+    background: var(--midnight);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 22px;
+  }
+  header.page-header .crumb {
+    color: var(--mint);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+  }
+  header.page-header .crumb a { color: var(--mint); text-decoration: none; }
+  header.page-header .crumb a:hover { text-decoration: underline; }
+  header.page-header h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.8rem;
+    line-height: 1.25;
+  }
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
+  }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
+
+  .lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 26px;
+    font-size: 0.92rem;
+  }
+  .lesson-nav a {
+    text-decoration: none;
+    color: var(--ocean);
+    font-weight: bold;
+  }
+  .lesson-nav a:hover { text-decoration: underline; }
+  .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
+
+  /* Resource grid (hub view) */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .resource-box {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 18px;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+  .resource-box:hover {
+    box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+  .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+  .resource-box .rb-title {
+    font-weight: bold;
+    color: var(--midnight);
+    font-size: 1.02rem;
+  }
+
+  /* Subpage (detail) view */
+  .resource-subpage {
+    display: none;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 28px;
+    background: #ffffff;
+    margin-bottom: 10px;
+  }
+  .resource-subpage.active { display: block; }
+  .resource-grid.hidden { display: none; }
+  .subpage-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--midnight);
+    font-size: 1.3rem;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--light-blue);
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.92rem;
+    cursor: pointer;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+
+  footer.site-footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 05</p>
+  <h1>Lesson 05: Seen and Unseen Economies</h1>
+  
+  <p class="intro">First Nations trade networks have connected this continent for thousands of years - long before 1788.</p>
+</header>
+
+<nav class="lesson-nav">
+  <a href="lesson04.html">&larr; Lesson 04</a>
+  <a href="index.html">All lessons</a>
+  <a href="lesson06.html">Lesson 06 &rarr;</a>
+</nav>
+
+<div class="resource-grid" id="hub-grid">
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+</div>
+
+
+<div class="resource-subpage" id="box-summary">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
+  
+            <p>Long before ships arrived in 1788, First Nations Peoples were already trading across the
+            whole continent - ochre from Western Australia, pearl shell from the Kimberley, and
+            stone axes from near Melbourne all travelled thousands of kilometres along routes guided by
+            songlines. This lesson looks at that ancient trade network, then compares it with First
+            Nations economic activity happening right now - some highly visible (like art sold in
+            galleries worldwide), some "unseen" by most Australians (like rangers caring for Country).</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-videos">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
+  
+            <div class="res-item">
+                <div class="res-item-title">What Are Songlines? - ABC Education / Ngarrngga</div>
+                <p>Kalkadoon and Nunukul man Colin Jones explains what songlines are and how they carry
+                knowledge and connect Country.</p>
+                <p><a href="https://www.youtube.com/watch?v=kVOG-RKTFIo" target="_blank" rel="noopener">Watch on YouTube</a></p>
+            </div>
+            <div class="res-item">
+                <div class="res-item-title">Burn Off Season - ABC Behind the News</div>
+                <p>A Year-7-friendly explainer on Indigenous fire and land management - rangers
+                caring for Country today.</p>
+                <p><a href="https://www.abc.net.au/btn/classroom/burn-off-season/10522544" target="_blank" rel="noopener">Watch on ABC Education</a></p>
+            </div>
+        
+</div>
+
+<div class="resource-subpage" id="box-interest">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
+  
+            <ul>
+                <li><a href="https://www.nma.gov.au/defining-moments/resources/trade-with-the-makasar" target="_blank" rel="noopener">National Museum of Australia - Trade with the Makasar</a> - Yolngu trade with Makassan fishermen from at least 1700</li>
+                <li><a href="https://supplynation.org.au/" target="_blank" rel="noopener">Supply Nation - Indigenous Business Direct</a> - Australia's directory of 6,000+ verified First Nations businesses</li>
+                <li><a href="https://dl.nfsa.gov.au/module/1567/" target="_blank" rel="noopener">NFSA - Trade Routes (First Australians)</a> - on pre-1788 ceremonial trade routes</li>
+            </ul>
+        
+</div>
+
+<div class="resource-subpage" id="box-glossary">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
+  
+            <div class="glossary-grid">
+                <div class="term"><b>Trade network</b> - a web of routes and relationships along which goods, ideas and knowledge are exchanged.</div>
+                <div class="term"><b>Songline</b> - a route across Country carrying song, story, law and knowledge; songlines also guided travel and trade.</div>
+                <div class="term"><b>Ochre</b> - a natural earth pigment used for art, ceremony and trade.</div>
+                <div class="term"><b>Economy</b> - the way a community produces, exchanges and shares the things people need and value.</div>
+                <div class="term"><b>Cultural tourism</b> - tourism where visitors pay to learn about culture from the people who own that culture.</div>
+                <div class="term"><b>Country</b> - a living, interconnected relationship with land, waters and community, not just a piece of territory.</div>
+                <div class="term"><b>Native Title</b> - legal recognition of First Nations Peoples' rights and interests in land and waters.</div>
+            </div>
+        
+</div>
+
+<div class="resource-subpage" id="box-sdgs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
+  
+            <ul>
+                <li><b>SDG 8 - Decent Work and Economic Growth:</b> art centres, cultural tourism, ranger jobs and First Nations-owned companies connect local communities to national and global markets.</li>
+                <li><b>SDG 15 - Life on Land:</b> Indigenous ranger programs support conservation of tens of millions of hectares.</li>
+                <li><b>SDG 16 - Peace, Justice and Strong Institutions:</b> recognition of First Nations economies ties to land rights, Native Title and fair treatment.</li>
+            </ul>
+        
+</div>
+
+<div class="resource-subpage" id="box-fact">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
+  
+            <p>Archaeological research has found evidence that marine shell was carried at least
+            <b>200km inland roughly 3,200 years ago</b> - showing how far and how long Aboriginal
+            trade networks connected with Papua New Guinea and Torres Strait societies.</p>
+            <p class="src">Source: The Conversation, August 2025, on the "Coral Sea Cultural Interaction Sphere" research.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-news">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📰</span> In the News</h2>
+  
+            <p>In May 2026, the Federal Court delivered Australia's largest-ever native title
+            compensation award: roughly <b>$150 million to the Yindjibarndi people</b> of the Pilbara
+            (WA) for cultural loss caused by a mining operation that made 240 sacred sites inaccessible.</p>
+            <p class="src">Source: ABC News, 13 May 2026; National Indigenous Times, July 2026.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-world">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
+  
+            <p><b>Arnhem Land, Northern Territory</b> - from at least the early 1700s, decades
+            before British colonisation, Makassan fishermen from Sulawesi sailed to the Arnhem Land coast
+            each monsoon season to trade with Yolngu people for trepang, exchanging metal tools, cloth
+            and even loan-words still used today.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-related">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
+  
+            <p><b>L04 - On Country Connections</b> comes directly before this lesson and builds the
+            concept of "Country" that L05's trade-route map builds on. <b>L06 - Art in the Global
+            Economy</b> picks up the "art centre" idea from L05 and extends it into global markets.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-stage56">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  
+            <p><b>Stage 6 (HSC) - People and Economic Activity:</b> examines how economic
+            activities are organised, located and connected across scales - directly extending
+            L05's contrast between local First Nations economic activity and its connections to
+            national/global markets.</p>
+            <p><b>Stage 5 - Human Wellbeing</b> and <b>Changing Places</b> both connect to
+            recognition of, and access to, economic opportunity as a genuine wellbeing indicator.</p>
+        
+</div>
+
+<footer class="site-footer">
+  Stage 4 Geography - Interconnections and Trade &nbsp;|&nbsp; A resource hub for curious students, not a worksheet.
+</footer>
+
+<script>
+function showResourceSub(key) {
+  document.getElementById('hub-grid').classList.add('hidden');
+  document.querySelectorAll('.resource-subpage').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('box-' + key).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function showResourceHub() {
+  document.querySelectorAll('.resource-subpage').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('hub-grid').classList.remove('hidden');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html>
