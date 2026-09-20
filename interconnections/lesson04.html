@@ -156,6 +156,32 @@
   }
   .term b { color: var(--midnight); }
 
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
   p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
 
   #box-fact { background: var(--light-amber); border-color: var(--amber); }
@@ -198,7 +224,8 @@
   <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
   <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
   <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">📚</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
@@ -265,11 +292,23 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
   
-            <ul>
-                <li><b>SDG 15 - Life on Land:</b> Country includes the responsibility to care for land, waters and living things.</li>
-                <li><b>SDG 16 - Peace, Justice and Strong Institutions:</b> naming whose Country we're on is part of acting justly.</li>
-                <li><b>SDG 4 - Quality Education</b> (Target 4.7): calls for education that builds appreciation of cultural diversity - exactly what an Acknowledgement of Country aims to build.</li>
-            </ul>
+            <div class="sdg-grid">
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/biodiversity/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-15-1024x1024.png" alt="SDG 15: Life on Land" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 15 - Life on Land</b><p>Country includes the responsibility to care for land, waters and living things.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/peace-justice/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-16-1024x1024.png" alt="SDG 16: Peace, Justice and Strong Institutions" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 16 - Peace, Justice and Strong Institutions</b><p>Naming whose Country we're on is part of acting justly.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/education/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-04-1024x1024.png" alt="SDG 4: Quality Education" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 4 - Quality Education</b><p>Target 4.7 calls for education that builds appreciation of cultural diversity - exactly what an Acknowledgement of Country aims to build.</p></div>
+            </a>
+            </div>
+            <p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://www.un.org/sustainabledevelopment" target="_blank" rel="noopener">un.org/sustainabledevelopment</a>.</p>
         
 </div>
 
@@ -288,11 +327,20 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>📰</span> In the News</h2>
   
-            <p>On <b>25 April 2025 (Anzac Day)</b>, Welcome to Country ceremonies at dawn services in
+            <p><b>25 April 2025 (Anzac Day):</b> Welcome to Country ceremonies at dawn services in
             Sydney, Melbourne and Perth were interrupted by booing from parts of the crowd, drawing
             condemnation from Indigenous leaders, politicians and military figures, and reigniting public
             debate about Welcome to Country.</p>
             <p class="src">Source: ABC News, 25 April 2025.</p>
+            <p><b>27 May - 3 June 2026:</b> Australia marked National Reconciliation Week 2026 under
+            the theme "All In," calling on every Australian - in schools, workplaces and
+            communities - to take an active part in reconciliation, including through Acknowledgement
+            of Country.</p>
+            <p class="src">Source: Reconciliation Australia, National Reconciliation Week 2026.</p>
+            <p><b>2026:</b> NSW public schools continue to be guided by the NSW Department of
+            Education's official protocol on Acknowledgement of and Welcome to Country, which sets out
+            when each should be used and by whom - the exact distinction covered in this lesson.</p>
+            <p class="src">Source: NSW Department of Education, "Welcome to Country and Acknowledgement of Country" protocol document.</p>
         
 </div>
 
@@ -319,13 +367,33 @@
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  <h2 class="subpage-title"><span>🎓</span> What You'll Study in Stage 5 &amp; 6</h2>
   
+            <p><b>Caring for Country is not just history - it is a live case study in senior
+            Geography.</b></p>
             <p><b>Stage 5 - Environmental Change and Management</b> and <b>Sustainable Biomes:</b>
-            both commonly feature Aboriginal land management approaches (such as cultural burning and
-            Caring for Country) as case studies.</p>
-            <p><b>Stage 6 (HSC) - Ecosystems at Risk:</b> Traditional Owner land management
-            strategies are a genuine, frequently used case study for managing ecosystems at risk.</p>
+            both regularly use Aboriginal land management approaches, including cultural burning and
+            Caring for Country programs, as real case studies of environments being managed well.</p>
+            <p><b>Stage 6 (HSC) - Ecosystems at Risk:</b> makes Traditional Owner land management
+            strategies a genuine, frequently examined case study for protecting ecosystems under
+            threat - built directly on the concept of Country you learned today.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📚</span> References and Further Reading</h2>
+  
+            <ul>
+                <li>AIATSIS (n.d.) <i>Map of Indigenous Australia</i> - <a href="https://aiatsis.gov.au/explore/map-indigenous-australia" target="_blank" rel="noopener">aiatsis.gov.au</a></li>
+                <li>Common Ground (n.d.) <i>What Is Country?</i> - <a href="https://www.commonground.org.au/article/what-is-country" target="_blank" rel="noopener">commonground.org.au</a></li>
+                <li>Reconciliation Australia (n.d.) <i>Acknowledgement of Country and Welcome to Country</i> - <a href="https://www.reconciliation.org.au/reconciliation/acknowledgement-of-country-and-welcome-to-country/" target="_blank" rel="noopener">reconciliation.org.au</a></li>
+                <li>ABC Education (n.d.) <i>Welcome to Country</i> - <a href="https://www.abc.net.au/btn/classroom/welcome-to-country/105256292" target="_blank" rel="noopener">abc.net.au</a></li>
+                <li>ABC Education (n.d.) <i>Welcome to Country History</i> - <a href="https://www.abc.net.au/btn/classroom/welcome-to-country-history/106640246" target="_blank" rel="noopener">abc.net.au</a></li>
+                <li>ABC News (25 April 2025) <i>Anzac Day Welcome to Country coverage</i></li>
+                <li>Reconciliation Australia (2026) <i>National Reconciliation Week 2026 - "All In"</i> - <a href="https://www.reconciliation.org.au/our-work/national-reconciliation-week/" target="_blank" rel="noopener">reconciliation.org.au</a></li>
+                <li>NSW Department of Education (n.d.) <i>Welcome to Country and Acknowledgement of Country</i> - <a href="https://education.nsw.gov.au/content/dam/main-education/about-us/strategies-and-reports/welcomecountry_lowres-1.pdf" target="_blank" rel="noopener">education.nsw.gov.au</a></li>
+            </ul>
         
 </div>
 
