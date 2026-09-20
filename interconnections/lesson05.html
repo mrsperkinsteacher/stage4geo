@@ -156,6 +156,32 @@
   }
   .term b { color: var(--midnight); }
 
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
   p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
 
   #box-fact { background: var(--light-amber); border-color: var(--amber); }
@@ -198,7 +224,8 @@
   <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
   <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
   <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">📚</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
@@ -266,11 +293,23 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
   
-            <ul>
-                <li><b>SDG 8 - Decent Work and Economic Growth:</b> art centres, cultural tourism, ranger jobs and First Nations-owned companies connect local communities to national and global markets.</li>
-                <li><b>SDG 15 - Life on Land:</b> Indigenous ranger programs support conservation of tens of millions of hectares.</li>
-                <li><b>SDG 16 - Peace, Justice and Strong Institutions:</b> recognition of First Nations economies ties to land rights, Native Title and fair treatment.</li>
-            </ul>
+            <div class="sdg-grid">
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/economic-growth/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-08-1024x1024.png" alt="SDG 8: Decent Work and Economic Growth" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 8 - Decent Work and Economic Growth</b><p>Art centres, cultural tourism, ranger jobs and First Nations-owned companies connect local communities to national and global markets.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/biodiversity/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-15-1024x1024.png" alt="SDG 15: Life on Land" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 15 - Life on Land</b><p>Indigenous ranger programs support conservation of tens of millions of hectares.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/peace-justice/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-16-1024x1024.png" alt="SDG 16: Peace, Justice and Strong Institutions" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 16 - Peace, Justice and Strong Institutions</b><p>Recognition of First Nations economies ties to land rights, Native Title and fair treatment.</p></div>
+            </a>
+            </div>
+            <p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://www.un.org/sustainabledevelopment" target="_blank" rel="noopener">un.org/sustainabledevelopment</a>.</p>
         
 </div>
 
@@ -289,10 +328,19 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>📰</span> In the News</h2>
   
-            <p>In May 2026, the Federal Court delivered Australia's largest-ever native title
+            <p><b>13 May 2026:</b> The Federal Court delivered Australia's largest-ever native title
             compensation award: roughly <b>$150 million to the Yindjibarndi people</b> of the Pilbara
             (WA) for cultural loss caused by a mining operation that made 240 sacred sites inaccessible.</p>
             <p class="src">Source: ABC News, 13 May 2026; National Indigenous Times, July 2026.</p>
+            <p><b>27 February 2026:</b> Native title holders in the Northern Territory were awarded
+            more than $54 million in compensation for the economic and spiritual impacts of the
+            McArthur River Mine on their Country - another real, current example of how First Nations
+            economies and land rights connect.</p>
+            <p class="src">Source: ABC News, 27 February 2026, "Native title holders awarded more than $54m for economic, spiritual loss from NT's McArthur River Mine."</p>
+            <p><b>4 August 2026:</b> The Federal Government opened a new $30 million grants program to
+            help Native Title corporations (PBCs) build real economic opportunities on their own land,
+            with individual grants of $50,000 to $750,000.</p>
+            <p class="src">Source: National Indigenous Times, 4 August 2026, "$30m Grants Program to Boost Indigenous Economic Development Through Native Title Bodies."</p>
         
 </div>
 
@@ -319,14 +367,33 @@
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  <h2 class="subpage-title"><span>🎓</span> What You'll Study in Stage 5 &amp; 6</h2>
   
+            <p><b>The economies you uncovered today - some ancient, some right now - are exactly
+            what senior Geography measures.</b></p>
             <p><b>Stage 6 (HSC) - People and Economic Activity:</b> examines how economic
             activities are organised, located and connected across scales - directly extending
-            L05's contrast between local First Nations economic activity and its connections to
+            today's contrast between local First Nations economic activity and its connections to
             national/global markets.</p>
-            <p><b>Stage 5 - Human Wellbeing</b> and <b>Changing Places</b> both connect to
-            recognition of, and access to, economic opportunity as a genuine wellbeing indicator.</p>
+            <p><b>Stage 5 - Human Wellbeing</b> and <b>Changing Places:</b> both treat recognition
+            of, and access to, economic opportunity as a genuine, measurable wellbeing indicator - not
+            just a nice idea.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📚</span> References and Further Reading</h2>
+  
+            <ul>
+                <li>National Museum of Australia (n.d.) <i>Trade with the Makasar</i> - <a href="https://www.nma.gov.au/defining-moments/resources/trade-with-the-makasar" target="_blank" rel="noopener">nma.gov.au</a></li>
+                <li>Supply Nation (n.d.) <i>Indigenous Business Direct</i> - <a href="https://supplynation.org.au/" target="_blank" rel="noopener">supplynation.org.au</a></li>
+                <li>NFSA (n.d.) <i>Trade Routes (First Australians)</i> - <a href="https://dl.nfsa.gov.au/module/1567/" target="_blank" rel="noopener">dl.nfsa.gov.au</a></li>
+                <li>The Conversation (August 2025) <i>Coral Sea Cultural Interaction Sphere research</i></li>
+                <li>ABC News (13 May 2026) <i>Yindjibarndi native title compensation</i></li>
+                <li>ABC News (27 February 2026) <i>Native title holders awarded more than $54m for economic, spiritual loss from NT's McArthur River Mine</i> - <a href="https://www.abc.net.au/news/2026-02-27/nt-mcarthur-river-mine-case-traditional-owners-win-compensation/106398116" target="_blank" rel="noopener">abc.net.au</a></li>
+                <li>National Indigenous Times (4 August 2026) <i>$30m Grants Program to Boost Indigenous Economic Development Through Native Title Bodies</i> - <a href="https://nit.com.au/04-08-2026/25739/30m-grants-program-to-boost-indigenous-economic-development-through-native-title-bodies" target="_blank" rel="noopener">nit.com.au</a></li>
+            </ul>
         
 </div>
 
