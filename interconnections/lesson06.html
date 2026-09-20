@@ -156,6 +156,32 @@
   }
   .term b { color: var(--midnight); }
 
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
   p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
 
   #box-fact { background: var(--light-amber); border-color: var(--amber); }
@@ -185,7 +211,7 @@
 <nav class="lesson-nav">
   <a href="lesson05.html">&larr; Lesson 05</a>
   <a href="index.html">All lessons</a>
-  <a href="lesson07.html">Lesson 07 &rarr;</a>
+  <span class="disabled">Lesson &rarr;</span>
 </nav>
 
 <div class="resource-grid" id="hub-grid">
@@ -198,7 +224,8 @@
   <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
   <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
   <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">📚</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
@@ -264,11 +291,23 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
   
-            <ul>
-                <li><b>SDG 8 - Decent Work and Economic Growth:</b> authentic art centres provide First Nations artists with fair pay and real economic opportunity.</li>
-                <li><b>SDG 11 - Sustainable Cities and Communities</b> (Target 11.4): calls for protecting the world's cultural and natural heritage.</li>
-                <li><b>SDG 12 - Responsible Consumption and Production:</b> the "ethical buyer" question - who made this, how were they paid? - is exactly what SDG 12 asks consumers to consider.</li>
-            </ul>
+            <div class="sdg-grid">
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/economic-growth/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-08-1024x1024.png" alt="SDG 8: Decent Work and Economic Growth" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 8 - Decent Work and Economic Growth</b><p>Authentic art centres provide First Nations artists with fair pay and real economic opportunity.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/cities/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-11-1024x1024.png" alt="SDG 11: Sustainable Cities and Communities" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 11 - Sustainable Cities and Communities</b><p>Target 11.4 calls for protecting the world's cultural and natural heritage.</p></div>
+            </a>
+
+            <a class="sdg-tile" href="https://www.un.org/sustainabledevelopment/sustainable-consumption-production/" target="_blank" rel="noopener">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-12-1024x1024.png" alt="SDG 12: Responsible Consumption and Production" loading="lazy">
+                <div class="sdg-tile-text"><b>SDG 12 - Responsible Consumption and Production</b><p>The "ethical buyer" question - who made this, how were they paid? - is exactly what SDG 12 asks consumers to consider.</p></div>
+            </a>
+            </div>
+            <p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://www.un.org/sustainabledevelopment" target="_blank" rel="noopener">un.org/sustainabledevelopment</a>.</p>
         
 </div>
 
@@ -289,13 +328,23 @@
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
   <h2 class="subpage-title"><span>📰</span> In the News</h2>
   
-            <p>In December 2022, the Productivity Commission's <i>Aboriginal and Torres Strait Islander
-            Visual Arts and Crafts</i> study found that around <b>two in three "Aboriginal-style"
+            <p><b>14 December 2022:</b> The Productivity Commission's <i>Aboriginal and Torres Strait
+            Islander Visual Arts and Crafts</i> study found that around <b>two in three "Aboriginal-style"
             souvenirs</b> sold in Australia are not made or licensed by First Nations people, out of a
             genuine Indigenous visual arts market worth over $250 million a year. In 2019, the Federal
             Court fined the company Birubi Art $2.3 million for selling souvenirs made in Indonesia as
             "Authentic Aboriginal Art".</p>
             <p class="src">Source: ABC News, 14 December 2022; Productivity Commission Study Report.</p>
+            <p><b>2026:</b> Following the Productivity Commission's findings, the Australian
+            Government's Office for the Arts sought public feedback on new laws that would require
+            clear labelling of Indigenous-style art and merchandise, so shoppers can tell real from
+            fake at a glance.</p>
+            <p class="src">Source: Australian Government, Office for the Arts, "Seeking Views on New Laws to Tackle Fake Indigenous-Style Art."</p>
+            <p><b>Ongoing:</b> The Australian Competition and Consumer Commission (ACCC) has repeatedly
+            warned that fake Aboriginal art "diminishes the authenticity of the whole industry" and can
+            mislead shoppers under Australian Consumer Law - one reason the Indigenous Art Code exists
+            to certify genuine sellers.</p>
+            <p class="src">Source: ABC News, "Fake Aboriginal art diminishes authenticity of the whole industry, ACCC says."</p>
         
 </div>
 
@@ -322,14 +371,31 @@
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
+  <h2 class="subpage-title"><span>🎓</span> What You'll Study in Stage 5 &amp; 6</h2>
   
+            <p><b>Ethical buying, done properly, is a full senior Geography skill.</b></p>
             <p><b>Stage 5 - Human Wellbeing</b> and <b>Changing Places:</b> look at how economic
-            participation, cultural recognition and global economic connections affect and reshape
-            communities.</p>
+            participation, cultural recognition and global economic connections genuinely reshape
+            communities - the art-centre story from today, scaled up.</p>
             <p><b>Stage 6 (HSC) - People and Economic Activity:</b> studies how economic activities
-            are organised and regulated across scales - a direct progression from this lesson's
-            local/national/global analysis and the role of regulators.</p>
+            are organised and regulated across scales - a direct progression from today's local,
+            national and global analysis, and the real role of regulators like the ACCC and the
+            Federal Court.</p>
+        
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>📚</span> References and Further Reading</h2>
+  
+            <ul>
+                <li>Indigenous Art Code (n.d.) <i>Buying Art Ethically</i> - <a href="https://indigenousartcode.org/buying-art-ethically" target="_blank" rel="noopener">indigenousartcode.org</a></li>
+                <li>Papunya Tula Artists (n.d.) - <a href="https://papunyatula.com.au/" target="_blank" rel="noopener">papunyatula.com.au</a></li>
+                <li>National Gallery of Australia (n.d.) <i>First Nations</i> - <a href="https://nga.gov.au/first-nations/" target="_blank" rel="noopener">nga.gov.au</a></li>
+                <li>ABC News (14 December 2022) <i>Productivity Commission report on fake Aboriginal art</i></li>
+                <li>Australian Government, Office for the Arts (2026) <i>Seeking Views on New Laws to Tackle Fake Indigenous-Style Art</i> - <a href="https://www.arts.gov.au/news/seeking-views-new-laws-tackle-fake-indigenous-style-art" target="_blank" rel="noopener">arts.gov.au</a></li>
+                <li>ABC News (n.d.) <i>Fake Aboriginal art diminishes authenticity of the whole industry, ACCC says</i> - <a href="https://amp.abc.net.au/article/10437056" target="_blank" rel="noopener">abc.net.au</a></li>
+            </ul>
         
 </div>
 
