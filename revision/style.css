@@ -35,7 +35,7 @@
   .subheads .chnum { font-weight:700; color:var(--midnight); }
   .subheads-label { display:block; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); margin-bottom:.5rem; }
 
-  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.7rem; margin:.8rem 0 1.4rem; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin:.8rem 0 1.4rem; }
   .vocab-card { border:1px solid var(--border); border-radius:10px; padding:.7rem .9rem; background:var(--bg-soft); }
   .vocab-card .term { display:block; font-weight:700; color:var(--midnight); font-size:.88rem; margin-bottom:.15rem; }
   .vocab-card .def { font-size:.8rem; color:#444; line-height:1.4; }
