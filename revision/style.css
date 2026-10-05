@@ -96,5 +96,10 @@
   .activity-box ol.case-study-steps li:last-child { margin-bottom:0; }
   .activity-box a.reslink { color:var(--blue); font-weight:700; text-decoration:none; }
   .activity-box a.reslink:hover { text-decoration:underline; }
+  .value-row { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin:.7rem 0; }
+  .value-card { background:#fff; border:1px solid #fde3b8; border-radius:10px; padding:.7rem .9rem; }
+  .value-card h5 { margin:0 0 .3rem; font-size:.8rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; color:#b96b00; }
+  .value-card p { margin:0; font-size:.83rem; color:#444; line-height:1.45; }
+  @media (max-width:640px) { .value-row { grid-template-columns:1fr; } }
   footer { text-align:center; font-size:.85rem; color:#777; padding:2rem 1rem; border-top:1px solid #eee; margin-top:2rem; }
   a.back { color:var(--teal); }
