@@ -81,6 +81,10 @@
   .video-embed-desc { margin:.7rem 1rem 0; font-size:.78rem; color:#444; }
   .video-embed-credit { display:block; margin:.35rem 1rem 1rem; font-size:.7rem; color:#999; font-style:italic; }
 
+  .media-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:1.2rem; align-items:start; margin-top:1rem; }
+  .media-row .pdf-embed-wrap { margin-top:0; }
+  .media-row .video-embed-wrap { margin:0; max-width:none; }
+
   .eq { border-left:4px solid var(--mint); padding:.2rem 0 .2rem 1rem; margin:1.2rem 0; font-style:italic; color:#444; }
   .activity-box { background:#fff7ed; border:1px solid #fde3b8; border-left:4px solid #f5a623; border-radius:12px; padding:1rem 1.2rem; margin:1rem 0; }
   .activity-box .activity-label { font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:#b96b00; margin-bottom:.3rem; }
