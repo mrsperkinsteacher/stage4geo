@@ -81,7 +81,7 @@
   .video-embed-desc { margin:.7rem 1rem 0; font-size:.78rem; color:#444; }
   .video-embed-credit { display:block; margin:.35rem 1rem 1rem; font-size:.7rem; color:#999; font-style:italic; }
 
-  .media-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:1.2rem; align-items:start; margin-top:1rem; }
+  .media-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:1.2rem; margin-top:1rem; }
   .media-row .pdf-embed-wrap { margin-top:0; }
   .media-row .video-embed-wrap { margin:0; max-width:none; }
 
