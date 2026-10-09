@@ -50,19 +50,13 @@
     font-size: 1.8rem;
     line-height: 1.25;
   }
-  header.page-header p.intro { margin: 0; color: #d9e2ec; }
-  .badge {
-    display: inline-block;
-    background: var(--mint);
-    color: var(--midnight);
-    font-weight: bold;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 10px;
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
   }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
 
   .lesson-nav {
     display: flex;
@@ -79,6 +73,7 @@
   .lesson-nav a:hover { text-decoration: underline; }
   .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
 
+  /* Resource grid (hub view) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -92,14 +87,12 @@
     background: #ffffff;
     cursor: pointer;
     text-align: left;
-    opacity: 0.7;
-    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   }
   .resource-box:hover {
     box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
     border-color: var(--teal);
     transform: translateY(-2px);
-    opacity: 1;
   }
   .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
   .resource-box .rb-title {
@@ -108,6 +101,7 @@
     font-size: 1.02rem;
   }
 
+  /* Subpage (detail) view */
   .resource-subpage {
     display: none;
     border: 1px solid var(--border);
@@ -139,10 +133,75 @@
   }
   .back-link:hover { text-decoration: underline; }
 
-  p.coming-soon {
-    color: var(--muted);
-    font-style: italic;
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
   }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  .added-badge {
+    display: inline-block;
+    background: var(--light-mint);
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
 
   footer.site-footer {
     margin-top: 40px;
@@ -158,109 +217,114 @@
 
 <header class="page-header">
   <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 12</p>
-  <span class="badge">Coming soon</span>
   <h1>Lesson 12: The Digital Divide</h1>
-  <p class="intro">This resource hub hasn't been built yet - check back soon.</p>
+  <p class="intro">Not everyone is online. Find out who is left out, why it happens, and what is being done about it.</p>
 </header>
 
 <nav class="lesson-nav">
   <a href="lesson11.html">&larr; Lesson 11</a>
   <a href="index.html">All lessons</a>
-  <a href="lesson13.html">Lesson 13 &rarr;</a>
+  <span class="disabled">Lesson 13 &rarr;</span>
 </nav>
 
 <div class="resource-grid" id="hub-grid">
-  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
-  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
-  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
-  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
-  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
-  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
-  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
-  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
-  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">&#128203;</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">&#127909;</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">&#128270;</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">&#128214;</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">&#127757;</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">&#128161;</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">&#128240;</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">&#128506;&#65039;</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('jobs')"><span class="icon">&#128188;</span><span class="rb-title">Careers Connected to This Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">&#128279;</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">&#127891;</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">&#128218;</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
 <div class="resource-subpage" id="box-summary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128203;</span> Summary of Lesson</h2>
+  <p>Today you define the <b>digital divide</b> - the gap between people who have good access to technology and the internet, and people who do not. You describe it using data about internet access in different places, look at who it affects most (including people in remote places and some First Nations communities), and finish with a four-part written response that includes causes and strategies.</p><p>This matters because access means more than owning a phone. It needs a suitable device, a reliable connection, the skills to use it and the money to afford it. Where those are missing, people can miss out on school, health care, jobs and information.</p>
 </div>
 
 <div class="resource-subpage" id="box-videos">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127909;</span> Linked Videos</h2>
+  <div class="res-item"><div class="res-item-title">Outback Internet Issues - Behind the News (ABC)</div><p>A student-made report (15 August 2017) from Behind the News. Kids from a remote Queensland station explain the problems they face getting online and call for change.</p><p><a href="https://www.abc.net.au/btn/classroom/outback-internet-issues/10522568" target="_blank" rel="noopener">Watch on ABC Behind the News</a></p></div>
 </div>
 
 <div class="resource-subpage" id="box-interest">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128270;</span> Extra Things of Interest</h2>
+  <ul><li><a href="https://digitalinclusionindex.org.au/the-2025-findings/" target="_blank" rel="noopener">Australian Digital Inclusion Index - the 2025 findings</a> - the national measure of who is, and isn't, digitally included.</li><li><a href="https://www.itu.int/en/mediacentre/Pages/PR-2025-11-17-Facts-and-Figures.aspx" target="_blank" rel="noopener">Facts and Figures 2025 (International Telecommunication Union)</a> - the world picture on internet use.</li><li><a href="https://www.pc.gov.au/closing-the-gap-data/dashboard/socioeconomic/outcome-area17" target="_blank" rel="noopener">Closing the Gap data dashboard - outcome area 17 (Productivity Commission)</a> - progress on digital inclusion for Aboriginal and Torres Strait Islander people.</li></ul>
 </div>
 
 <div class="resource-subpage" id="box-glossary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128214;</span> Glossary</h2>
+  <div class="glossary-grid"><div class="term"><b>Digital divide</b> - the gap between people who have good access to digital technology and the internet, and people who do not.</div><div class="term"><b>Access</b> - having a suitable device, a reliable connection, the skills to use it, and the money to afford it.</div><div class="term"><b>Remote</b> - far away from cities and large towns, where services are harder and more expensive to provide.</div><div class="term"><b>Telehealth</b> - seeing a doctor or health worker by video or phone instead of travelling to a clinic.</div><div class="term"><b>Strategy</b> - a planned action designed to solve or reduce a problem.</div></div>
 </div>
 
 <div class="resource-subpage" id="box-sdgs">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127757;</span> Link to the SDGs</h2>
+  <div class="sdg-grid"><a class="sdg-tile" href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-10-1024x1024.png" alt="SDG 10: Reduced Inequalities" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 10 - Reduced Inequalities</b><p>The digital divide is a form of inequality between and within countries.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-17-1024x1024.png" alt="SDG 17: Partnerships for the Goals" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 17 - Partnerships for the Goals</b><p>Target 17.8 tracks how many people use the internet, and the goal is to raise that share.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal9" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-09-1024x1024.png" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 9 - Industry, Innovation and Infrastructure</b><p>The goal includes significantly increasing access to information and communications technology.</p></div>
+</a>
+</div><p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org</a>.</p>
 </div>
 
 <div class="resource-subpage" id="box-fact">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128161;</span> Did You Know?</h2>
+  <p>In 2025 about <b>85 per cent</b> of people in cities were online, compared with about <b>58 per cent</b> of people in rural areas. Globally, about 6 billion people are online, and about 2.2 billion - roughly 1 in 4 - are not.</p><p class="src">Source: International Telecommunication Union (ITU), Facts and Figures 2025, 17 November 2025. The 'about 1 in 4' share is worked out from the ITU's 6 billion online and 2.2 billion offline.</p>
 </div>
 
 <div class="resource-subpage" id="box-news">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📰</span> In the News</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128240;</span> In the News</h2>
+  <p>The 2025 Australian Digital Inclusion Index found that digital inclusion is improving: between 2023 and 2025 the national Access score rose from 72.0 to 76.8, and Digital Ability rose from 64.9 to 73.6. But gaps remain. The gap between First Nations people and other Australians is 10.5 points nationally, 16.5 points in remote areas and 22.8 points in very remote areas.</p><p class="src">Source: Australian Digital Inclusion Index, 'The 2025 findings', published late 2025.</p>
 </div>
 
 <div class="resource-subpage" id="box-world">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128506;&#65039;</span> Where in the World?</h2>
+  <p><b>Remote and very remote Australia</b> - distance and cost combine to make good internet harder to get. The 2025 index found the First Nations digital inclusion gap widens from 10.5 points nationally to 16.5 points in remote areas and 22.8 points in very remote areas, and closing it is a national priority under Closing the Gap Target 17.</p><p class="src">Sources: Australian Digital Inclusion Index 2025; Productivity Commission, Closing the Gap dashboard.</p>
+</div>
+
+<div class="resource-subpage" id="box-jobs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128188;</span> Careers Connected to This Lesson</h2>
+  <p><b>Telehealth nurse or doctor</b> - cares for patients by video or phone, which only works when the patient has a reliable connection.</p><p><b>Community digital inclusion worker</b> - helps people in libraries and community centres get online, learn digital skills and stay safe on the internet.</p>
 </div>
 
 <div class="resource-subpage" id="box-related">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128279;</span> Related Lessons</h2>
+  <p><b>L10 - A Connected World</b> and <b>L11 - Sector Graphs</b> give you the technology background and the graphing skills you use today. <b>L09 - Transport and Inequality</b> raised the same question about fairness in a different network. Later in the unit, lessons on trade ask who wins and who loses from global connections.</p>
 </div>
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127891;</span> What You'll Study in Stage 5 &amp; 6</h2>
+  <p><b>Inequality between places is a theme that keeps growing.</b></p><p><b>Stage 5 - Human Wellbeing and Changing Places:</b> looks at how access to services such as health, education and technology differs between places, and how it affects people's quality of life.</p><p><b>Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places:</b> asks how and why places and people are affected differently, including by gaps in access and opportunity.</p>
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128218;</span> References and Further Reading</h2>
+  <ul><li>ABC Behind the News (2017, 15 August). <i>Outback Internet Issues</i> - <a href="https://www.abc.net.au/btn/classroom/outback-internet-issues/10522568" target="_blank" rel="noopener">abc.net.au/btn</a>.</li><li>Australian Digital Inclusion Index (2025). <i>The 2025 findings</i> - <a href="https://digitalinclusionindex.org.au/the-2025-findings/" target="_blank" rel="noopener">digitalinclusionindex.org.au</a>.</li><li>International Telecommunication Union (2025, 17 November). <i>Facts and Figures 2025</i> (press release) - <a href="https://www.itu.int/en/mediacentre/Pages/PR-2025-11-17-Facts-and-Figures.aspx" target="_blank" rel="noopener">itu.int</a>.</li><li>Productivity Commission (n.d.). <i>Closing the Gap Information Repository: outcome area 17</i> - <a href="https://www.pc.gov.au/closing-the-gap-data/dashboard/socioeconomic/outcome-area17" target="_blank" rel="noopener">pc.gov.au</a>.</li><li>United Nations (n.d.). <i>Goal 9</i>, <i>Goal 10</i> and <i>Goal 17</i>, Sustainable Development Goals - <a href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener">sdgs.un.org</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 7-10 Syllabus (2024)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-7-10-2024/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 11-12 Syllabus (2022)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-11-12-2022/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li></ul>
 </div>
 
 <footer class="site-footer">
