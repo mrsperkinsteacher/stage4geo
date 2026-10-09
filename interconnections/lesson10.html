@@ -50,19 +50,13 @@
     font-size: 1.8rem;
     line-height: 1.25;
   }
-  header.page-header p.intro { margin: 0; color: #d9e2ec; }
-  .badge {
-    display: inline-block;
-    background: var(--mint);
-    color: var(--midnight);
-    font-weight: bold;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 10px;
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
   }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
 
   .lesson-nav {
     display: flex;
@@ -79,6 +73,7 @@
   .lesson-nav a:hover { text-decoration: underline; }
   .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
 
+  /* Resource grid (hub view) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -92,14 +87,12 @@
     background: #ffffff;
     cursor: pointer;
     text-align: left;
-    opacity: 0.7;
-    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   }
   .resource-box:hover {
     box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
     border-color: var(--teal);
     transform: translateY(-2px);
-    opacity: 1;
   }
   .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
   .resource-box .rb-title {
@@ -108,6 +101,7 @@
     font-size: 1.02rem;
   }
 
+  /* Subpage (detail) view */
   .resource-subpage {
     display: none;
     border: 1px solid var(--border);
@@ -139,10 +133,75 @@
   }
   .back-link:hover { text-decoration: underline; }
 
-  p.coming-soon {
-    color: var(--muted);
-    font-style: italic;
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
   }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  .added-badge {
+    display: inline-block;
+    background: var(--light-mint);
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
 
   footer.site-footer {
     margin-top: 40px;
@@ -158,9 +217,8 @@
 
 <header class="page-header">
   <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 10</p>
-  <span class="badge">Coming soon</span>
   <h1>Lesson 10: A Connected World</h1>
-  <p class="intro">This resource hub hasn't been built yet - check back soon.</p>
+  <p class="intro">Almost all the internet crosses the ocean floor. Find out how technology joins the world together, and what can go wrong.</p>
 </header>
 
 <nav class="lesson-nav">
@@ -170,97 +228,103 @@
 </nav>
 
 <div class="resource-grid" id="hub-grid">
-  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
-  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
-  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
-  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
-  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
-  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
-  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
-  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
-  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">&#128203;</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">&#127909;</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">&#128270;</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">&#128214;</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">&#127757;</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">&#128161;</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">&#128240;</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">&#128506;&#65039;</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('jobs')"><span class="icon">&#128188;</span><span class="rb-title">Careers Connected to This Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">&#128279;</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">&#127891;</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">&#128218;</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
 <div class="resource-subpage" id="box-summary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128203;</span> Summary of Lesson</h2>
+  <p>Today you define <b>globalisation</b> and learn a three-step way to analyse any technology: what it connects people to, one benefit, and one risk. You apply it to technologies such as undersea cables, GPS, online marketplaces and contactless payments, then write a short paragraph explaining one of them.</p><p>This matters because technology is the engine of globalisation. It connects people to goods, services, information, places and each other - and it can fail, as the story of Tonga's broken cable shows.</p>
 </div>
 
 <div class="resource-subpage" id="box-videos">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127909;</span> Linked Videos</h2>
+  <div class="res-item"><div class="res-item-title">Watch a professor explain the internet's series of subsea tubes in 101 seconds - UC Berkeley News</div><p>About 101 seconds. Professor Nicole Starosielski, from Berkeley's Department of Film and Media, explains how the internet travels through cables under the sea. It is hosted on YouTube.</p><p><a href="https://news.berkeley.edu/2025/04/10/watch-a-professor-explain-the-internets-series-of-subsea-tubes-in-101-seconds/" target="_blank" rel="noopener">Watch on UC Berkeley News</a></p></div>
 </div>
 
 <div class="resource-subpage" id="box-interest">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128270;</span> Extra Things of Interest</h2>
+  <ul><li><a href="https://www.submarinecablemap.com/" target="_blank" rel="noopener">Submarine Cable Map (TeleGeography)</a> - an interactive map of the world's undersea cables. Find Australia and see where the cables come ashore.</li><li><a href="https://www.abc.net.au/news/2024-03-06/the-cloud-under-the-sea/103137378" target="_blank" rel="noopener">China and the US are wrestling over a web of cables we never see (ABC News)</a> - a feature on the cables that carry our data.</li><li><a href="https://www.aljazeera.com/news/2022/2/23/tonga-internet-reconnected-five-weeks-of-volcanic-eruption" target="_blank" rel="noopener">Tonga internet reconnected five weeks after volcanic eruption (Al Jazeera)</a> - what happens when a country's only cable breaks.</li></ul>
 </div>
 
 <div class="resource-subpage" id="box-glossary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128214;</span> Glossary</h2>
+  <div class="glossary-grid"><div class="term"><b>Globalisation</b> - the increasing movement of goods, services, money, people and ideas around the world.</div><div class="term"><b>Undersea cable</b> - a fibre-optic cable on the ocean floor that carries internet data between countries - about 99% of international data travels this way.</div><div class="term"><b>GPS</b> - Global Positioning System - satellites that let devices work out exactly where they are on Earth.</div><div class="term"><b>Online marketplace</b> - a website or app where buyers and sellers from anywhere in the world can trade with each other.</div><div class="term"><b>Contactless payment</b> - paying by tapping a card or phone, with the money moving electronically between banks in seconds.</div></div>
 </div>
 
 <div class="resource-subpage" id="box-sdgs">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127757;</span> Link to the SDGs</h2>
+  <div class="sdg-grid"><a class="sdg-tile" href="https://sdgs.un.org/goals/goal9" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-09-1024x1024.png" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 9 - Industry, Innovation and Infrastructure</b><p>Undersea cables, satellites and mobile networks are the infrastructure behind the internet, and the goal aims to widen internet access.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-17-1024x1024.png" alt="SDG 17: Partnerships for the Goals" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 17 - Partnerships for the Goals</b><p>Global technology only works when countries cooperate on cables, standards and rules.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-10-1024x1024.png" alt="SDG 10: Reduced Inequalities" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 10 - Reduced Inequalities</b><p>Who gets good technology, and who is left behind, is a question of fairness.</p></div>
+</a>
+</div><p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org</a>.</p>
 </div>
 
 <div class="resource-subpage" id="box-fact">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128161;</span> Did You Know?</h2>
+  <p>The International Telecommunication Union (ITU), the United Nations agency for communications, says undersea cables carry <b>over 99 per cent of international data exchanges</b>. Other sources give a slightly lower figure (some say over 95 per cent), but either way, it is almost all of it. Each cable is roughly the width of a garden hose, with glass fibres as thin as a human hair inside.</p><p class="src">Sources: ITU press release, 29 November 2024; PreventionWeb (republished from The Conversation), 17 January 2022; ABC News, 6 March 2024.</p>
 </div>
 
 <div class="resource-subpage" id="box-news">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📰</span> In the News</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128240;</span> In the News</h2>
+  <p>On <b>6 September 2025</b>, several undersea cables in the Red Sea near Jeddah, Saudi Arabia, were cut. Internet users in the United Arab Emirates, India and Pakistan reported slower connections. Microsoft said traffic passing through the Middle East could be slower, and rerouted it along other paths. Repairs to undersea cables can take weeks to months.</p><p class="src">Source: Telecom Review, 'International cable breaks in Red Sea cause latency surge across Asia and Gulf', 8 September 2025.</p>
 </div>
 
 <div class="resource-subpage" id="box-world">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128506;&#65039;</span> Where in the World?</h2>
+  <p><b>Tonga</b> - after a volcanic eruption and tsunami in January 2022, Tonga's main undersea cable was broken and the country was cut off from the world's internet for more than five weeks, using only makeshift satellite links. The cable was reconnected on 22 February 2022 after about 90 km of damaged cable was replaced.</p><p class="src">Source: Al Jazeera, 'Tonga internet reconnected five weeks after volcanic eruption', 23 February 2022.</p>
+</div>
+
+<div class="resource-subpage" id="box-jobs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128188;</span> Careers Connected to This Lesson</h2>
+  <p><b>Telecommunications engineer</b> - designs and looks after the networks, including undersea cables, that carry phone calls and internet data.</p><p><b>Cable ship technician</b> - works on ships that lay and repair cables on the ocean floor, as happened when Tonga's cable was replaced.</p>
 </div>
 
 <div class="resource-subpage" id="box-related">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128279;</span> Related Lessons</h2>
+  <p><b>L09 - Transport and Inequality</b> asks about fair access to transport; today moves the same ideas to technology. <b>L11 - Sector Graphs</b> gives you a tool for showing internet data, and <b>L12 - The Digital Divide</b> asks who is left out.</p>
 </div>
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127891;</span> What You'll Study in Stage 5 &amp; 6</h2>
+  <p><b>Globalisation is a big idea in later Geography.</b></p><p><b>Stage 5 - Human Wellbeing and Changing Places:</b> looks at how global connections affect people's quality of life, and how places change as they become more connected.</p><p><b>Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places:</b> builds on how technology and trade connect people and places across the world.</p>
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128218;</span> References and Further Reading</h2>
+  <ul><li>University of California, Berkeley News (2025, 10 April). <i>Watch a professor explain the internet's series of subsea tubes in 101 seconds</i> - <a href="https://news.berkeley.edu/2025/04/10/watch-a-professor-explain-the-internets-series-of-subsea-tubes-in-101-seconds/" target="_blank" rel="noopener">news.berkeley.edu</a>.</li><li>International Telecommunication Union (2024, 29 November). <i>Advisory body on submarine cable resilience</i> (press release) - <a href="https://www.itu.int/en/mediacentre/Pages/PR-2024-11-29-advisory-body-submarine-cable-resilience.aspx" target="_blank" rel="noopener">itu.int</a>.</li><li>TeleGeography (n.d.). <i>Submarine Cable Map</i> - <a href="https://www.submarinecablemap.com/" target="_blank" rel="noopener">submarinecablemap.com</a>.</li><li>ABC News (2024, 6 March). <i>China and the US are wrestling over a web of cables we never see, but rely on everyday</i> - <a href="https://www.abc.net.au/news/2024-03-06/the-cloud-under-the-sea/103137378" target="_blank" rel="noopener">abc.net.au</a>.</li><li>Al Jazeera (2022, 23 February). <i>Tonga internet reconnected five weeks after volcanic eruption</i> - <a href="https://www.aljazeera.com/news/2022/2/23/tonga-internet-reconnected-five-weeks-of-volcanic-eruption" target="_blank" rel="noopener">aljazeera.com</a>.</li><li>Dominey-Howes, D. (2022, 17 January). <i>Tonga volcanic eruption has revealed vulnerabilities in our global telecommunication system</i>. PreventionWeb - <a href="https://www.preventionweb.net/news/tonga-volcanic-eruption-has-revealed-vulnerabilities-our-global-telecommunication-system" target="_blank" rel="noopener">preventionweb.net</a>.</li><li>Telecom Review (2025, 8 September). <i>International cable breaks in Red Sea cause latency surge across Asia and Gulf</i> - <a href="https://telecomreview.com/articles/wholesale-and-capacity/26154-international-cable-breaks-in-red-sea-cause-latency-surge-across-asia-and-gulf/" target="_blank" rel="noopener">telecomreview.com</a>.</li><li>United Nations (n.d.). <i>Goal 9</i>, <i>Goal 10</i> and <i>Goal 17</i>, Sustainable Development Goals - <a href="https://sdgs.un.org/goals/goal9" target="_blank" rel="noopener">sdgs.un.org</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 7-10 Syllabus (2024)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-7-10-2024/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 11-12 Syllabus (2022)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-11-12-2022/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li></ul>
 </div>
 
 <footer class="site-footer">
