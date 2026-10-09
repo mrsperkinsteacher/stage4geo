@@ -50,19 +50,13 @@
     font-size: 1.8rem;
     line-height: 1.25;
   }
-  header.page-header p.intro { margin: 0; color: #d9e2ec; }
-  .badge {
-    display: inline-block;
-    background: var(--mint);
-    color: var(--midnight);
-    font-weight: bold;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 10px;
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
   }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
 
   .lesson-nav {
     display: flex;
@@ -79,6 +73,7 @@
   .lesson-nav a:hover { text-decoration: underline; }
   .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
 
+  /* Resource grid (hub view) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -92,14 +87,12 @@
     background: #ffffff;
     cursor: pointer;
     text-align: left;
-    opacity: 0.7;
-    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   }
   .resource-box:hover {
     box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
     border-color: var(--teal);
     transform: translateY(-2px);
-    opacity: 1;
   }
   .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
   .resource-box .rb-title {
@@ -108,6 +101,7 @@
     font-size: 1.02rem;
   }
 
+  /* Subpage (detail) view */
   .resource-subpage {
     display: none;
     border: 1px solid var(--border);
@@ -139,10 +133,75 @@
   }
   .back-link:hover { text-decoration: underline; }
 
-  p.coming-soon {
-    color: var(--muted);
-    font-style: italic;
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
   }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  .added-badge {
+    display: inline-block;
+    background: var(--light-mint);
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
 
   footer.site-footer {
     margin-top: 40px;
@@ -158,9 +217,8 @@
 
 <header class="page-header">
   <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 11</p>
-  <span class="badge">Coming soon</span>
   <h1>Lesson 11: Sector Graphs</h1>
-  <p class="intro">This resource hub hasn't been built yet - check back soon.</p>
+  <p class="intro">Turn percentages into a circle. Build a sector graph by hand, and see how Australian homes really connect to the internet.</p>
 </header>
 
 <nav class="lesson-nav">
@@ -170,97 +228,103 @@
 </nav>
 
 <div class="resource-grid" id="hub-grid">
-  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
-  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
-  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
-  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
-  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
-  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
-  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
-  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
-  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">&#128203;</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">&#127909;</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">&#128270;</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">&#128214;</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">&#127757;</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">&#128161;</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">&#128240;</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">&#128506;&#65039;</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('jobs')"><span class="icon">&#128188;</span><span class="rb-title">Careers Connected to This Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">&#128279;</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">&#127891;</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">&#128218;</span><span class="rb-title">References and Further Reading</span></div>
 </div>
 
 
 <div class="resource-subpage" id="box-summary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128203;</span> Summary of Lesson</h2>
+  <p>Today is a graphing skills lesson. You build a <b>sector graph</b> (also called a pie chart) from percentages: change each percentage into degrees using <b>percentage x 3.6</b>, measure each angle with a protractor, then label and colour each sector. The data shows how NBN connections reach Australian homes and businesses.</p><p>This matters because a graph only helps if it is accurate and honest. Checking that your degrees add up to 360, and that your percentages add up to 100, is how you know your graph can be trusted.</p>
 </div>
 
 <div class="resource-subpage" id="box-videos">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127909;</span> Linked Videos</h2>
+  <div class="res-item"><div class="res-item-title">Use understanding of angles, fractions and percentages to construct pie charts - Oak National Academy (UK)</div><p>An optional extract: the video part of a UK Year 6 maths lesson on constructing pie charts. Preview it first and watch only the part you need - the accent and some of the wording are British.</p><p><a href="https://thenational.academy/pupils/programmes/maths-primary-year-6/units/statistics/lessons/use-understanding-of-angles-fractions-and-percentages-to-construct-pie-charts/video" target="_blank" rel="noopener">Watch on Oak National Academy</a></p></div>
 </div>
 
 <div class="resource-subpage" id="box-interest">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128270;</span> Extra Things of Interest</h2>
+  <ul><li><a href="https://www.accc.gov.au/by-industry/telecommunications-and-internet/national-broadband-network-nbn-access-regulation/nbn-wholesale-market-indicators-report/june-quarter-2026-report" target="_blank" rel="noopener">NBN Wholesale Market Indicators Report, June quarter 2026 (ACCC)</a> - the real figures behind the worksheet table.</li><li><a href="https://www.acma.gov.au/sites/default/files/2026-02/How%20we%20use%20the%20internet%20-%20Executive%20summary%20and%20key%20findings.pdf" target="_blank" rel="noopener">How we use the internet - key findings (ACMA)</a> - how Australians go online, from the national communications regulator.</li><li><a href="https://newzealandcurriculum.tahurangi.education.govt.nz/5637199493.p" target="_blank" rel="noopener">Data distortion (NZ Ministry of Education)</a> - an activity on spotting misleading graphs, which links to honest graphing.</li></ul>
 </div>
 
 <div class="resource-subpage" id="box-glossary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128214;</span> Glossary</h2>
+  <div class="glossary-grid"><div class="term"><b>Sector graph</b> - a circle divided into sectors, where each sector shows one part of a whole. Also called a pie chart.</div><div class="term"><b>Sector</b> - one 'slice' of the circle, representing one category of the data.</div><div class="term"><b>Percentage</b> - a share out of 100. All the percentages in a sector graph must add up to 100.</div><div class="term"><b>Protractor</b> - an instrument for measuring and drawing angles in degrees.</div><div class="term"><b>Degrees</b> - a full circle is 360 degrees, so every 1% of a sector graph is 3.6 degrees.</div></div>
 </div>
 
 <div class="resource-subpage" id="box-sdgs">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127757;</span> Link to the SDGs</h2>
+  <div class="sdg-grid"><a class="sdg-tile" href="https://sdgs.un.org/goals/goal9" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-09-1024x1024.png" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 9 - Industry, Innovation and Infrastructure</b><p>The NBN is national infrastructure, and the goal includes widening access to information and communications technology.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-10-1024x1024.png" alt="SDG 10: Reduced Inequalities" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 10 - Reduced Inequalities</b><p>Who has the fastest connection can differ from place to place.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-17-1024x1024.png" alt="SDG 17: Partnerships for the Goals" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 17 - Partnerships for the Goals</b><p>The goal tracks the share of people using the internet around the world, which is exactly the sort of data a sector graph can show.</p></div>
+</a>
+</div><p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org</a>.</p>
 </div>
 
 <div class="resource-subpage" id="box-fact">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128161;</span> Did You Know?</h2>
+  <p>In June 2025, <b>99% of Australian adults</b> had internet access at home (including through 4G or 5G mobile networks), and <b>97%</b> used a mobile phone to go online. Adults used an average of 4.1 types of device to get online.</p><p class="src">Source: Australian Communications and Media Authority (ACMA), <i>How we use the internet</i>, February 2026.</p>
 </div>
 
 <div class="resource-subpage" id="box-news">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📰</span> In the News</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128240;</span> In the News</h2>
+  <p>The ACCC released its <b>June quarter 2026</b> NBN report on <b>18 September 2026</b>. It counted <b>8,817,314</b> NBN services. Fibre to the premises grew by about 145,000 services in the quarter, to 3,356,052, while fibre to the node and fibre to the curb both fell.</p><p class="src">Source: Australian Competition and Consumer Commission (ACCC), NBN Wholesale Market Indicators Report, June quarter 2026 (18 September 2026).</p>
 </div>
 
 <div class="resource-subpage" id="box-world">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128506;&#65039;</span> Where in the World?</h2>
+  <p><b>All of Australia</b> - about 5 in every 100 NBN services use fixed wireless or satellite. In June 2026 that was 388,636 on fixed wireless and 60,539 on satellite, out of 8.8 million services. The worksheet percentages are worked out from the ACCC counts and rounded to whole numbers.</p><p class="src">Source: ACCC, NBN Wholesale Market Indicators Report, June quarter 2026.</p>
+</div>
+
+<div class="resource-subpage" id="box-jobs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128188;</span> Careers Connected to This Lesson</h2>
+  <p><b>Data analyst</b> - turns large sets of numbers into graphs and short reports that help people make decisions.</p><p><b>Geographic information system (GIS) analyst</b> - builds maps and graphs from location data, for example to show where internet connections are strong or weak.</p>
 </div>
 
 <div class="resource-subpage" id="box-related">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128279;</span> Related Lessons</h2>
+  <p><b>L10 - A Connected World</b> gives you the technology background, and <b>L12 - The Digital Divide</b> puts your graphing skills to work on data about who has internet access. <b>L07 - How Travel Has Changed</b> taught a different graph, the line graph.</p>
 </div>
 
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127891;</span> What You'll Study in Stage 5 &amp; 6</h2>
+  <p><b>Choosing the right graph is a skill for life.</b></p><p><b>Stage 5 - Human Wellbeing and Changing Places:</b> uses graphs and data to compare wellbeing between places, so accurate graphing matters.</p><p><b>Stage 6 (HSC):</b> Year 11 includes a Geographical Investigation, where collecting, graphing and interpreting data is part of the work.</p>
+</div>
+
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128218;</span> References and Further Reading</h2>
+  <ul><li>Oak National Academy (n.d.). <i>Use understanding of angles, fractions and percentages to construct pie charts</i> (video) - <a href="https://thenational.academy/pupils/programmes/maths-primary-year-6/units/statistics/lessons/use-understanding-of-angles-fractions-and-percentages-to-construct-pie-charts/video" target="_blank" rel="noopener">thenational.academy</a>.</li><li>Australian Competition and Consumer Commission (2026, 18 September). <i>NBN Wholesale Market Indicators Report, June quarter 2026</i> - <a href="https://www.accc.gov.au/by-industry/telecommunications-and-internet/national-broadband-network-nbn-access-regulation/nbn-wholesale-market-indicators-report/june-quarter-2026-report" target="_blank" rel="noopener">accc.gov.au</a>.</li><li>Australian Communications and Media Authority (2026, February). <i>How we use the internet</i> - <a href="https://www.acma.gov.au/sites/default/files/2026-02/How%20we%20use%20the%20internet%20-%20Executive%20summary%20and%20key%20findings.pdf" target="_blank" rel="noopener">acma.gov.au</a>.</li><li>New Zealand Ministry of Education (n.d.). <i>Data distortion</i> (Figure It Out, statistics Level 3) - <a href="https://newzealandcurriculum.tahurangi.education.govt.nz/5637199493.p" target="_blank" rel="noopener">newzealandcurriculum.tahurangi.education.govt.nz</a>.</li><li>United Nations (n.d.). <i>Goal 9</i>, <i>Goal 10</i> and <i>Goal 17</i>, Sustainable Development Goals - <a href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">sdgs.un.org</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 7-10 Syllabus (2024)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-7-10-2024/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 11-12 Syllabus (2022)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-11-12-2022/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li></ul>
 </div>
 
 <footer class="site-footer">
