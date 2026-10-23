@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 17 - Trade Shock Simulation: The Suez Blockage | Stage 4 Geography</title>
+<title>Lesson 17 - Trade Shock: The Suez Blockage | Stage 4 Geography</title>
 <style>
   :root {
     --ocean: #065A82;
@@ -50,19 +50,13 @@
     font-size: 1.8rem;
     line-height: 1.25;
   }
-  header.page-header p.intro { margin: 0; color: #d9e2ec; }
-  .badge {
-    display: inline-block;
-    background: var(--mint);
-    color: var(--midnight);
-    font-weight: bold;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 10px;
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
   }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
 
   .lesson-nav {
     display: flex;
@@ -79,6 +73,7 @@
   .lesson-nav a:hover { text-decoration: underline; }
   .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
 
+  /* Resource grid (hub view) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -92,14 +87,12 @@
     background: #ffffff;
     cursor: pointer;
     text-align: left;
-    opacity: 0.7;
-    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   }
   .resource-box:hover {
     box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
     border-color: var(--teal);
     transform: translateY(-2px);
-    opacity: 1;
   }
   .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
   .resource-box .rb-title {
@@ -108,6 +101,7 @@
     font-size: 1.02rem;
   }
 
+  /* Subpage (detail) view */
   .resource-subpage {
     display: none;
     border: 1px solid var(--border);
@@ -139,10 +133,75 @@
   }
   .back-link:hover { text-decoration: underline; }
 
-  p.coming-soon {
-    color: var(--muted);
-    font-style: italic;
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
   }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  .added-badge {
+    display: inline-block;
+    background: var(--light-mint);
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
 
   footer.site-footer {
     margin-top: 40px;
@@ -158,9 +217,8 @@
 
 <header class="page-header">
   <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 17</p>
-  <span class="badge">Coming soon</span>
-  <h1>Lesson 17: Trade Shock Simulation: The Suez Blockage</h1>
-  <p class="intro">This resource hub hasn't been built yet - check back soon.</p>
+  <h1>Lesson 17: Trade Shock: The Suez Blockage</h1>
+  <p class="intro">One ship stuck in one canal for six days. Find out how the delay spread to factories, shops and homes around the world.</p>
 </header>
 
 <nav class="lesson-nav">
@@ -170,97 +228,93 @@
 </nav>
 
 <div class="resource-grid" id="hub-grid">
-  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
-  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
-  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
-  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
-  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
-  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
-  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
-  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
-  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">&#128203;</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">&#127909;</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">&#128270;</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">&#128214;</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">&#127757;</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">&#128161;</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">&#128240;</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">&#128506;&#65039;</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('jobs')"><span class="icon">&#128188;</span><span class="rb-title">Careers Connected to This Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">&#128279;</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">&#127891;</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">&#128218;</span><span class="rb-title">References and Further Reading</span></div>
 </div>
+
 
 
 <div class="resource-subpage" id="box-summary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128203;</span> Summary of Lesson</h2>
+  <p>Today you look at what happened when the container ship <b>Ever Given</b> ran aground in the Suez Canal, Egypt, on 23 March 2021. You study a satellite photo, follow how the shock spread step by step, then take on the role of one imagined person affected by the blockage. As a class you sort the impacts on producers, consumers and environments, in the short term and the long term.</p><p>This matters because about 12 per cent of world trade normally passes through the canal. When one narrow point on a trade route is blocked, the delay travels along the links to people who never see the canal. That is interconnection in action.</p>
 </div>
-
 <div class="resource-subpage" id="box-videos">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127909;</span> Linked Videos</h2>
+  <div class="res-item"><div class="res-item-title">Suez Canal blockage felt across the world as trade comes to a pause - CBS News</div><p>A news report from 27 March 2021 (3 min 15 s). Reporters in Tokyo, Tel Aviv and Cape Town explain how the blockage affected people far from Egypt. Preview it first.</p><p><a href="https://www.cbsnews.com/video/suez-canal-blockage-felt-across-the-world-as-trade-comes-to-a-pause/" target="_blank" rel="noopener">Watch on CBS News</a></p></div><div class="res-item"><div class="res-item-title">BTN Newsbreak, 25 March 2021 - Behind the News (ABC)</div><p>A news bulletin for kids from 25 March 2021, while the ship was still stuck. The Suez Canal story comes first, so stop after it. Length not listed.</p><p><a href="https://www.abc.net.au/btn/newsbreak/btn-newsbreak-20210325/13275660" target="_blank" rel="noopener">Watch on ABC Behind the News</a></p></div>
 </div>
-
 <div class="resource-subpage" id="box-interest">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128270;</span> Extra Things of Interest</h2>
+  <ul><li><a href="https://porteconomicsmanagement.org/suez-canal-blockage-2021/" target="_blank" rel="noopener">Suez Canal blockage 2021 (Port Economics, Management and Policy)</a> - a clear timeline with maps, from the grounding on 23 March to the backlog clearing on 3 April.</li><li><a href="https://www.mfat.govt.nz/en/trade/mfat-market-reports/the-importance-of-the-suez-canal-to-global-trade-18-april-2021" target="_blank" rel="noopener">The importance of the Suez Canal to global trade (NZ Ministry of Foreign Affairs and Trade)</a> - a short government report with the key numbers on ships, cargo and costs.</li><li><a href="https://unctad.org/news/red-sea-crisis-and-implications-trade-facilitation-africa" target="_blank" rel="noopener">Red Sea crisis and implications for trade facilitation in Africa (UNCTAD)</a> - how the same route was disrupted again in 2023 and 2024, and where the ships went instead.</li></ul>
 </div>
-
 <div class="resource-subpage" id="box-glossary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128214;</span> Glossary</h2>
+  <div class="glossary-grid"><div class="term"><b>Trade shock</b> - a sudden event that interrupts or changes trade flows.</div><div class="term"><b>Supply chain</b> - all the steps and places a product passes through between producer and consumer.</div><div class="term"><b>Freight</b> - goods moved in bulk by ship, plane, train or truck, and the cost of moving them.</div><div class="term"><b>Reroute</b> - to send ships or goods by a different, usually longer, path.</div><div class="term"><b>Interconnection</b> - the way places, people and economies are linked and depend on one another.</div><div class="term"><b>Trade flow</b> - the movement of goods and services from one place to another.</div></div>
 </div>
-
 <div class="resource-subpage" id="box-sdgs">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127757;</span> Link to the SDGs</h2>
+  <div class="sdg-grid"><a class="sdg-tile" href="https://sdgs.un.org/goals/goal9" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-09-1024x1024.png" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 9 - Industry, Innovation and Infrastructure</b><p>Goal 9 asks for reliable, resilient infrastructure. The blockage showed how much the world relies on one canal.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal13" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-13-1024x1024.png" alt="SDG 13: Climate Action" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 13 - Climate Action</b><p>Ships that sail the long way around Africa burn more fuel and release more emissions.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal8" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-08-1024x1024.png" alt="SDG 8: Decent Work and Economic Growth" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 8 - Decent Work and Economic Growth</b><p>Ship crews, canal workers and factory workers all felt the delay in their work.</p></div>
+</a>
+</div><p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org</a>.</p>
 </div>
-
 <div class="resource-subpage" id="box-fact">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128161;</span> Did You Know?</h2>
+  <p>About <b>19,000</b> ships used the Suez Canal in 2020, roughly <b>50 a day</b>. More than <b>1 billion tonnes</b> of cargo went through it in 2019, about four times as much as the Panama Canal.</p><p class="src">Source: New Zealand Ministry of Foreign Affairs and Trade, The importance of the Suez Canal to global trade, 18 April 2021.</p>
 </div>
-
 <div class="resource-subpage" id="box-news">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📰</span> In the News</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128240;</span> In the News</h2>
+  <p>The Suez route was disrupted again from late 2023 during the Red Sea crisis. By early March 2024, Suez Canal transits were down 42 per cent from their 2023 peak. Many ships went around Africa instead, which added about 12 days to a voyage from Shanghai to Rotterdam.</p><p class="src">Source: UNCTAD, 'Red Sea crisis and implications for trade facilitation in Africa', 17 April 2024.</p>
 </div>
-
 <div class="resource-subpage" id="box-world">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128506;&#65039;</span> Where in the World?</h2>
+  <p><b>Cape of Good Hope, South Africa</b> - the southern tip of Africa is the long way round when ships cannot use the Suez Canal. The detour adds about 9,000 kilometres. In early 2024 so many container ships came this way that ports in Durban and Cape Town became congested.</p><p class="src">Sources: NZ Ministry of Foreign Affairs and Trade (2021); UNCTAD (2024).</p>
 </div>
-
+<div class="resource-subpage" id="box-jobs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128188;</span> Careers Connected to This Lesson</h2>
+  <p><b>Marine pilot</b> - an expert who boards large ships and guides them through canals, rivers and busy ports, where one mistake can block the way for everyone.</p><p><b>Supply chain manager</b> - plans how goods move from factories to shops, and finds back-up routes and suppliers when a trade shock hits.</p>
+</div>
 <div class="resource-subpage" id="box-related">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128279;</span> Related Lessons</h2>
+  <p><b>L14 - The Box That Changed the World</b> showed the container ships and shipping routes that pass through the Suez Canal. <b>L16 - Same Trade, Different Outcome</b> looked at influences on trade, and a sudden shock is one more. In <b>L20 - Who Made My Clothes?</b> you meet a very different event in one place that also reached people far away.</p>
 </div>
-
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127891;</span> What You'll Study in Stage 5 &amp; 6</h2>
+  <p><b>How events in one place affect people far away is a theme that keeps growing.</b></p><p><b>Stage 5:</b> <b>Stage 5 - Human wellbeing:</b> looks at how jobs, prices and access to goods and services shape people's quality of life in different places.</p><p><b>Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places:</b> <b>Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places:</b> asks how flows of goods, people and ideas link places, and how places change when those links change.</p>
+</div>
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128218;</span> References and Further Reading</h2>
+  <ul><li>ABC Behind the News (2021, 25 March). <i>BTN Newsbreak 25/3/2021</i> - <a href="https://www.abc.net.au/btn/newsbreak/btn-newsbreak-20210325/13275660" target="_blank" rel="noopener">abc.net.au/btn</a>.</li><li>CBS News (2021, 27 March). <i>Suez Canal blockage felt across the world as trade comes to a pause</i> (video) - <a href="https://www.cbsnews.com/video/suez-canal-blockage-felt-across-the-world-as-trade-comes-to-a-pause/" target="_blank" rel="noopener">cbsnews.com</a>.</li><li>Howard, G. (2021, 29 March). <i>Suez Canal unblocked, Ever Given on the move</i>. Seatrade Maritime News - <a href="https://www.seatrade-maritime.com/containers/suez-canal-unblocked-ever-given-on-the-move" target="_blank" rel="noopener">seatrade-maritime.com</a>.</li><li>New Zealand Ministry of Foreign Affairs and Trade (2021, 18 April). <i>The importance of the Suez Canal to global trade</i> - <a href="https://www.mfat.govt.nz/en/trade/mfat-market-reports/the-importance-of-the-suez-canal-to-global-trade-18-april-2021" target="_blank" rel="noopener">mfat.govt.nz</a>.</li><li>Rodrigue, J.-P. (2021). <i>Suez Canal blockage 2021</i>. Port Economics, Management and Policy - <a href="https://porteconomicsmanagement.org/suez-canal-blockage-2021/" target="_blank" rel="noopener">porteconomicsmanagement.org</a>.</li><li>United Nations Conference on Trade and Development (2024, 17 April). <i>Red Sea crisis and implications for trade facilitation in Africa</i> - <a href="https://unctad.org/news/red-sea-crisis-and-implications-trade-facilitation-africa" target="_blank" rel="noopener">unctad.org</a>.</li><li>United Nations (n.d.). <i>Goal 8</i>, <i>Goal 9</i> and <i>Goal 13</i>, Sustainable Development Goals - <a href="https://sdgs.un.org/goals/goal8" target="_blank" rel="noopener">sdgs.un.org</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 7-10 Syllabus (2024)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-7-10-2024/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 11-12 Syllabus (2022)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-11-12-2022/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li></ul>
 </div>
 
 <footer class="site-footer">

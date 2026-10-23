@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 13 - Trade Flow Wall | Stage 4 Geography</title>
+<title>Lesson 13 - Trade Flows: Mapping Australia's Trade | Stage 4 Geography</title>
 <style>
   :root {
     --ocean: #065A82;
@@ -50,19 +50,13 @@
     font-size: 1.8rem;
     line-height: 1.25;
   }
-  header.page-header p.intro { margin: 0; color: #d9e2ec; }
-  .badge {
-    display: inline-block;
-    background: var(--mint);
-    color: var(--midnight);
-    font-weight: bold;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 10px;
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
   }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
 
   .lesson-nav {
     display: flex;
@@ -79,6 +73,7 @@
   .lesson-nav a:hover { text-decoration: underline; }
   .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
 
+  /* Resource grid (hub view) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -92,14 +87,12 @@
     background: #ffffff;
     cursor: pointer;
     text-align: left;
-    opacity: 0.7;
-    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   }
   .resource-box:hover {
     box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
     border-color: var(--teal);
     transform: translateY(-2px);
-    opacity: 1;
   }
   .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
   .resource-box .rb-title {
@@ -108,6 +101,7 @@
     font-size: 1.02rem;
   }
 
+  /* Subpage (detail) view */
   .resource-subpage {
     display: none;
     border: 1px solid var(--border);
@@ -139,10 +133,75 @@
   }
   .back-link:hover { text-decoration: underline; }
 
-  p.coming-soon {
-    color: var(--muted);
-    font-style: italic;
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
   }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  .added-badge {
+    display: inline-block;
+    background: var(--light-mint);
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
 
   footer.site-footer {
     margin-top: 40px;
@@ -158,9 +217,8 @@
 
 <header class="page-header">
   <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 13</p>
-  <span class="badge">Coming soon</span>
-  <h1>Lesson 13: Trade Flow Wall</h1>
-  <p class="intro">This resource hub hasn't been built yet - check back soon.</p>
+  <h1>Lesson 13: Trade Flows: Mapping Australia's Trade</h1>
+  <p class="intro">Australia sells to the world and buys from it. Trade has a shape on the map, and most of it points north to Asia.</p>
 </header>
 
 <nav class="lesson-nav">
@@ -170,97 +228,89 @@
 </nav>
 
 <div class="resource-grid" id="hub-grid">
-  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
-  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
-  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
-  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
-  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
-  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
-  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
-  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
-  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">&#128203;</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">&#127909;</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">&#128270;</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">&#128214;</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">&#127757;</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">&#128161;</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">&#128240;</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">&#128506;&#65039;</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('jobs')"><span class="icon">&#128188;</span><span class="rb-title">Careers Connected to This Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">&#128279;</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">&#127891;</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">&#128218;</span><span class="rb-title">References and Further Reading</span></div>
 </div>
+
 
 
 <div class="resource-subpage" id="box-summary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128203;</span> Summary of Lesson</h2>
+  <p>Today you learn what a <b>trade flow</b> is and the difference between exports and imports, and between goods and services. The class builds a trade flow wall, running string from Australia to its trading partners, then describes the pattern using three lenses: direction, volume (size) and distance.</p><p>This matters because trade links you to people you will never meet. Australia mostly sells raw materials such as iron ore, coal and gas, and buys finished products such as cars and phones. Most of that trade travels north to nearby Asia, with China the biggest partner.</p>
 </div>
-
 <div class="resource-subpage" id="box-videos">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127909;</span> Linked Videos</h2>
+  <div class="res-item"><div class="res-item-title">BTN: The import of exports! - ABC Education</div><p>A short Behind the News explainer on what Australia buys and sells and who it trades with (2 min 50 s). The footage is from 2005, so the partner rankings are out of date: a good chance to compare with today's figures.</p><p><a href="https://www.abc.net.au/education/btn-the-import-of-exports/13648234" target="_blank" rel="noopener">Watch on ABC Education</a></p></div>
 </div>
-
 <div class="resource-subpage" id="box-interest">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128270;</span> Extra Things of Interest</h2>
+  <ul><li><a href="https://www.dfat.gov.au/trade/trade-and-investment-data-information-and-publications/australias-trade-through-time" target="_blank" rel="noopener">Australia's Trade through Time (DFAT)</a> - a free interactive timeline of Australian trade, decade by decade, with a guide for Years 7-10.</li><li><a href="https://www.dfat.gov.au/sites/default/files/australia-goods-services-exports-imports-2025.pdf" target="_blank" rel="noopener">Australia's goods and services exports and imports, 2025 (DFAT)</a> - the official tables of what Australia sells, what it buys and who its partners are.</li><li><a href="https://pilbaraports.com.au/about-ppa/publications/forms-and-publications/forms-publications/other/2022/november/port-of-port-hedland-fact-sheet" target="_blank" rel="noopener">Port of Port Hedland fact sheet (Pilbara Ports)</a> - facts and figures on the port that ships out much of Australia's iron ore.</li></ul>
 </div>
-
 <div class="resource-subpage" id="box-glossary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128214;</span> Glossary</h2>
+  <div class="glossary-grid"><div class="term"><b>Trade flow</b> - the movement of goods or services from one country to another.</div><div class="term"><b>Export</b> - something a country sells to another country. It flows OUT (exit = export).</div><div class="term"><b>Import</b> - something a country buys from another country. It flows IN.</div><div class="term"><b>Trading partner</b> - a country that another country regularly buys from and sells to.</div><div class="term"><b>Goods and services</b> - goods are things you can touch (iron ore, cars, wheat); services are things done for you (education, tourism, streaming).</div><div class="term"><b>Spatial pattern</b> - the shape trade makes on a map: which direction it goes, how big it is and how far it travels.</div></div>
 </div>
-
 <div class="resource-subpage" id="box-sdgs">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127757;</span> Link to the SDGs</h2>
+  <div class="sdg-grid"><a class="sdg-tile" href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-17-1024x1024.png" alt="SDG 17: Partnerships for the Goals" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 17 - Partnerships for the Goals</b><p>Target 17.10 calls for an open, fair, rules-based world trading system, and target 17.11 aims to increase the exports of developing countries.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal8" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-08-1024x1024.png" alt="SDG 8: Decent Work and Economic Growth" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 8 - Decent Work and Economic Growth</b><p>Trade supports jobs and economic growth, and target 8.a increases Aid for Trade support for developing countries.</p></div>
+</a>
+</div><p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org</a>.</p>
 </div>
-
 <div class="resource-subpage" id="box-fact">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128161;</span> Did You Know?</h2>
+  <p>In 2025 Australia's biggest export was <b>iron ore</b>, worth about <b>A$121 billion</b>. China bought about <b>29 per cent</b> of everything Australia sold overseas, more than any other country.</p><p class="src">Source: Department of Foreign Affairs and Trade (DFAT), Australia's goods and services exports and imports, calendar year 2025.</p>
 </div>
-
 <div class="resource-subpage" id="box-news">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📰</span> In the News</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128240;</span> In the News</h2>
+  <p>In December 2024 China removed the last of its trade restrictions on Australian goods, and live rock lobsters went back on sale in China. Barley, wine and timber had already returned. The Australian Government said the restrictions had affected trade worth about $20 billion.</p><p class="src">Source: Minister for Trade and Tourism, 'Australian produce in high demand for Lunar New Year Celebrations in China', media release, 2025.</p>
 </div>
-
 <div class="resource-subpage" id="box-world">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128506;&#65039;</span> Where in the World?</h2>
+  <p><b>Port Hedland, Western Australia</b> - the world's largest bulk export port by tonnage. About <b>573.6 million tonnes</b> left the port in 2023-24, and <b>98.5 per cent</b> of it was iron ore. Iron ore is Australia's single biggest export.</p><p class="src">Sources: Pilbara Ports, Port of Port Hedland fact sheet; DFAT, Australia's goods and services exports and imports, 2025.</p>
 </div>
-
+<div class="resource-subpage" id="box-jobs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128188;</span> Careers Connected to This Lesson</h2>
+  <p><b>Trade analyst</b> - studies trade data to spot patterns, such as which countries buy the most from Australia, and advises governments and businesses.</p><p><b>Border Force officer</b> - checks goods coming into and leaving Australia at ports and airports, so they are declared correctly and are safe.</p>
+</div>
 <div class="resource-subpage" id="box-related">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128279;</span> Related Lessons</h2>
+  <p><b>L10 - A Connected World</b> and <b>L11 - Sector Graphs: Showing Parts of a Whole</b> give you the background and data skills you use today. Next, <b>L14 - The Box That Changed the World</b> follows how goods travel, and <b>L15 - Fieldwork: The Goods Audit</b> tests whether your classroom shows the same pattern. <b>L16 - Same Trade, Different Outcome</b> asks what changes these flows.</p>
 </div>
-
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127891;</span> What You'll Study in Stage 5 &amp; 6</h2>
+  <p><b>Trade links between places come up again and again.</b></p><p><b>Stage 5:</b> Stage 5 - Biomes and sustainable agriculture: looks at how food is produced and traded around the world, and the challenges of feeding a growing population.</p><p><b>Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places:</b> Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places: looks at how and why places are connected, and how those connections shape people and economies.</p>
+</div>
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128218;</span> References and Further Reading</h2>
+  <ul><li>ABC Education (2021, 25 November). <i>BTN: The import of exports!</i> (footage from 2005) - <a href="https://www.abc.net.au/education/btn-the-import-of-exports/13648234" target="_blank" rel="noopener">abc.net.au/education</a>.</li><li>Department of Foreign Affairs and Trade (2026). <i>Australia's goods and services exports and imports, calendar year 2025</i> - <a href="https://www.dfat.gov.au/sites/default/files/australia-goods-services-exports-imports-2025.pdf" target="_blank" rel="noopener">dfat.gov.au</a>.</li><li>Department of Foreign Affairs and Trade (n.d.). <i>Australia's Trade through Time</i> - <a href="https://www.dfat.gov.au/trade/trade-and-investment-data-information-and-publications/australias-trade-through-time" target="_blank" rel="noopener">dfat.gov.au</a>.</li><li>Minister for Trade and Tourism (2025). <i>Australian produce in high demand for Lunar New Year Celebrations in China</i> (media release) - <a href="https://trademinister.gov.au/node/2668" target="_blank" rel="noopener">trademinister.gov.au</a>.</li><li>Pilbara Ports (n.d.). <i>Port of Port Hedland fact sheet</i> - <a href="https://pilbaraports.com.au/about-ppa/publications/forms-and-publications/forms-publications/other/2022/november/port-of-port-hedland-fact-sheet" target="_blank" rel="noopener">pilbaraports.com.au</a>.</li><li>United Nations (n.d.). <i>Goal 8</i> and <i>Goal 17</i>, Sustainable Development Goals - <a href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">sdgs.un.org</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 7-10 Syllabus (2024)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-7-10-2024/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 11-12 Syllabus (2022)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-11-12-2022/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li></ul>
 </div>
 
 <footer class="site-footer">

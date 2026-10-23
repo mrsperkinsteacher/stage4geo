@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 28 - Capacity Matrix Review | Stage 4 Geography</title>
+<title>Lesson 28 - Review and Vocabulary | Stage 4 Geography</title>
 <style>
   :root {
     --ocean: #065A82;
@@ -50,19 +50,13 @@
     font-size: 1.8rem;
     line-height: 1.25;
   }
-  header.page-header p.intro { margin: 0; color: #d9e2ec; }
-  .badge {
-    display: inline-block;
-    background: var(--mint);
-    color: var(--midnight);
-    font-weight: bold;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 10px;
+  header.page-header .subheading {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: #cfe3ee;
+    font-style: italic;
   }
+  header.page-header p.intro { margin: 0; color: #d9e2ec; }
 
   .lesson-nav {
     display: flex;
@@ -79,6 +73,7 @@
   .lesson-nav a:hover { text-decoration: underline; }
   .lesson-nav .disabled { color: #aab4bc; font-weight: normal; }
 
+  /* Resource grid (hub view) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -92,14 +87,12 @@
     background: #ffffff;
     cursor: pointer;
     text-align: left;
-    opacity: 0.7;
-    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
   }
   .resource-box:hover {
     box-shadow: 0 4px 14px rgba(6, 90, 130, 0.15);
     border-color: var(--teal);
     transform: translateY(-2px);
-    opacity: 1;
   }
   .resource-box .icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
   .resource-box .rb-title {
@@ -108,6 +101,7 @@
     font-size: 1.02rem;
   }
 
+  /* Subpage (detail) view */
   .resource-subpage {
     display: none;
     border: 1px solid var(--border);
@@ -139,10 +133,75 @@
   }
   .back-link:hover { text-decoration: underline; }
 
-  p.coming-soon {
-    color: var(--muted);
-    font-style: italic;
+  .res-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
   }
+  .res-item-title { font-weight: bold; color: var(--midnight); margin-bottom: 4px; }
+  .res-item p { margin: 4px 0; }
+
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .term {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.94rem;
+    flex: 1 1 260px;
+  }
+  .term b { color: var(--midnight); }
+
+  /* SDG icon tiles */
+  .sdg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sdg-tile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--light-mint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sdg-tile:hover {
+    box-shadow: 0 4px 14px rgba(2, 195, 154, 0.28);
+    transform: translateY(-2px);
+  }
+  .sdg-tile img { width: 56px; height: 56px; border-radius: 6px; flex-shrink: 0; }
+  .sdg-tile-text b { color: var(--midnight); display: block; margin-bottom: 2px; }
+  .sdg-tile-text p { margin: 0; font-size: 0.92rem; }
+  .sdg-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+  p.src { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+  .added-badge {
+    display: inline-block;
+    background: var(--light-mint);
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  #box-fact { background: var(--light-amber); border-color: var(--amber); }
+
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
 
   footer.site-footer {
     margin-top: 40px;
@@ -158,109 +217,104 @@
 
 <header class="page-header">
   <p class="crumb"><a href="index.html">Stage 4 Geography</a> &nbsp;&rsaquo;&nbsp; Interconnections and Trade &nbsp;&rsaquo;&nbsp; Lesson 28</p>
-  <span class="badge">Coming soon</span>
-  <h1>Lesson 28: Capacity Matrix Review</h1>
-  <p class="intro">This resource hub hasn't been built yet - check back soon.</p>
+  <h1>Lesson 28: Review and Vocabulary</h1>
+  <p class="intro">From 'I've heard of it' to 'I could teach it'. Take an honest look back over the whole unit and plan what to strengthen next.</p>
 </header>
 
 <nav class="lesson-nav">
   <a href="lesson27.html">&larr; Lesson 27</a>
   <a href="index.html">All lessons</a>
-  <span class="disabled">Lesson &rarr;</span>
+  <span class="disabled">End of unit</span>
 </nav>
 
 <div class="resource-grid" id="hub-grid">
-  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">📋</span><span class="rb-title">Summary of Lesson</span></div>
-  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">🎥</span><span class="rb-title">Linked Videos</span></div>
-  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">🔎</span><span class="rb-title">Extra Things of Interest</span></div>
-  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">📖</span><span class="rb-title">Glossary</span></div>
-  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">🌍</span><span class="rb-title">Link to the SDGs</span></div>
-  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">💡</span><span class="rb-title">Did You Know?</span></div>
-  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">📰</span><span class="rb-title">In the News</span></div>
-  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">🗺️</span><span class="rb-title">Where in the World?</span></div>
-  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">🔗</span><span class="rb-title">Related Lessons</span></div>
-  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">🎓</span><span class="rb-title">Stage 5 &amp; 6 Geography</span></div>
+  <div class="resource-box" onclick="showResourceSub('summary')"><span class="icon">&#128203;</span><span class="rb-title">Summary of Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('videos')"><span class="icon">&#127909;</span><span class="rb-title">Linked Videos</span></div>
+  <div class="resource-box" onclick="showResourceSub('interest')"><span class="icon">&#128270;</span><span class="rb-title">Extra Things of Interest</span></div>
+  <div class="resource-box" onclick="showResourceSub('glossary')"><span class="icon">&#128214;</span><span class="rb-title">Glossary</span></div>
+  <div class="resource-box" onclick="showResourceSub('sdgs')"><span class="icon">&#127757;</span><span class="rb-title">Link to the SDGs</span></div>
+  <div class="resource-box" onclick="showResourceSub('fact')"><span class="icon">&#128161;</span><span class="rb-title">Did You Know?</span></div>
+  <div class="resource-box" onclick="showResourceSub('news')"><span class="icon">&#128240;</span><span class="rb-title">In the News</span></div>
+  <div class="resource-box" onclick="showResourceSub('world')"><span class="icon">&#128506;&#65039;</span><span class="rb-title">Where in the World?</span></div>
+  <div class="resource-box" onclick="showResourceSub('jobs')"><span class="icon">&#128188;</span><span class="rb-title">Careers Connected to This Lesson</span></div>
+  <div class="resource-box" onclick="showResourceSub('related')"><span class="icon">&#128279;</span><span class="rb-title">Related Lessons</span></div>
+  <div class="resource-box" onclick="showResourceSub('stage56')"><span class="icon">&#127891;</span><span class="rb-title">What You'll Study in Stage 5 &amp; 6</span></div>
+  <div class="resource-box" onclick="showResourceSub('references')"><span class="icon">&#128218;</span><span class="rb-title">References and Further Reading</span></div>
 </div>
+
 
 
 <div class="resource-subpage" id="box-summary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📋</span> Summary of Lesson</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128203;</span> Summary of Lesson</h2>
+  <p>Today you look back over the whole unit. You revisit the unit's 12 key terms, then fill in a <b>capacity matrix</b>: for each part of the unit you tick one honest level, from <b>information</b> ('I've heard of it') to <b>wisdom</b> ('I could teach and judge with it'), and name the evidence in your book. You finish by setting two specific goals for what to strengthen.</p><p>This matters because an honest tick is more useful than a perfect-looking one. A lower level is information, not failure: it shows you exactly where to spend your time. 'Redo my graphing worksheet on Saturday' is a goal you can act on; 'study more' is not.</p>
 </div>
-
 <div class="resource-subpage" id="box-videos">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎥</span> Linked Videos</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127909;</span> Linked Videos</h2>
+  <div class="res-item"><div class="res-item-title">The life cycle of a t-shirt - Angel Chang - TED-Ed</div><p>An animated TED-Ed lesson (6 min 3 sec) that follows one t-shirt from cotton farm to disposal. The unit's core case study in one short film: a good way to reconnect the ideas before you fill in your matrix. Optional.</p><p><a href="https://www.youtube.com/watch?v=BiSYoeqb_VY" target="_blank" rel="noopener">Watch on YouTube (TED-Ed)</a></p></div>
 </div>
-
 <div class="resource-subpage" id="box-interest">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔎</span> Extra Things of Interest</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128270;</span> Extra Things of Interest</h2>
+  <ul><li><a href="https://www.dfat.gov.au/trade/trade-and-investment-data-information-and-publications/australias-trade-through-time" target="_blank" rel="noopener">Australia's Trade through Time (DFAT)</a> - an interactive timeline of Australia's trade history, from before Federation to today. Good further reading on trade flows.</li><li><a href="https://ourworldindata.org/trade-and-globalization" target="_blank" rel="noopener">Trade and Globalization (Our World in Data)</a> - charts and plain explanations of how world trade has grown and who it affects.</li><li><a href="https://evidenceforlearning.org.au/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation" target="_blank" rel="noopener">Metacognition and self-regulation (Evidence for Learning)</a> - a summary of research on planning, checking and reviewing your own learning, the idea behind the capacity matrix. Best for teachers and parents.</li></ul>
 </div>
-
 <div class="resource-subpage" id="box-glossary">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📖</span> Glossary</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128214;</span> Glossary</h2>
+  <div class="glossary-grid"><div class="term"><b>Information</b> - 'I've heard of it.'</div><div class="term"><b>Knowledge</b> - 'I can explain it.'</div><div class="term"><b>Know-how</b> - 'I can do it.'</div><div class="term"><b>Wisdom</b> - 'I could teach and judge with it.'</div><div class="term"><b>Evidence</b> - proof of what you can do, such as a worksheet, a graph or a paragraph.</div></div>
 </div>
-
 <div class="resource-subpage" id="box-sdgs">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🌍</span> Link to the SDGs</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127757;</span> Link to the SDGs</h2>
+  <div class="sdg-grid"><a class="sdg-tile" href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-04-1024x1024.png" alt="SDG 4: Quality Education" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 4 - Quality Education</b><p>Target 4.7 is about all learners gaining the knowledge and skills to promote sustainable development, which this whole unit has been building.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal12" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-12-1024x1024.png" alt="SDG 12: Responsible Consumption and Production" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 12 - Responsible Consumption and Production</b><p>Target 12.8 aims for everyone to have the information and awareness to live sustainably, from the t-shirt to palm oil.</p></div>
+</a>
+<a class="sdg-tile" href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener">
+<img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/08/E-Goal-17-1024x1024.png" alt="SDG 17: Partnerships for the Goals" loading="lazy" onerror="this.style.display='none'">
+<div class="sdg-tile-text"><b>SDG 17 - Partnerships for the Goals</b><p>Target 17.11 aims to increase the exports of developing countries, such as the clothing Bangladesh sells to the world.</p></div>
+</a>
+</div><p class="sdg-note">Goal icons: United Nations, used for illustrative/educational purposes. Click a goal to learn more at <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org</a>.</p>
 </div>
-
 <div class="resource-subpage" id="box-fact">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>💡</span> Did You Know?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128161;</span> Did You Know?</h2>
+  <p>Teaching students to <b>plan, check and review</b> their own learning adds about <b>7 months</b> of extra progress over a year, on average. That finding is based on <b>246</b> studies, and it costs very little to do. A capacity matrix is one way of checking your own learning.</p><p class="src">Source: Evidence for Learning, Teaching and Learning Toolkit, 'Metacognition and self-regulation', checked October 2026.</p>
 </div>
-
 <div class="resource-subpage" id="box-news">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>📰</span> In the News</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128240;</span> In the News</h2>
+  <p>UN Trade and Development (UNCTAD) reported in April 2026 that world trade in goods and services reached about <b>US$35 trillion</b> in 2025, up almost 7.5 per cent on 2024. It expects growth to slow during 2026 because of conflict in the Middle East, shipping problems in the Strait of Hormuz, rising prices and higher trade costs. The interconnections you studied this term are still changing.</p><p class="src">Source: UNCTAD, Global Trade Update, April 2026.</p>
 </div>
-
 <div class="resource-subpage" id="box-world">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🗺️</span> Where in the World?</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128506;&#65039;</span> Where in the World?</h2>
+  <p><b>China</b> - Australia's biggest trading partner. In 2025 Australia sold China goods and services worth about A$196 billion and bought about A$130 billion from it, together roughly a quarter of all Australia's trade. China matters to the rest of the world too: in 2024 it was the top source of imported goods for around 40 per cent of countries.</p><p class="src">Sources: DFAT, Australia's goods and services exports and imports, 2025; Our World in Data, 9 December 2025. The 'roughly a quarter' share is worked out from DFAT's totals.</p>
 </div>
-
+<div class="resource-subpage" id="box-jobs">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128188;</span> Careers Connected to This Lesson</h2>
+  <p><b>Geography teacher</b> - helps students make sense of how places and people are connected, and uses tools like the capacity matrix to plan what each class needs next.</p><p><b>Trade economist</b> - studies data on exports, imports and supply chains to explain how trade is changing, for governments, banks or organisations such as UNCTAD.</p>
+</div>
 <div class="resource-subpage" id="box-related">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🔗</span> Related Lessons</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#128279;</span> Related Lessons</h2>
+  <p>Today draws on every lesson, from <b>L01 - What Connects Us? Defining Interconnection</b> to <b>L27 - My Ethical Action Plan</b>. If your matrix shows a gap, go back to the lesson behind it: for example <b>L13 - Trade Flows: Mapping Australia's Trade</b> for trade flows, <b>L11 - Sector Graphs: Showing Parts of a Whole</b> for graphing, <b>L19 - The Life Cycle of a T-shirt</b> for supply chains, or <b>L26 - Final Judgement</b> for writing a judgement.</p>
 </div>
-
 <div class="resource-subpage" id="box-stage56">
   <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
-  <h2 class="subpage-title"><span>🎓</span> Stage 5 &amp; 6 Geography</h2>
-  
-            <p class="coming-soon">Coming soon - this section hasn't been added yet.</p>
-        
+  <h2 class="subpage-title"><span>&#127891;</span> What You'll Study in Stage 5 &amp; 6</h2>
+  <p><b>Every idea in this unit comes back, in more depth, in later Geography.</b></p><p><b>Stage 5:</b> Stage 5 - Changing places and Human wellbeing: build on interconnections by looking at how places change and why people's quality of life differs between places.</p><p><b>Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places:</b> Stage 6 (HSC) - Year 11 People, patterns and processes; Year 12 Rural and urban places: take the same skills further, explaining how global connections shape people and places and judging how they are managed.</p>
+</div>
+<div class="resource-subpage" id="box-references">
+  <a class="back-link" onclick="showResourceHub()">&larr; Back to all resources</a>
+  <h2 class="subpage-title"><span>&#128218;</span> References and Further Reading</h2>
+  <ul><li>Department of Foreign Affairs and Trade (2026). <i>Australia's goods and services exports and imports, calendar year 2025</i> - <a href="https://www.dfat.gov.au/sites/default/files/australia-goods-services-exports-imports-2025.pdf" target="_blank" rel="noopener">dfat.gov.au</a>.</li><li>Department of Foreign Affairs and Trade (n.d.). <i>Australia's Trade through Time</i> - <a href="https://www.dfat.gov.au/trade/trade-and-investment-data-information-and-publications/australias-trade-through-time" target="_blank" rel="noopener">dfat.gov.au</a>.</li><li>Evidence for Learning (n.d.). <i>Metacognition and self-regulation</i>, Teaching and Learning Toolkit - <a href="https://evidenceforlearning.org.au/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation" target="_blank" rel="noopener">evidenceforlearning.org.au</a>.</li><li>Our World in Data (2025, 9 December). <i>China is the top import partner for most countries in the world</i> - <a href="https://ourworldindata.org/data-insights/china-is-the-top-import-partner-for-most-countries-in-the-world" target="_blank" rel="noopener">ourworldindata.org</a>.</li><li>Ortiz-Ospina, E., Rohenkohl, B., Samborska, V., Van Teutem, S., Beltekian, D., and Roser, M. (n.d.). <i>Trade and Globalization</i>. Our World in Data - <a href="https://ourworldindata.org/trade-and-globalization" target="_blank" rel="noopener">ourworldindata.org</a>.</li><li>TED-Ed (n.d.). <i>The life cycle of a t-shirt - Angel Chang</i> [Video]. YouTube - <a href="https://www.youtube.com/watch?v=BiSYoeqb_VY" target="_blank" rel="noopener">youtube.com</a>; lesson page <a href="https://ed.ted.com/lessons/the-life-cycle-of-a-t-shirt-angel-chang" target="_blank" rel="noopener">ed.ted.com</a>.</li><li>UN Trade and Development (2026, April). <i>Global Trade Update (April 2026)</i> - <a href="https://unctad.org/system/files/official-document/ditcinf2026d4_en.pdf" target="_blank" rel="noopener">unctad.org</a>.</li><li>United Nations (n.d.). <i>Goal 4</i>, <i>Goal 12</i> and <i>Goal 17</i>, Sustainable Development Goals - <a href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noopener">sdgs.un.org</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 7-10 Syllabus (2024)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-7-10-2024/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li><li>NSW Education Standards Authority (NESA), <i>Geography 11-12 Syllabus (2022)</i> - <a href="https://curriculum.nsw.edu.au/learning-areas/hsie/geography-11-12-2022/overview" target="_blank" rel="noopener">curriculum.nsw.edu.au</a>.</li></ul>
 </div>
 
 <footer class="site-footer">
