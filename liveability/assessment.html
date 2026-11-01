@@ -3173,7 +3173,7 @@
       'TICKED:\n' + ticked.join('\n') + '\n\n' +
       'NOT TICKED:\n' + unticked.join('\n')
     );
-    window.location.href = 'mailto:michelle.perkins@spcc.nsw.edu.au?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:' + ['michelle.perkins','spcc.nsw.edu.au'].join('@') + '?subject=' + subject + '&body=' + body;
   }
 
     function sendFeedback(btn) {
@@ -3201,7 +3201,7 @@
       'Tab: ' + tabName + '\n\n' +
       'Feedback:\n' + message
     );
-    window.location.href = 'mailto:michelle.perkins@spcc.nsw.edu.au?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:' + ['michelle.perkins','spcc.nsw.edu.au'].join('@') + '?subject=' + subject + '&body=' + body;
   }
 
   const PASSWORD = 'LiveLoveGeo';
