@@ -4,89 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stage 4 Geography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
-  :root { --blue:#065A82; --teal:#1C7293; --midnight:#21295C; --mint:#02C39A;
-          --land:#1E4D3B; --land-gold:#E3B23C; --water:#123F66; --water-mid:#1F6FB2; --live:#534AB7; }
-  * { box-sizing: border-box; }
-  body { font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin:0; color:#222; background:#fff; }
-  .top { background:var(--midnight); color:#fff; padding:2.6rem 1rem; text-align:center; }
-  .top .tophome { margin:0 0 .9rem; }
-  .top .tophome a { color:#fff; opacity:.75; text-decoration:none; font-size:.8rem; letter-spacing:.02em; }
-  .top .tophome a:hover { opacity:1; text-decoration:underline; }
-  .top .kicker { font-size:.85rem; letter-spacing:.12em; text-transform:uppercase; opacity:.8; }
-  .top h1 { margin:.4rem 0 .2rem; font-size:2.2rem; }
-  .top p.sub { margin:0; opacity:.9; }
-  main { max-width:900px; margin:0 auto; padding:1.5rem 1rem 3rem; }
-  .intro { background:#f2f7fa; border:1px solid #d7e5ee; border-radius:12px; padding:1.1rem 1.4rem; margin:1.5rem 0; }
-  .revision-banner { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; background:var(--mint); color:#fff; border-radius:12px; padding:1.2rem 1.4rem; margin:1.5rem 0; }
-  .revision-banner .fa { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; opacity:.9; }
-  .revision-banner h2 { margin:.2rem 0; font-size:1.3rem; }
-  .revision-banner p { margin:0; opacity:.95; font-size:.93rem; }
-  .revision-banner a.btn { flex-shrink:0; display:inline-block; color:var(--mint); background:#fff; text-decoration:none; padding:.6rem 1.2rem; border-radius:8px; font-size:.92rem; font-weight:700; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:1.5rem; }
-  @media (max-width:640px) { .grid { grid-template-columns:1fr; } }
-  .card { border:1px solid #d7e5ee; border-radius:12px; padding:1.3rem 1.4rem; display:flex; flex-direction:column; }
-  .card h2 { margin:.1rem 0 .4rem; font-size:1.25rem; }
-  .card .fa { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
-  .card p { font-size:.93rem; margin:.4rem 0 1rem; flex:1; }
-  .card a.btn, .card span.btn { display:inline-block; align-self:flex-start; color:#fff; text-decoration:none; padding:.5rem 1.1rem; border-radius:8px; font-size:.92rem; }
-  .c-land .fa { color:var(--land-gold); } .c-land h2 { color:var(--land); }   .c-land a.btn, .c-land span.btn { background:var(--land); }
-  .c-water .fa { color:var(--water-mid); } .c-water h2 { color:var(--water); } .c-water a.btn, .c-water span.btn { background:var(--water); }
-  .c-inter .fa { color:var(--teal); } .c-inter h2 { color:var(--blue); }  .c-inter a.btn { background:var(--blue); }
-  .c-live .fa { color:#7F77DD; } .c-live h2 { color:var(--live); }    .c-live a.btn, .c-live span.btn { background:var(--live); }
-  .card.soon { opacity:.65; }
-  .card.soon span.btn { background:#b8c6cf; }
-  footer { text-align:center; font-size:.85rem; color:#777; padding:2rem 1rem; border-top:1px solid #eee; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#f7eee9}
+body{background:#f7eee9;min-height:100vh;color:#003146;font-family:Inter,system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.top{padding:12px 0 4px}
+h1,h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400}
+.lbl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#00645f}
+.ban{min-height:250px;border-radius:18px;background-size:cover;background-position:center;display:flex;align-items:flex-end}
+.ban .t{background:rgba(247,238,233,.93);margin:18px;padding:14px 20px;border-radius:12px;border:1px solid #54acb9;max-width:560px}
+.ban h1{font-size:44px;line-height:1.05}
+.hero{background:#ffffff;border:1px solid #54acb9;border-radius:18px;padding:24px;text-align:center}
+.hero h1{font-size:42px;line-height:1.05}.hero .bar{width:60px;height:6px;border-radius:99px;background:#00645f;margin:12px auto 0}
+.intro{margin:16px 0 0;font-size:15px}
+.strip{margin-top:16px;border-radius:16px;background:#ffffff;border:1px solid #54acb9;border-left:8px solid #ffc20e;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;text-decoration:none;color:inherit}
+.strip h2{font-size:24px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
+.card{border-radius:16px;overflow:hidden;background:#ffffff;text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid #54acb9;transition:transform .15s}
+a.card:hover,a.strip:hover,a.wide:hover{transform:translateY(-3px)}
+.card .pic{aspect-ratio:4/3;background-size:cover;background-position:center}
+.card .in{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column}
+.card h2{font-size:22px;line-height:1.1;margin:4px 0 6px}.card p{font-size:13px}.card .desc{flex:1}
+.go{margin-top:10px;align-self:flex-start;background:#00645f;color:#ffffff;font-weight:800;font-size:12px;border-radius:99px;padding:6px 13px;white-space:nowrap}
+.gold{background:#ffc20e;color:#003146}
+.soon{opacity:.75}.soon .go{background:rgba(127,127,127,.25);color:inherit}.soon .pic{filter:grayscale(.45)}
+.wide{margin-top:14px;border-radius:16px;display:grid;grid-template-columns:220px 1fr auto;align-items:center;gap:18px;background:#ffffff;border:1px solid #54acb9;overflow:hidden;padding-right:18px;text-decoration:none;color:inherit;transition:transform .15s}
+.wide .go{align-self:center;justify-self:start}.wide .pic{height:140px;background-size:cover;background-position:center}.wide h2{font-size:24px}
+.has{font-size:12px;opacity:.85;margin-top:6px}
+.ft{text-align:center;padding:30px 0 26px}.enc{font-family:Caveat,cursive;font-size:26px;color:#00645f;min-height:1.3em}.nm{font-size:12px;opacity:.75;margin-top:4px}.cr{font-size:11px;opacity:.55;margin-top:6px}.cr a{color:inherit}
+.note{font-size:11px;opacity:.55;margin-top:6px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.ban h1,.hero h1{font-size:34px}.ban .t{margin:10px}.wide{grid-template-columns:1fr;padding:0 0 14px}.wide>div,.wide>span{margin:0 14px}.strip{flex-direction:column;align-items:flex-start}}
 </style>
 <style id="mp-trail-css">.mp-trail{margin:0 0 .6rem!important;padding:0!important;font-size:12px!important;line-height:1.5!important;letter-spacing:.02em!important;font-weight:400!important;text-transform:none!important;text-align:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;grid-column:1/-1;max-width:none}.mp-trail a{color:inherit!important;text-decoration:none!important;font:inherit!important}.mp-trail a:hover{text-decoration:underline!important}.mp-trail .mp-sep{margin:0 .45em}nav>.mp-trail{max-width:1100px;margin:0 auto!important;padding:.45rem 2rem 0!important}</style>
 </head>
 <body>
-<div class="top">
-  <p class="mp-trail" style="color:rgb(255, 255, 255);opacity:0.85"><a href="https://mrsperkinsteacher.github.io/">Mrs Perkins home</a><span class="mp-sep">/</span><a href="https://mrsperkinsteacher.github.io/stage4geo/">Stage 4 Geography</a></p>
-  <div class="kicker">Stage 4 Geography | NSW Syllabus (2024)</div>
-  <h1>Stage 4 Geography</h1>
-  <p class="sub">Four focus areas. One curious planet.</p>
+<div class="wrap">
+<div class="top"><p class="mp-trail" style="color:rgb(0, 49, 70);opacity:0.85"><a href="https://mrsperkinsteacher.github.io/">Mrs Perkins home</a><span class="mp-sep">/</span><a href="https://mrsperkinsteacher.github.io/stage4geo/">Stage 4 Geography</a></p></div>
+<div class="ban" style="background-image:url(images/banner.webp)"><div class="t"><p class="lbl">Years 7-8 &nbsp;|&nbsp; NSW Syllabus (2024)</p><h1>Stage 4 Geography</h1><p>Four focus areas. One curious planet.</p></div></div>
+<a class="strip" href="revision/"><div><p class="lbl">Revision</p><h2>Yearly Revision Hub</h2><p style="font-size:14px">All four terms in one place - case studies, slideshows and videos to revise with.</p></div><span class="go gold">Open revision hub &rarr;</span></a>
+<div class="grid">
+<div class="card soon"><div class="pic" style="background-image:url(images/landscapes.webp)" role="img" aria-label=""></div><div class="in"><p class="lbl">Term 1</p><h2>Landscapes and Landforms</h2><p class="desc">How landscapes form and change, why they matter to people, and how we manage geomorphic hazards.</p><span class="go">Coming 2027</span></div></div>
+<a class="card" href="liveability/index.html"><div class="pic" style="background-image:url(images/liveability.webp)" role="img" aria-label=""></div><div class="in"><p class="lbl">Term 2</p><h2>Liveability of Places</h2><p class="desc">What makes a place liveable, whose liveability matters, and how we can enhance the places we share.</p><span class="go">Open unit &rarr;</span></div></a>
+<a class="card" href="waterintheworld/index.html"><div class="pic" style="background-image:url(images/water.webp)" role="img" aria-label=""></div><div class="in"><p class="lbl">Term 3</p><h2>Water in the World</h2><p class="desc">The water cycle, water as a resource, water scarcity, and the value of water to people and Country.</p><span class="go">Open unit &rarr;</span></div></a>
+<a class="card" href="interconnections/index.html"><div class="pic" style="background-image:url(images/interconnections.webp)" role="img" aria-label=""></div><div class="in"><p class="lbl">Term 4</p><h2>Interconnections and Trade</h2><p class="desc">How travel, technology and trade connect people, places and environments - and the true cost of the things we consume.</p><span class="go">Open unit &rarr;</span></div></a>
 </div>
-<main>
-  <div class="intro">
-    Welcome! This site holds the weekly lessons, activities and resources for the four Stage 4 Geography focus areas.
-    Choose your topic below.
-  </div>
-  <div class="revision-banner">
-    <div>
-      <div class="fa">Revision</div>
-      <h2>Stage 4 Yearly Revision Hub</h2>
-      <p>All four terms in one place - case studies, slideshows and videos to revise with.</p>
-    </div>
-    <a class="btn" href="revision.html">Open revision hub</a>
-  </div>
-  <div class="grid">
-    <div class="card c-land soon">
-      <div class="fa">Focus Area</div>
-      <h2>Landscapes and Landforms</h2>
-      <p>How landscapes form and change, why they matter to people, and how we manage geomorphic hazards.</p>
-      <span class="btn">Coming soon</span>
-    </div>
-    <div class="card c-live soon">
-      <div class="fa">Focus Area</div>
-      <h2>Liveability of Places</h2>
-      <p>What makes a place liveable, whose liveability matters, and how we can enhance the places we share.</p>
-      <span class="btn">Coming soon</span>
-    </div>
-    <div class="card c-water soon">
-      <div class="fa">Focus Area</div>
-      <h2>Water in the World</h2>
-      <p>The water cycle, water as a resource, water scarcity, and the value of water to people and Country.</p>
-      <span class="btn">Coming soon</span>
-    </div>
-    <div class="card c-inter">
-      <div class="fa">Focus Area</div>
-      <h2>Interconnections and Trade</h2>
-      <p>How travel, technology and trade connect people, places and environments - and the true cost of the things we consume.</p>
-      <a class="btn" href="interconnections/index.html">Open unit</a>
-    </div>
-  </div>
-</main>
-<footer>Stage 4 Geography - NSW Geography 7-10 Syllabus (2024)</footer>
+<footer class="ft"><p class="enc" id="enc"></p><p class="nm">Mrs Perkins &middot; Stage 4 Geography &middot; NSW Geography 7-10 Syllabus (2024)</p><p class="cr">Artwork: Whimsical Landscapes by <a href="https://www.etsy.com/shop/DelightfulDigiArt">DelightfulDigiArt</a></p></footer>
+</div>
+<script>(function(){var L=["Small steps every lesson add up to big understanding.", "Curious minds make great geographers.", "You do not have to be perfect - just keep going.", "Ask the question. Someone else is wondering too.", "Every map started as a blank page.", "Your effort today is tomorrow's confidence.", "Look closer. Geography is everywhere you go.", "Be kind, work hard, and enjoy the journey."];var e=document.getElementById("enc");if(e)e.textContent=L[Math.floor(Math.random()*L.length)];})();</script>
 </body>
 </html>
