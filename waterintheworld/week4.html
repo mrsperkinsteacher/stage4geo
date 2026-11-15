@@ -4,65 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Water in the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --water:#123F66; --water-mid:#1F6FB2; --teal:#1C7293; --mint:#02C39A;
-  --light-blue:#E8F1F6; --light-mint:#E3F7F1;
-}
-* { box-sizing: border-box; }
-body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background:#fbfdfe; color:#1c2b36; line-height:1.5; }
-.wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
-header.banner { background: var(--water); color:#fff; border-radius:14px; padding:28px 30px; margin: 24px 0 26px; }
-.kicker { color: var(--mint); text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem; font-weight: 700; margin-bottom: 6px; }
-header.banner h1 { margin: 4px 0 10px; font-size: 1.7rem; }
-header.banner .theme { margin:0; font-size: 0.92rem; color:#dfeaf3; }
-a { color: var(--water-mid); }
-.back-link { display:inline-block; margin: 18px 0 0; font-size: 0.85rem; }
-.protocol { background:#fff6e8; border:1.5px solid #e8c98a; border-radius:12px; padding:16px 20px; margin-bottom:26px; font-size:0.9rem; }
-.protocol strong { color:#9a6a1b; }
-.meta { border:1.5px solid #d8e2ea; border-radius:12px; padding:16px 20px; margin-bottom:26px; font-size:0.9rem; background:#f6f9fb; }
-.sourcebox { border:1.5px solid #cfe3d6; background:#f3faf5; border-radius:12px; padding:14px 20px; margin-bottom:26px; font-size:0.86rem; color:#2c5c3f; }
-section.lesson { border:1px solid #e1e8ee; border-radius:14px; padding:22px 24px; margin-bottom:22px; background:#fff; }
-.lesson-tag { display:inline-block; background:var(--water-mid); color:#fff; font-weight:bold; font-size:0.8rem; letter-spacing:1px; border-radius:999px; padding:4px 14px; margin-bottom:10px; }
-.lesson h2 { margin: 4px 0 12px; font-size: 1.25rem; color: var(--water); }
-.li-box { background: var(--light-blue); border:1.5px solid #bcd4e2; border-radius:10px; padding:12px 16px; margin-bottom: 14px; font-size: 0.92rem; }
-h3 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--teal); margin: 18px 0 8px; }
-ol, ul { margin: 0; padding-left: 22px; font-size: 0.94rem; }
-li { margin-bottom: 6px; }
-.worldview { background: var(--light-mint); border:1.5px solid var(--mint); border-radius:10px; padding:14px 18px; margin-top: 10px; }
-.worldview .verse { font-style: italic; color: var(--water); margin: 0 0 4px; }
-.worldview .ref { font-weight: bold; color: var(--water-mid); margin: 0 0 6px; }
-.worldview p:last-child { margin: 0; font-size: 0.92rem; }
-.files { background:#f6f9fb; border:1.5px dashed var(--teal); border-radius:10px; padding:12px 16px; margin-top: 10px; }
-.files code { background: var(--water-mid); color:#fff; border-radius:6px; padding:2px 10px; margin:2px 6px 2px 0; font-size: 0.82rem; display:inline-block; }
-.files code a, .sourcebox a { color:#fff; text-decoration: underline; }
-.sourcebox a { color: var(--water); font-weight: 600; }
-.footer-note { text-align:center; font-size: 0.8rem; color:#7c8a95; margin: 30px 0 10px; }
-.eq { border-left:4px solid var(--mint); padding:.2rem 0 .2rem 1rem; margin:1.2rem 0; font-style:italic; color:#444; }
-.intro { font-size: 0.98rem; }
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top: 20px; }
-@media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
-.card { border:1px solid #d7e5ee; border-radius:12px; padding:1.3rem 1.4rem; background:#fff; }
-.card .wk { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); font-weight:700; }
-.card h2 { font-size: 1.05rem; margin: 6px 0 8px; color: var(--water); }
-.card p { font-size: 0.88rem; color:#48586a; margin: 0 0 14px; }
-.card a.btn { display:inline-block; background: var(--water-mid); color:#fff; text-decoration:none; padding:8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
-.card a.btn:hover { background: var(--water); }
-.metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.metarow>span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:4px 12px;font-size:.82rem;line-height:1.4}.metarow b{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.7rem;opacity:.85;margin-right:6px}
-h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty} /* mp-balance */
-.kicker{display:flex;flex-wrap:wrap;gap:2px 10px}.kicker .nw{white-space:nowrap}.kicker .sep{opacity:.6}@media(max-width:560px){.kicker .sep{display:none}.kicker{flex-direction:column}} a,.lesson-tag{white-space:normal}.nobr{white-space:nowrap} /* mp-tidy */
-.li-updated{margin:-.35rem 0 .9rem;font-size:.72rem;color:#6b7c88;font-style:italic;text-align:right} /* mp-li-note */
+:root{--navy:#003146;--cream:#f7eee9;--geo5:#00645f;--geo6:#004b5d;--topic:#79bec5;--tint:#e6f3f5;--gold:#ffc20e;--ink2:#3d5866}
+*{box-sizing:border-box}
+html{background:var(--cream)}
+body{margin:0;background:var(--cream);color:var(--navy);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+h1,h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;color:var(--navy)}
+a{color:var(--geo5)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 40px}
+.top{padding:12px 0 4px}
+.kicker{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--geo5);margin:0 0 4px}
+.kicker .nw{white-space:nowrap}.kicker .sep{opacity:.5}
+.nobr{white-space:nowrap}
+h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
+.footer-note{text-align:center;font-size:12px;opacity:.7;margin:30px 0 10px}
+.back-link{display:inline-block;margin:10px 0 12px;font-size:13px;font-weight:600;text-decoration:none;background:#fff;border:1px solid var(--topic);border-radius:99px;padding:5px 14px;color:var(--navy)}
+.back-link:hover{background:var(--tint)}
+@media(max-width:560px){.kicker .sep{display:none}.kicker{flex-direction:column}}
+
+header.banner{background:#fff;border:1px solid var(--topic);border-radius:18px;overflow:hidden;margin:0 0 22px}
+header.banner .band{height:130px;background:url(../images/water.webp) center 78%/cover;border-bottom:6px solid var(--topic)}
+header.banner .t{padding:16px 22px 18px}
+header.banner h1{font-size:38px;line-height:1.08;margin:2px 0 4px}
+.metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.metarow>span{background:var(--tint);border:1px solid var(--topic);border-radius:99px;padding:4px 12px;font-size:13px;line-height:1.4}
+.metarow b{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;color:var(--geo5);margin-right:6px}
+section.lesson{background:#fff;border:1px solid var(--topic);border-radius:16px;padding:20px 22px;margin-bottom:16px;position:relative}
+.lesson-tag{display:inline-block;background:var(--geo5);color:#fff;font-weight:800;font-size:11px;letter-spacing:.12em;border-radius:99px;padding:4px 12px;margin-bottom:8px;white-space:normal}
+.lesson h2{font-size:27px;line-height:1.15;margin:2px 0 12px}
+.li-box{background:var(--tint);border-left:6px solid var(--topic);border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:15px}
+.li-box strong{display:block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--geo5);margin-bottom:2px}
+.li-updated{margin:-.4rem 0 .9rem;font-size:11.5px;color:#5d7380;font-style:italic;text-align:right}
+h3{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--geo5);margin:18px 0 8px}
+ol,ul{margin:0;padding-left:22px;font-size:15px}li{margin-bottom:6px}
+.worldview{background:#fbf6f2;border:1px solid #ecdccf;border-left:6px solid var(--gold);border-radius:10px;padding:14px 18px}
+.worldview .verse{font-family:"DM Serif Display",Georgia,serif;font-size:20px;line-height:1.3;margin:0 0 4px}
+.worldview .ref{font-weight:800;font-size:13px;color:var(--geo5);margin:0 0 6px}
+.worldview p:last-child{margin:0;font-size:14px}
+.protocol{background:#fff8e1;border:1px solid var(--gold);border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:14px}
+.protocol strong{color:var(--navy)}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.pn a{display:block;background:#fff;border:1px solid var(--topic);border-radius:16px;padding:12px 16px;text-decoration:none;color:var(--navy);transition:transform .15s}
+.pn a:hover{transform:translateY(-2px)}
+.pn small{display:block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--geo5)}
+.pn span{font-family:"DM Serif Display",Georgia,serif;font-size:19px;line-height:1.2}
+.pn .nx{text-align:right;grid-column:2}
+@media(max-width:560px){header.banner h1{font-size:30px}header.banner .band{height:96px}.lesson h2{font-size:23px}.pn{grid-template-columns:1fr}.pn .nx{grid-column:1}}
 </style>
 <style id="mp-trail-css">.mp-trail{margin:0 0 .6rem!important;padding:0!important;font-size:12px!important;line-height:1.5!important;letter-spacing:.02em!important;font-weight:400!important;text-transform:none!important;text-align:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;grid-column:1/-1;max-width:none}.mp-trail a{color:inherit!important;text-decoration:none!important;font:inherit!important}.mp-trail a:hover{text-decoration:underline!important}.mp-trail .mp-sep{margin:0 .45em}nav>.mp-trail{max-width:1100px;margin:0 auto!important;padding:.45rem 2rem 0!important}</style>
 </head>
 <body>
 <div class="wrap">
 
-<a class="back-link" href="index.html">&larr; Back to Water in the World overview</a>
-<header class="banner"><p class="mp-trail" style="color:rgb(255, 255, 255);opacity:0.85"><a href="https://mrsperkinsteacher.github.io/">Mrs Perkins home</a><span class="mp-sep">/</span><a href="https://mrsperkinsteacher.github.io/stage4geo/">Stage 4 Geography</a></p>
+<div class="top"><p class="mp-trail" style="color:rgb(0, 49, 70);opacity:0.85"><a href="https://mrsperkinsteacher.github.io/">Mrs Perkins home</a><span class="mp-sep">/</span><a href="https://mrsperkinsteacher.github.io/stage4geo/">Stage 4 Geography</a></p></div>
+<a class="back-link" href="index.html">&larr; Water in the World</a>
+<header class="banner"><div class="band" role="img" aria-label="Painted river artwork"></div><div class="t">
   <div class="kicker"><span class="nw">Stage 4 Geography</span> <span class="sep">|</span> <span class="nw">Year 8</span> <span class="sep">|</span> <span class="nw">Water in the World</span></div>
   <h1>Factors Influencing Water Availability and Climate Graphs</h1>
-  <div class="metarow"><span><b>Focus</b>Water in the World</span><span><b>Outcomes</b><span class="nobr">GE4-PRI-01</span>, <span class="nobr">GE4-TAP-01</span></span><span><b>Thread</b>Imagining Innovations</span></div>
+  <div class="metarow"><span><b>Focus</b>Water in the World</span><span><b>Outcomes</b><span class="nobr">GE4-PRI-01</span>, <span class="nobr">GE4-TAP-01</span></span><span><b>Thread</b>Imagining Innovations</span></div></div>
   </header>
 
 <section class="lesson">
@@ -88,7 +88,7 @@ h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty} /* mp-balance */
       <h3>External links</h3><ul><li><a href="https://storymaps.arcgis.com/" target="_blank" rel="noopener">ArcGIS StoryMaps&nbsp;- river catchment story</a></li></ul>
       
       </section>
-<a class="back-link" href="index.html">&larr; Back to Water in the World overview</a>
+<nav class="pn"><a href="week3.html"><small>&larr; Previous</small><span>Flood Risk, Relief Mapping and Fieldwork</span></a><a class="nx" href="week5.html"><small>Next &rarr;</small><span>The Value of Water</span></a></nav>
 
 <p class="footer-note">Stage 4 Geography | Water in the World | NESA Geography <span class="nobr">7-10</span> Syllabus (2024)</p>
 </div>

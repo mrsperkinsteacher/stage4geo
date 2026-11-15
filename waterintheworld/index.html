@@ -4,131 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Water in the World&nbsp;- Stage 4 Geography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --water:#123F66; --water-mid:#1F6FB2; --teal:#1C7293; --mint:#02C39A;
-  --light-blue:#E8F1F6; --light-mint:#E3F7F1;
-}
-* { box-sizing: border-box; }
-body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background:#fbfdfe; color:#1c2b36; line-height:1.5; }
-.wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
-header.banner { background: var(--water); color:#fff; border-radius:14px; padding:28px 30px; margin: 24px 0 26px; }
-.kicker { color: var(--mint); text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem; font-weight: 700; margin-bottom: 6px; }
-header.banner h1 { margin: 4px 0 10px; font-size: 1.7rem; }
-header.banner .theme { margin:0; font-size: 0.92rem; color:#dfeaf3; }
-a { color: var(--water-mid); }
-.back-link { display:inline-block; margin: 18px 0 0; font-size: 0.85rem; }
-.protocol { background:#fff6e8; border:1.5px solid #e8c98a; border-radius:12px; padding:16px 20px; margin-bottom:26px; font-size:0.9rem; }
-.protocol strong { color:#9a6a1b; }
-.meta { border:1.5px solid #d8e2ea; border-radius:12px; padding:16px 20px; margin-bottom:26px; font-size:0.9rem; background:#f6f9fb; }
-.sourcebox { border:1.5px solid #cfe3d6; background:#f3faf5; border-radius:12px; padding:14px 20px; margin-bottom:26px; font-size:0.86rem; color:#2c5c3f; }
-section.lesson { border:1px solid #e1e8ee; border-radius:14px; padding:22px 24px; margin-bottom:22px; background:#fff; }
-.lesson-tag { display:inline-block; background:var(--water-mid); color:#fff; font-weight:bold; font-size:0.8rem; letter-spacing:1px; border-radius:999px; padding:4px 14px; margin-bottom:10px; }
-.lesson h2 { margin: 4px 0 12px; font-size: 1.25rem; color: var(--water); }
-.li-box { background: var(--light-blue); border:1.5px solid #bcd4e2; border-radius:10px; padding:12px 16px; margin-bottom: 14px; font-size: 0.92rem; }
-h3 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--teal); margin: 18px 0 8px; }
-ol, ul { margin: 0; padding-left: 22px; font-size: 0.94rem; }
-li { margin-bottom: 6px; }
-.worldview { background: var(--light-mint); border:1.5px solid var(--mint); border-radius:10px; padding:14px 18px; margin-top: 10px; }
-.worldview .verse { font-style: italic; color: var(--water); margin: 0 0 4px; }
-.worldview .ref { font-weight: bold; color: var(--water-mid); margin: 0 0 6px; }
-.worldview p:last-child { margin: 0; font-size: 0.92rem; }
-.files { background:#f6f9fb; border:1.5px dashed var(--teal); border-radius:10px; padding:12px 16px; margin-top: 10px; }
-.files code { background: var(--water-mid); color:#fff; border-radius:6px; padding:2px 10px; margin:2px 6px 2px 0; font-size: 0.82rem; display:inline-block; }
-.files code a, .sourcebox a { color:#fff; text-decoration: underline; }
-.sourcebox a { color: var(--water); font-weight: 600; }
-.footer-note { text-align:center; font-size: 0.8rem; color:#7c8a95; margin: 30px 0 10px; }
-.eq { border-left:4px solid var(--mint); padding:.2rem 0 .2rem 1rem; margin:1.2rem 0; font-style:italic; color:#444; }
-.intro { font-size: 0.98rem; }
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top: 20px; }
-@media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
-.card { border:1px solid #d7e5ee; border-radius:12px; padding:1.3rem 1.4rem; background:#fff; }
-.card .wk { font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); font-weight:700; }
-.card h2 { font-size: 1.05rem; margin: 6px 0 8px; color: var(--water); }
-.card p { font-size: 0.88rem; color:#48586a; margin: 0 0 14px; }
-.card a.btn { display:inline-block; background: var(--water-mid); color:#fff; text-decoration:none; padding:8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
-.card a.btn:hover { background: var(--water); }
-.group{font-size:1.25rem;margin:2rem 0 .2rem;display:flex;align-items:baseline;gap:.6rem}.group span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.65}
-h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty} /* mp-balance */
-.kicker{display:flex;flex-wrap:wrap;gap:2px 10px}.kicker .nw{white-space:nowrap}.kicker .sep{opacity:.6}@media(max-width:560px){.kicker .sep{display:none}.kicker{flex-direction:column}} a,.lesson-tag{white-space:normal}.nobr{white-space:nowrap} /* mp-tidy */
+:root{--navy:#003146;--cream:#f7eee9;--geo5:#00645f;--geo6:#004b5d;--topic:#79bec5;--tint:#e6f3f5;--gold:#ffc20e;--ink2:#3d5866}
+*{box-sizing:border-box}
+html{background:var(--cream)}
+body{margin:0;background:var(--cream);color:var(--navy);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+h1,h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;color:var(--navy)}
+a{color:var(--geo5)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 40px}
+.top{padding:12px 0 4px}
+.kicker{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--geo5);margin:0 0 4px}
+.kicker .nw{white-space:nowrap}.kicker .sep{opacity:.5}
+.nobr{white-space:nowrap}
+h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
+.footer-note{text-align:center;font-size:12px;opacity:.7;margin:30px 0 10px}
+.back-link{display:inline-block;margin:10px 0 12px;font-size:13px;font-weight:600;text-decoration:none;background:#fff;border:1px solid var(--topic);border-radius:99px;padding:5px 14px;color:var(--navy)}
+.back-link:hover{background:var(--tint)}
+@media(max-width:560px){.kicker .sep{display:none}.kicker{flex-direction:column}}
+
+.ban{min-height:280px;border-radius:18px;background:url(../images/water.webp) center 60%/cover;display:flex;align-items:flex-end}
+.ban .t{background:rgba(247,238,233,.94);margin:18px;padding:16px 22px;border-radius:12px;border:1px solid var(--topic);max-width:600px}
+.ban h1{font-size:46px;line-height:1.05;margin:2px 0 8px}
+.ban .theme{margin:0;font-size:15px}
+.intro{margin:18px 0 0;background:#fff;border:1px solid var(--topic);border-radius:16px;padding:18px 22px;font-size:15px}
+.intro p{margin:0}
+.eq{margin:14px 0 0;background:#fff;border:1px solid var(--topic);border-left:8px solid var(--gold);border-radius:16px;padding:14px 22px;font-family:"DM Serif Display",Georgia,serif;font-size:21px;line-height:1.3}
+.eq b{display:block;font-family:Inter,sans-serif;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--geo5);margin-bottom:2px}
+.group{display:flex;align-items:center;gap:12px;font-size:28px;margin:32px 0 0}
+.group span{font-family:Inter,sans-serif;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--geo5);color:#fff;border-radius:99px;padding:5px 12px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.card{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--topic);display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s}
+a.card:hover{transform:translateY(-3px)}
+.card .pic{height:92px;background-image:url(../images/water.webp);background-size:260%;background-repeat:no-repeat}
+.card .in{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column}
+.card h2{font-size:21px;line-height:1.15;margin:0 0 6px}
+.card p{font-size:13px;color:var(--ink2);margin:0;flex:1}
+.go{margin-top:12px;align-self:flex-start;background:var(--geo5);color:#fff;font-weight:800;font-size:12px;border-radius:99px;padding:6px 13px;white-space:nowrap}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.ban h1{font-size:34px}.ban .t{margin:10px}.group{font-size:23px;flex-wrap:wrap;gap:6px}}
 </style>
 <style id="mp-trail-css">.mp-trail{margin:0 0 .6rem!important;padding:0!important;font-size:12px!important;line-height:1.5!important;letter-spacing:.02em!important;font-weight:400!important;text-transform:none!important;text-align:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;grid-column:1/-1;max-width:none}.mp-trail a{color:inherit!important;text-decoration:none!important;font:inherit!important}.mp-trail a:hover{text-decoration:underline!important}.mp-trail .mp-sep{margin:0 .45em}nav>.mp-trail{max-width:1100px;margin:0 auto!important;padding:.45rem 2rem 0!important}</style>
 </head>
 <body>
 <div class="wrap">
 
-<header class="banner"><p class="mp-trail" style="color:rgb(255, 255, 255);opacity:0.85"><a href="https://mrsperkinsteacher.github.io/">Mrs Perkins home</a><span class="mp-sep">/</span><a href="https://mrsperkinsteacher.github.io/stage4geo/">Stage 4 Geography</a></p>
-  <div class="kicker"><span class="nw">Stage 4 Geography</span> <span class="sep">|</span> <span class="nw">Year 8</span></div>
-  <h1>Water in the World</h1>
-  <p class="theme">Where the world's water is, how it moves, why some places have too little, and how people care for it and manage it.</p>
-</header>
+<div class="top"><p class="mp-trail" style="color:rgb(0, 49, 70);opacity:0.85"><a href="https://mrsperkinsteacher.github.io/">Mrs Perkins home</a><span class="mp-sep">/</span><a href="https://mrsperkinsteacher.github.io/stage4geo/">Stage 4 Geography</a></p></div>
+<div class="ban" role="img" aria-label="Painted river artwork"><div class="t"><div class="kicker"><span class="nw">Stage 4 Geography</span> <span class="sep">|</span> <span class="nw">Term 3</span></div><h1>Water in the World</h1><p class="theme">Where the world's water is, how it moves, why some places have too little, and how people care for it and manage it.</p></div></div>
 <div class="intro">
   <p>Water is everywhere, but not everyone has enough of it. This term you will find out where the world's water is, how the water cycle works, why water is valued so differently, what causes water scarcity and how people respond. You will also learn how Aboriginal Peoples care for water Country, get outside for fieldwork, and finish with a case study of Cyclone Debbie (2017).</p>
 </div>
-<div class="eq">Big question: Why is water spread so unevenly around the world and within countries&nbsp;- and whose job is it to do something about it?</div>
+<div class="eq"><b>Big question</b>Why is water spread so unevenly around the world and within countries&nbsp;- and whose job is it to do something about it?</div>
 <h2 class="group"><span>Part 1</span>Water Resources and Their Value</h2>
 <div class="grid">
-  <div class="card">
-    <h2>Global Distribution of Water Resources</h2>
-    <p>Find out where the world's water actually is, turn water data into a sector graph and a bar graph, and use PQE to read a world map of water access.</p>
-    <a class="btn" href="week1.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>The Water Cycle, Catchments and Topographic Mapping</h2>
-    <p>Revise the water cycle and catchments, learn to read contour lines on the NSW topographic map viewer, and follow a raindrop's journey with the Global River Runner.</p>
-    <a class="btn" href="week2.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>Flood Risk, Relief Mapping and Fieldwork</h2>
-    <p>Use relief maps to predict flood risk, compare before and after flood photos, and head outside to test how water runs off or soaks in at two local sites.</p>
-    <a class="btn" href="week3.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>Factors Influencing Water Availability and Climate Graphs</h2>
-    <p>Explore the physical and human factors that affect who gets water, build climate graphs for Cairns and Alice Springs, and follow rivers through their catchments on an ArcGIS StoryMap.</p>
-    <a class="btn" href="week4.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>The Value of Water</h2>
-    <p>Move through four stations on the economic, cultural, spiritual and aesthetic value of water, then reflect on how water is valued in your own community.</p>
-    <a class="btn" href="week5.html">Open</a>
-  </div>
+  <a class="card" href="week1.html"><div class="pic" style="background-position:8% 10%" aria-hidden="true"></div><div class="in"><h2>Global Distribution of Water Resources</h2><p>Find out where the world's water actually is, turn water data into a sector graph and a bar graph, and use PQE to read a world map of water access.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week2.html"><div class="pic" style="background-position:40% 30%" aria-hidden="true"></div><div class="in"><h2>The Water Cycle, Catchments and Topographic Mapping</h2><p>Revise the water cycle and catchments, learn to read contour lines on the NSW topographic map viewer, and follow a raindrop's journey with the Global River Runner.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week3.html"><div class="pic" style="background-position:85% 20%" aria-hidden="true"></div><div class="in"><h2>Flood Risk, Relief Mapping and Fieldwork</h2><p>Use relief maps to predict flood risk, compare before and after flood photos, and head outside to test how water runs off or soaks in at two local sites.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week4.html"><div class="pic" style="background-position:20% 70%" aria-hidden="true"></div><div class="in"><h2>Factors Influencing Water Availability and Climate Graphs</h2><p>Explore the physical and human factors that affect who gets water, build climate graphs for Cairns and Alice Springs, and follow rivers through their catchments on an ArcGIS StoryMap.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week5.html"><div class="pic" style="background-position:60% 90%" aria-hidden="true"></div><div class="in"><h2>The Value of Water</h2><p>Move through four stations on the economic, cultural, spiritual and aesthetic value of water, then reflect on how water is valued in your own community.</p><span class="go">Open lesson &rarr;</span></div></a>
 </div>
 <h2 class="group"><span>Part 2</span>Water Scarcity and Water Management</h2>
 <div class="grid">
-  <div class="card">
-    <h2>Causes and Impacts of Water Scarcity</h2>
-    <p>Match the causes of water scarcity to real examples, choose your own case study on its impacts, and look at remote Australian communities through a political cartoon.</p>
-    <a class="btn" href="week6.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>Responses to Water Scarcity</h2>
-    <p>Sort water scarcity strategies into short term and long term, weigh up desalination, and graph who has access to clean water around the world.</p>
-    <a class="btn" href="week7.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>Water Country&nbsp;- Aboriginal Water Management</h2>
-    <p>Hear Aboriginal and Torres Strait Islander perspectives on Water Country, work through the <span class="nobr">Murray-Darling</span> Basin 'Caring for River Country' webquest, and write respectful questions for a local Elder.</p>
-    <a class="btn" href="week8.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>Sustainable Catchment Management&nbsp;- Fieldwork</h2>
-    <p>Learn how water supplies can be managed sustainably, walk the school catchment on a fieldwork trip, and suggest a real way to make it more sustainable.</p>
-    <a class="btn" href="week9.html">Open</a>
-  </div>
+  <a class="card" href="week6.html"><div class="pic" style="background-position:95% 60%" aria-hidden="true"></div><div class="in"><h2>Causes and Impacts of Water Scarcity</h2><p>Match the causes of water scarcity to real examples, choose your own case study on its impacts, and look at remote Australian communities through a political cartoon.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week7.html"><div class="pic" style="background-position:30% 45%" aria-hidden="true"></div><div class="in"><h2>Responses to Water Scarcity</h2><p>Sort water scarcity strategies into short term and long term, weigh up desalination, and graph who has access to clean water around the world.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week8.html"><div class="pic" style="background-position:70% 55%" aria-hidden="true"></div><div class="in"><h2>Water Country&nbsp;- Aboriginal Water Management</h2><p>Hear Aboriginal and Torres Strait Islander perspectives on Water Country, work through the <span class="nobr">Murray-Darling</span> Basin 'Caring for River Country' webquest, and write respectful questions for a local Elder.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week9.html"><div class="pic" style="background-position:10% 95%" aria-hidden="true"></div><div class="in"><h2>Sustainable Catchment Management&nbsp;- Fieldwork</h2><p>Learn how water supplies can be managed sustainably, walk the school catchment on a fieldwork trip, and suggest a real way to make it more sustainable.</p><span class="go">Open lesson &rarr;</span></div></a>
 </div>
 <h2 class="group"><span>Part 3</span>Hydrological and Atmospheric Hazards</h2>
 <div class="grid">
-  <div class="card">
-    <h2>Hydrological and Atmospheric Hazards</h2>
-    <p>Read synoptic weather charts, find out how cyclones form and what they do, and write a PEEL paragraph about hazards and climate change.</p>
-    <a class="btn" href="week10.html">Open</a>
-  </div>
-  <div class="card">
-    <h2>Cyclone Debbie&nbsp;- Case Study and Assessment</h2>
-    <p>Dig into the Cyclone Debbie (2017) case study, complete your assessment task, and finish the unit with a gallery walk and reflection.</p>
-    <a class="btn" href="week11.html">Open</a>
-  </div>
+  <a class="card" href="week10.html"><div class="pic" style="background-position:50% 15%" aria-hidden="true"></div><div class="in"><h2>Hydrological and Atmospheric Hazards</h2><p>Read synoptic weather charts, find out how cyclones form and what they do, and write a PEEL paragraph about hazards and climate change.</p><span class="go">Open lesson &rarr;</span></div></a>
+  <a class="card" href="week11.html"><div class="pic" style="background-position:90% 85%" aria-hidden="true"></div><div class="in"><h2>Cyclone Debbie&nbsp;- Case Study and Assessment</h2><p>Dig into the Cyclone Debbie (2017) case study, complete your assessment task, and finish the unit with a gallery walk and reflection.</p><span class="go">Open lesson &rarr;</span></div></a>
 </div>
 
 <p class="footer-note">Stage 4 Geography | Water in the World | NESA Geography <span class="nobr">7-10</span> Syllabus (2024)</p>
